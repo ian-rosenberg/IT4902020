@@ -1,10 +1,17 @@
 <html>
+<head>
+<meta http-equiv="content-type" content="text/html" charset="UTF-8">
+  <title>Login</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bootstrap-4.4.1-dist/css/bootstrap.css">
+  <script src="bootstrap-4.4.1-dist/js/jquery.js"></script>
+  <script src="bootstrap-4.4.1-dist/js/popper.js"></script>
+  <script src="bootstrap-4.4.1-dist/js/bootstrap.js"></script>
 <script>
-
 function HandleLoginResponse(response)
 {
 	var text = JSON.parse(response);
-//	document.getElementById("textResponse").innerHTML = response+"<p>";	
 	document.getElementById("textResponse").innerHTML = "response: "+text+"<p>";
 }
 
@@ -23,15 +30,23 @@ function SendLoginRequest(username,password)
 	}
 	request.send("type=login&uname="+username+"&pword="+password);
 }
-</script>
+</script></head>
 
-<h1>login page</h1>
 <body>
-<div id="textResponse">
-awaiting response
-</div>
-<script>
-SendLoginRequest("kehoed","12345");
-</script>
+	<div class="jumbotron text-center">
+		<h1>login page</h1>
+	</div>
+
+
+	<div class="container-sm">
+		<div id="textResponse" class="text-center">
+			awaiting response
+		</div>
+		
+		<script>
+			SendLoginRequest("kehoed","12345");
+		</script>
+	</div>
+
 </body>
 </html>
