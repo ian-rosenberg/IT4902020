@@ -6,7 +6,7 @@ private $logindb;
 
 public function __construct()
 {
-	$this->logindb = new mysqli("127.0.0.1","ddembner","admin","testdb");
+	$this->logindb = new mysqli("192.168.10.6","david","admin","it490");
 
 	if ($this->logindb->connect_errno != 0)
 	{
@@ -20,7 +20,7 @@ public function validateLogin($username,$password)
 {
 	$un = $this->logindb->real_escape_string($username);
 	$pw = $this->logindb->real_escape_string($password);
-	$statement = "select * from users where screenname = '$un'";
+	$statement = "select * from it490.login where user  = '$un'";
 	$response = $this->logindb->query($statement);
 	if(!$response){
 		throw new Exception("Database Error [{$this->logindb->errno}] {$this->logindb->errno}");
