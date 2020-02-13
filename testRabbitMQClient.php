@@ -13,7 +13,7 @@ $request['username'] = $argv[1];
 $request['password'] = $argv[2];
 $request['message'] = "HI";
 $response = $client->send_request($request);
-//$response = $client->publish($request);
+$response = $client->publish($request);
 
 echo "client received response: ".PHP_EOL;
 print_r($response);

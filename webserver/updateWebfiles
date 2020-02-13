@@ -1,0 +1,7 @@
+#!/bin/bash
+# This is a shell script to automate the copying of the current project's
+# files to the proper locations on this instanced machine.
+
+sudo cp index.html /var/www/sample
+sudo cp login.php /var/www/sample
+sudo cp -r bootstrap-4.4.1-dist /var/www/sample

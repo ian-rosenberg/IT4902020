@@ -10,6 +10,7 @@ function doLogin($username,$password)
     // lookup username in databas
     // check password
     $login = new loginDB();
+    echo "Validating LOGIN".PHP_EOL;
     return $login->validateLogin($username,$password);
     //return false if not valid
 }
@@ -31,10 +32,11 @@ function requestProcessor($request)
   }
   return array("returnCode" => '0', 'message'=>"Server received request and processed");
 }
-
+echo "SERVER BEGIN".PHP_EOL;
 $server = new rabbitMQServer("testRabbitMQ.ini","testServer");
 
 $server->process_requests('requestProcessor');
+echo "SERVER END".PHP_EOL;
 exit();
 ?>
 
