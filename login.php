@@ -1,13 +1,18 @@
 <?php
-if(isset($_POST["username"]) && isset($_POST["password"]))
+if(array_key_exists("username" ,$_POST) && array_key_exists("password", $_POST))
 {
-	$mysqli = new mysqli('127.0.0.1', 'root', 'admin', 'it490');//Change to mysql db ip
+	echo("Array keys exist!");
+	
+	$user = mysqli_real_escape_string($_POST["username"]);
+	$pass = mysqli_real_escape_string($_POST["password"]);
+
+	$mysqli = new mysqli('192.168.10.3', 'david', 'admin', 'it490');//Change to mysql db ip
 	
 	if($mysqli->connect_errno){
 		echo("Could not connect to db! ".$mysqli->connect_errno."\n");
 	}
 	else{
-		$sql = "select * from login where user = '".$_POST["username"]."' and password = '".$_POST["password"]."'";
+		$sql = "select * from login where user = '".user."' and password = '".pass."'";
 	
 		if(!$result = $mysqli->query($sql))
 		{
@@ -31,22 +36,8 @@ else
 	echo("Credentials not specified.");
 }
 
-/*if (!isset($_POST))
-{
-	$msg = "NO POST MESSAGE SET, POLITELY FUCK OFF";
-	echo json_encode($msg);
-	exit(0);
-}
-$request = $_POST;
-$response = "unsupported request type, politely FUCK OFF";
-switch ($request["type"])
-{
-	case "login":
-		$response = "login, yeah we can do that";
-	break;
-}
-echo json_encode($response);
-echo(var_dump($_POST);
-exit(0);*/
-
+echo(var_dump($_POST));
+console.log(var_dump($_POST));
+echo($_POST["username"]);
+echo($_POST["password"]);
 ?>
