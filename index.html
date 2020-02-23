@@ -1,0 +1,113 @@
+<DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta charset="UTF-8">
+  <link rel="stylesheet" href="bootstrap-4.4.1-dist/css/bootstrap.css">
+  <script src="jquery-3.4.1.js"></script>
+  <script src="bootstrap-4.4.1-dist/js/bootstrap.js"></script>
+<script>
+function HandleLoginResponse(response)
+{
+	var text = JSON.parse(response);
+//	document.getElementById("textResponse").innerHTML = response+"<p>";	
+	document.getElementById("textResponse").innerHTML = "response: "+text+"<p>";
+}
+
+function SendLoginRequest()
+{
+	var request = new XMLHttpRequest();
+	var t = $("input[name='type']").val();
+	var un = $("#username").val();
+	var pw = $("#password").val();
+	
+	request.open("POST","login.php",true);
+	request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+	request.onreadystatechange= function ()
+	{
+		
+		if ((this.readyState == 4)&&(this.status == 200))
+		{
+			HandleLoginResponse(this.responseText);
+			
+			document.getElementById("textResponse").value = this.responseText;
+		}		
+	}
+		
+	request.onerror= function()
+	{
+		document.getElementById("textResponse").value = "Failure!";
+	}
+	
+	request.send("type="+t+"&uname="+un+"&pword="+pw);	
+}
+
+function AJAXUpdatePage()
+{
+	var t = $("input[name='type']").val();
+	var un = $("#username").val();
+	var pw = $("#password").val();
+	
+	$.ajax({
+		type: "POST",
+		url : 'login.php',
+		data: {
+			type:t,
+			username: un,
+			password: pw
+		},
+		success: function(data){
+			$("#textResponse").val( "<?php echo $response ?>");
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown) { 
+        alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+		} 
+	});
+}
+</script></head>
+
+<body>
+	<div class="jumbotron text-center">
+		<h1>Welcome Page</h1>
+	</div>
+
+
+	<div class="container-sm">
+		<div class="text-center">
+			<form name = "loginForm" method="POST" id="login" onsubmit="SendLoginRequest();" >
+				<label for="type">Session Type:</label>
+				<br>
+				<div class="btn-group btn-group-toggle" data-toggle="buttons">
+					<label class="btn btn-outline-primary btn-toggle active">
+						<input type="radio" name="type" id="login" autocomplete="off"> Login
+					</label>
+					<label class="btn btn-outline-primary btn-toggle">
+						<input type="radio" name="type" id="logout" autocomplete="off"> Logout
+					</label>
+					<label class="btn btn-outline-primary btn-toggle">
+						<input type="radio" name="type" id="register" autocomplete="off"> Register
+					</label>
+				</div>
+				<br>
+				<br>
+				<label for="username">Username:</label>
+				<input type="text" id="username" name ="username">
+				<br>
+				<br>
+				<label for="password">Password:</label>
+				<input type="password" id="password" name ="password" >
+				<br>
+				<br>
+				<input type="submit" id="button" value="Submit">
+			</form>
+		</div>
+	</div>
+
+	<div class="container-sm">
+		<div id = "textResponse" class="text-center">
+		</div>
+	</div>
+
+</body>
+</html>
