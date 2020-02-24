@@ -1,69 +1,70 @@
-<DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <title>Login</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
    <meta charset="UTF-8">
   <link rel="stylesheet" href="bootstrap-4.4.1-dist/css/bootstrap.css">
-  <script src="jquery-3.4.1.js"></script>
-  <script src="bootstrap-4.4.1-dist/js/bootstrap.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script>
 function HandleLoginResponse(response)
 {
-	var text = JSON.parse(response);
-//	document.getElementById("textResponse").innerHTML = response+"<p>";	
-	document.getElementById("textResponse").innerHTML = "response: "+text+"<p>";
+ var text = JSON.parse(response);
+ document.getElementById("textResponse").innerHTML = "response: "+text+"<p>";
 }
 
 function SendLoginRequest()
 {
 	var request = new XMLHttpRequest();
-	var t = $("input[name='type']").val();
-	var un = $("#username").val();
-	var pw = $("#password").val();
+	var typeSession = "Login";
+	var un = document.getElementById("username").value;
+	var pw = document.getElementById("password").value;
 	
-	request.open("POST","login.php",true);
-	request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+	console.log("You got to login request!");
+	
+	if (document.getElementById("Login").value == true)
+	{
+		typeSession = "Login";
+	}
+	else if (document.getElementById("Register").value == true)
+	{
+		typeSession = "Register";
+	}
+	else if (document.getElementById("Logout").value == true)
+	{
+		typeSession = "Logout";
+	}
+	
+	request.open("POST",".login.php",true);
+	request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	request.onreadystatechange= function ()
 	{
+		console.log("Ready state " + this.readyState);
+		console.log("Status " + this.status);
 		
 		if ((this.readyState == 4)&&(this.status == 200))
 		{
 			HandleLoginResponse(this.responseText);
 			
-			document.getElementById("textResponse").value = this.responseText;
+			console.log(this.responseText);
 		}		
-	}
+	};
 		
 	request.onerror= function()
 	{
 		document.getElementById("textResponse").value = "Failure!";
-	}
+	};
 	
-	request.send("type="+t+"&uname="+un+"&pword="+pw);	
-}
-
-function AJAXUpdatePage()
-{
-	var t = $("input[name='type']").val();
-	var un = $("#username").val();
-	var pw = $("#password").val();
-	
-	$.ajax({
-		type: "POST",
-		url : 'login.php',
-		data: {
-			type:t,
-			username: un,
-			password: pw
-		},
-		success: function(data){
-			$("#textResponse").val( "<?php echo $response ?>");
-		},
-		error: function(XMLHttpRequest, textStatus, errorThrown) { 
-        alert("Status: " + textStatus); alert("Error: " + errorThrown); 
-		} 
-	});
+	request.onload = function () {
+		console.log("Loaded");
+	};
+	request.send("type="+typeSession+"&uname="+un+"&pword="+pw);	
 }
 </script></head>
 
@@ -75,18 +76,18 @@ function AJAXUpdatePage()
 
 	<div class="container-sm">
 		<div class="text-center">
-			<form name = "loginForm" method="POST" id="login" onsubmit="SendLoginRequest();" >
-				<label for="type">Session Type:</label>
+			<form name = "loginForm" method="POST" id="login" action="login.php" onsubmit="SendLoginRequest();" >
+				<label>Session Type:</label>
 				<br>
 				<div class="btn-group btn-group-toggle" data-toggle="buttons">
 					<label class="btn btn-outline-primary btn-toggle active">
-						<input type="radio" name="type" id="login" autocomplete="off"> Login
+						<input type="radio" name="type" id="Login"> Login
 					</label>
 					<label class="btn btn-outline-primary btn-toggle">
-						<input type="radio" name="type" id="logout" autocomplete="off"> Logout
+						<input type="radio" name="type" id="Register"> Register
 					</label>
 					<label class="btn btn-outline-primary btn-toggle">
-						<input type="radio" name="type" id="register" autocomplete="off"> Register
+						<input type="radio" name="type" id="Logout"> Logout
 					</label>
 				</div>
 				<br>

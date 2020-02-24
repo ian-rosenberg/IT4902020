@@ -1,12 +1,12 @@
 <?php
 
-class loginDB
+class DatabaseAccess
 {
 private $logindb;
 
 public function __construct()
 {
-	$this->logindb = new mysqli("192.168.10.6","admin","admin","it490");
+	$this->logindb = new mysqli("192.168.10.7","admin","admin","it490");
 
 	if ($this->logindb->connect_errno != 0)
 	{
@@ -14,49 +14,49 @@ public function __construct()
 		exit(1);
 	}
 	echo "correctly connected to database".PHP_EOL;
-}
 
-public function validateLogin($username,$password)
-{
-	$un = $this->logindb->real_escape_string($username);
-	$pw = $this->logindb->real_escape_string($password);
-	$statement = "select * from users where screenname = '$un'";
-	$response = $this->logindb->query($statement);
 
-	while ($row = $response->fetch_assoc())
+	public function validateLogin($username,$password)
 	{
-		echo "checking password for $username".PHP_EOL;
-		if ($row["password"] == $pw)
+		$un = $this->logindb->real_escape_string($username);
+		$pw = $this->logindb->real_escape_string($password);
+		$statement = "select * from users where screenname = '$un'";
+		$response = $this->logindb->query($statement);
+
+		while ($row = $response->fetch_assoc())
 		{
-			echo "passwords match for $username".PHP_EOL;
-			return 1;// password match
+			echo "checking password for $username".PHP_EOL;
+			if ($row["password"] == $pw)
+			{
+				echo "passwords match for $username".PHP_EOL;
+				return 1;// password match
+			}
+			echo "passwords did not match for $username".PHP_EOL;
 		}
-		echo "passwords did not match for $username".PHP_EOL;
+		return 0;//no users matched username
 	}
-	return 0;//no users matched username
-}
 
-public function registerUser($username,$password)
-{
-	$un = $this->logindb->real_escape_string($username);
-	$pw = $this->logindb->real_escape_string($password);
-	$statement = "select * from users where screenname = '$un'";
-	
-	$response = $this->logindb->query($statement);
-	
-	if($response->fetch_assoc() < 1)//if no one matches that username, register it
+	public function registerUser($username,$password)
 	{
-		$statement = "insert into login values(null, '$un','$pw')";
+		$un = $this->logindb->real_escape_string($username);
+		$pw = $this->logindb->real_escape_string($password);
+		$statement = "select * from users where screenname = '$un'";
 		
 		$response = $this->logindb->query($statement);
 		
-		return 0;//success
+		if($response->fetch_assoc() < 1)//if no one matches that username, register it
+		{
+			$statement = "insert into login values(null, '$un','$pw')";
+			
+			$response = $this->logindb->query($statement);
+			
+			return 0;//success
+		}
+		else
+		{
+			echo("Username already exists!".PHP_EOL);
+			return -1;//Need to log that this is a registration of the same username
+		}
 	}
-	else
-	{
-		echo("Username already exists!".PHP_EOL);
-		return -1;//Need to log that this is a registration of the same username
-	}
-}
 }
 ?>
