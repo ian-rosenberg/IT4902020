@@ -2,19 +2,19 @@
 
 class DatabaseAccess
 {
-private $logindb;
+	private $logindb;
 
-public function __construct()
-{
-	$this->logindb = new mysqli("192.168.10.7","admin","admin","it490");
-
-	if ($this->logindb->connect_errno != 0)
+	public function __construct()
 	{
-		echo "Error connecting to database: ".$this->logindb->connect_error.PHP_EOL;
-		exit(1);
-	}
-	echo "correctly connected to database".PHP_EOL;
+		$this->logindb = new mysqli("192.168.10.7","admin","admin","it490");
 
+		if ($this->logindb->connect_errno != 0)
+		{
+			echo "Error connecting to database: ".$this->logindb->connect_error.PHP_EOL;
+			exit(1);
+		}
+		echo "correctly connected to database".PHP_EOL;
+	}			
 
 	public function validateLogin($username,$password)
 	{

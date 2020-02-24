@@ -14,6 +14,12 @@ function doLogin($username,$password)
     //return false if not valid
 }
 
+function doRegisterUser($username, $password)
+{
+		$login = new loginDB();
+    return $login->RegisterUser($username, $password);
+}
+
 function requestProcessor($request)
 {
   echo "received request".PHP_EOL;
@@ -24,17 +30,19 @@ function requestProcessor($request)
   }
   switch ($request['type'])
   {
-    case "login":
+    case "Login":
       return doLogin($request['username'],$request['password']);
-    case "validate_session":
-      return doValidate($request['sessionId']);
+    case "Register":
+      return doRegisterUser($request['username'], $request['password']);
   }
   return array("returnCode" => '0', 'message'=>"Server received request and processed");
 }
 
 $server = new rabbitMQServer("testRabbitMQ.ini","testServer");
 
+echo "testRabbitMQServer BEGIN".PHP_EOL;
 $server->process_requests('requestProcessor');
+echo "testRabbitMQServer END".PHP_EOL;
 exit();
 ?>
-
+ 
