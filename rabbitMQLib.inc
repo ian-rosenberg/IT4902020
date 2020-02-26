@@ -85,6 +85,7 @@ class rabbitMQServer
 			// ampq throws exception if get fails...
 			echo "error: rabbitMQServer: process_message: exception caught: ".$e;
 		}
+		echo "hello";
 		// message does not require a response, send ack immediately
 		$body = $msg->getBody();
 		$payload = json_decode($body, true);
