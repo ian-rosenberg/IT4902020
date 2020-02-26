@@ -59,7 +59,7 @@ class DatabaseAccess
 		}
 	}
 	
-	public function logoutUser($username $password)
+	public function logoutUser($username, $password)
 	{
 		$un = $this->logindb->real_escape_string($username);
 		$pw = $this->logindb->real_escape_string($password);
