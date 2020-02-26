@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>IT490 - SFW</title>
+  <title>Login</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
    <meta charset="UTF-8">
   <link rel="stylesheet" href="bootstrap-4.4.1-dist/css/bootstrap.css">
@@ -22,8 +22,24 @@ function HandleLoginResponse(response)
 function SendLoginRequest()
 {
 	var request = new XMLHttpRequest();
+	var typeSession = "Login";
 	var un = document.getElementById("username").value;
 	var pw = document.getElementById("password").value;
+	
+	console.log("You got to login request!");
+	
+	if (document.getElementById("Login").checked)
+	{
+		typeSession = "Login";
+	}
+	else if (document.getElementById("Register").checked)
+	{
+		typeSession = "Register";
+	}
+	else if (document.getElementById("Logout").checked)
+	{
+		typeSession = "Logout";
+	}
 	
 	request.open("POST",".login.php",true);
 	request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -54,22 +70,43 @@ function SendLoginRequest()
 
 <body>
 	<div class="jumbotron text-center">
-		<h1>IT490 - SFW</h1>
+		<h1>Welcome Page</h1>
 	</div>
+
 	<nav class="navbar navbar-default">
 	  <div class="container-fluid">
 		<div class="navbar-header">
 		  <a class="navbar-brand" href="#">IT490 - SFW</a>
 		</div>
 		<ul class="nav navbar-nav">
-		  <li class="active"><a href><strong>Home</strong></a></li>
-		  <li><a href="login.html">Login</a></li>
+		  <li class="active"><a href="index.html">Home</a></li>
+		  <li><a href="#"><strong>Login</strong></a></li>
 		  <li><a href="register.html">Register</a></li>
 		  <li><a href="logout.php">Logout</a></li>
 		</ul>
 	  </div>
 	</nav>
 
+	<div class="container-sm">
+		<div class="text-center">
+			<form name = "loginForm" method="POST" id="login" action="login.php" onsubmit="SendLoginRequest();" >
+				<label for="username">Username:</label>
+				<input type="text" id="username" name ="username">
+				<br>
+				<br>
+				<label for="password">Password:</label>
+				<input type="password" id="password" name ="password" >
+				<br>
+				<br>
+				<input type="submit" id="button" value="Logout">
+			</form>
+		</div>
+	</div>
+
+	<div class="container-sm">
+		<div id = "textResponse" class="text-center">
+		</div>
+	</div>
 
 </body>
 </html>

@@ -3,7 +3,7 @@
 require_once('path.inc');
 require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
-require_once('login.php.inc');
+require_once('handleUsers.php.inc');
 
 function doLogin($username,$password)
 {
@@ -17,7 +17,13 @@ function doLogin($username,$password)
 function doRegisterUser($username, $password)
 {
 		$login = new loginDB();
-    return $login->RegisterUser($username, $password);
+		return $login->RegisterUser($username, $password);
+}
+
+function doLogoutUser($username, $password)
+{
+		$login = new loginDB();
+		return $login->LogoutUser($username, $password);
 }
 
 function requestProcessor($request)
@@ -34,6 +40,10 @@ function requestProcessor($request)
       return doLogin($request['username'],$request['password']);
     case "Register":
       return doRegisterUser($request['username'], $request['password']);
+	 case "Logout":
+	  return doLogoutUser($request['username'], $request['password']);
+	  default:
+	  break;
   }
   return array("returnCode" => '0', 'message'=>"Server received request and processed");
 }
