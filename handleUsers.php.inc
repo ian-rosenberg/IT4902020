@@ -6,7 +6,7 @@ class DatabaseAccess
 
 	public function __construct()
 	{
-		$this->logindb = new mysqli("192.168.10.7","admin","admin","it490");
+		$this->logindb = new mysqli("192.168.1.7","admin","admin","it490");
 
 		if ($this->logindb->connect_errno != 0)
 		{
