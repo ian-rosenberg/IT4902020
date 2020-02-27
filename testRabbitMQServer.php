@@ -3,13 +3,13 @@
 require_once('path.inc');
 require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
-require_once('login.php.inc');
+require_once('handleUsers.php.inc');
 
 function doLogin($username,$password)
 {
     // lookup username in databas
     // check password
-    $login = new loginDB();
+    $login = new DatabaseAccess();
     echo "Validating LOGIN".PHP_EOL;
     return $login->validateLogin($username,$password);
     //return false if not valid
