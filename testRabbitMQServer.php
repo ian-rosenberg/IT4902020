@@ -9,20 +9,20 @@ function doLogin($username,$password)
 {
     // lookup username in databas
     // check password
-    $login = new loginDB();
+    $login = new DatabaseAccess();
     return $login->validateLogin($username,$password);
     //return false if not valid
 }
 
 function doRegisterUser($username, $password)
 {
-		$login = new loginDB();
+		$login = new DatabaseAccess();
 		return $login->RegisterUser($username, $password);
 }
 
 function doLogoutUser($username, $password)
 {
-		$login = new loginDB();
+		$login = new DatabaseAccess();
 		return $login->LogoutUser($username, $password);
 }
 
