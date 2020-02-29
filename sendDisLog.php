@@ -3,13 +3,15 @@
 
 require_once('rabbitMQLib.inc');
 
-$client = new rabbitMQClient("testRabbitMQ.ini", "logServer");
+function SendToLogger($message){
+	
+	$client = new rabbitMQClient("testRabbitMQ.ini", "logServer");
+	//$request = array();
+	//$request['type'] = "fanout";
+	//$request['message'] = $argv[1];
+	//$response = $client->send_request($request);
+	//$response = $client->publish($request);
+	$client->publish($message);
+}
 
-$request = array();
-$request['type'] = "fanout";
-$request['message'] = $argv[1];
-
-$response = $client->send_request($request);
-
-print_r($response);
 ?>

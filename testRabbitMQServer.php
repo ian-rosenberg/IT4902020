@@ -10,9 +10,20 @@ function doLogin($username,$password)
     // lookup username in databas
     // check password
     $login = new DatabaseAccess();
-    echo "Validating LOGIN".PHP_EOL;
     return $login->validateLogin($username,$password);
     //return false if not valid
+}
+
+function doRegisterUser($username, $password)
+{
+		$login = new DatabaseAccess();
+		return $login->RegisterUser($username, $password);
+}
+
+function doLogoutUser($username, $password)
+{
+		$login = new loginDB();
+		return $login->LogoutUser($username, $password);
 }
 
 function requestProcessor($request)
@@ -25,18 +36,22 @@ function requestProcessor($request)
   }
   switch ($request['type'])
   {
-    case "login":
+    case "Login":
       return doLogin($request['username'],$request['password']);
-    case "validate_session":
-      return doValidate($request['sessionId']);
+    case "Register":
+      return doRegisterUser($request['username'], $request['password']);
+	 case "Logout":
+	  return doLogoutUser($request['username'], $request['password']);
+	  default:
+	  break;
   }
   return array("returnCode" => '0', 'message'=>"Server received request and processed");
 }
-echo "SERVER BEGIN".PHP_EOL;
+
 $server = new rabbitMQServer("testRabbitMQ.ini","testServer");
 
+echo "testRabbitMQServer BEGIN".PHP_EOL;
 $server->process_requests('requestProcessor');
-echo "SERVER END".PHP_EOL;
+echo "testRabbitMQServer END".PHP_EOL;
 exit();
 ?>
-

@@ -40,9 +40,9 @@ class DatabaseAccess
 	{
 		$un = $this->logindb->real_escape_string($username);
 		$pw = $this->logindb->real_escape_string($password);
-		$statement = "select * from login where userame = '$un'";
-		
+		$statement = "select * from login where username = '$un'";
 		$response = $this->logindb->query($statement);
+
 		
 		if($response->fetch_assoc() < 1)//if no one matches that username, register it
 		{
@@ -50,13 +50,14 @@ class DatabaseAccess
 			
 			$response = $this->logindb->query($statement);
 			
-			return 0;//success
+			return 1;//success
 		}
 		else
 		{
 			echo("Username already exists!".PHP_EOL);
-			return -1;//Need to log that this is a registration of the same username
+			return 0;//Need to log that this is a registration of the same username
 		}
+		
 	}
 	
 	public function logoutUser($username, $password)
