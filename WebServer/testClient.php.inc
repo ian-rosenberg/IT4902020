@@ -25,7 +25,7 @@ Class Client {
 
 		$response = $client->send_request($request);
 		//$response = $client->publish($request);
-		return $response;
+		return json_encode($response.PHP_EOL);
 	}
 
 	public function Test() {

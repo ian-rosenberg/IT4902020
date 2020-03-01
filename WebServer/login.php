@@ -1,19 +1,14 @@
-<?php	
-	$user = isset($_POST['username']) ? $_POST['username'] : '';
-        $pass = isset($_POST['password']) ? $_POST['password'] : '';
+<?php
+session_start();
+
+require_once("testClient.php.inc");	
 	
-	
-	require_once("testClient.php.inc");	
-	
-if(isset($user) && isset($pass))
+if(isset($_POST))
 {
 	$client = new Client();
-	
-	echo("Before connect");
-	
-	$response = $client->Connect($user, $pass, 'Login');
-	
-	echo("after login connect");
+	$user = trim($_POST['username']);
+	$pass = trim($_POST['password']);
+	$response = $client->Connect( $user, $pass, 'Login');
 	
 	if($response != 0)
 	{
@@ -21,12 +16,27 @@ if(isset($user) && isset($pass))
 	
 			$_SESSION['loggedIn'] = true;
 	}
+	else
+	{
+		$_SESSION['user'] = 'guest';
 	
-	 header('Location: index.html'); 
+		$_SESSION['loggedIn'] = false;
+	}
+	
+	session_write_close();
+	
+	 header('Location: index.php'); 
 	 exit;
 }
 else
 {
-	echo("Something wasnt set!");
+	$_SESSION['user'] = 'guest';
+	
+	$_SESSION['loggedIn'] = false;
 }
+	
+	session_write_close();
+	
+	header('Location: index.php'); 
+	exit;
 ?>

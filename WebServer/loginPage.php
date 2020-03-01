@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,12 +37,11 @@ function SendLoginRequest()
 		console.log("Ready state " + this.readyState);
 		console.log("Status " + this.status);
 		
-		if ((this.readyState == 4)&&(this.status == 200))
-		{
-			HandleLoginResponse(this.responseText);
+		
+		HandleLoginResponse(this.responseText);
 			
-			document.getElementById("textResponse").text = this.responseText;
-		}		
+		document.getElementById("textResponse").text = this.responseText;
+		
 	};
 		
 	request.onerror= function()
@@ -60,18 +63,55 @@ function SendLoginRequest()
 		<h1>Welcome Page</h1>
 	</div>
 
-	<nav class="navbar navbar-default">
-	  <div class="container-fluid">
-		<div class="navbar-header">
-		  <a class="navbar-brand" href="#">IT490 - SFW</a>
-		</div>
-		<ul class="nav navbar-nav">
-		  <li><a href="index.php">Home</a></li>
-		  <li class="active"><a href="#"><strong>Login</strong></a></li>
-		  <li><a href="registerPage.php">Register</a></li>
+	<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+		<ul class="navbar-nav">
+			<li class="nav-item">
+			  <a class="nav-link" href="index.php">Home</a>
+			</li>
+			<li class="nav-item active">
+			  <a class="nav-link" href="#">Login</a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link" href="registerPage.php">Register</a>
+			</li>
+			<?php
+				session_name('Private');
+				session_id($pId);
+				$_SESSION['pr_key'] = $k;
+				session_write_close(); 
+				
+				if(isset($_SESSION))
+				{	
+					if($_SESSION['user'] != "guest")
+					{	
+						echo("<li class='nav-item'>
+									 <a class='nav-link' href='logout.php'>Logout</a>
+								 </li>");
+						
+					}
+				}
+						
+				echo("<li class='nav-item'>
+							<a class='nav-link disabled' href='logout.php'>Logout</a>
+						 </li>");				
+			?>
 		</ul>
-	  </div>
 	</nav>
+	
+	<?php
+		if(isset($_SESSION))
+		{
+			if($_SESSION['user'] != 'guest'  || $_SESSION['user'] != '' && isset($_SESSION))
+			{
+				echo ("<br><br><div class='text-center'>Welcome, ".$_SESSION['user']."!</div><br><br>".PHP_EOL);
+			}
+			else
+			{
+				echo ("<br><br><div class='text-center'>Welcome, guest!</div><br><br>".PHP_EOL);
+			}
+		}
+		
+	?>
 
 	<div class="container-sm">
 		<div class="text-center">

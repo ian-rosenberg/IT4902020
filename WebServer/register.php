@@ -5,8 +5,8 @@
 	
 if(isset($_POST))
 {
-	$user = $_POST['username'];
-	$pass = $_POST['password'];
+	$user = trim($_POST['username']);
+	$pass = trim($_POST['password']);
 	
 	$client = new Client();
 	$response = $client->Connect($user, $pass, 'Register');
@@ -18,7 +18,7 @@ if(isset($_POST))
 			$_SESSION['loggedIn'] = true;
 	}
 	
-	 header('Location: index.html'); 
+	 header('Location: index.php'); 
 	 exit;
 }
 ?>

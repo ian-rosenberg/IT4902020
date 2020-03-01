@@ -14,7 +14,7 @@ if(isset($_POST))
 	
 	$client = new Client();
 	$response = $client->Connect($user, $pass, "Logout");
-	 header("Location: index.html"); 
+	 header("Location: index.php"); 
 	 exit
 }
 ?>

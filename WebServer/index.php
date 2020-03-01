@@ -1,5 +1,14 @@
 <? php
 	session_start();
+	
+	session_name('Private');
+
+	$pId = session_id();
+
+	$k = $_SESSION['pr_key'];
+	
+	$_SESSION['user'] = '';
+	$_SESSION['loggedIn'] = false;;
 ?>
 
 <!DOCTYPE html>
@@ -21,22 +30,60 @@
 	<div class="jumbotron text-center">
 		<h1>IT490 - SFW</h1>
 	</div>
-	<nav class="navbar navbar-default">
-	  <div class="container-fluid">
-		<div class="navbar-header">
-		  <a class="navbar-brand" href="#">IT490 - SFW</a>
-		</div>
-		<ul class="nav navbar-nav">
-		  <li class="active"><a href><strong>Home</strong></a></li>
-		  <li><a href="loginPage.php">Login</a></li>
-		  <li><a href="registerPage.php">Register</a></li>
+	
+	<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+		<ul class="navbar-nav">
+			<li class="nav-item active">
+			  <a class="nav-link" href="#">Home</a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link" href="loginPage.php">Login</a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link" href="registerPage.php">Register</a>
+			</li>
+			<?php
+				session_name('Private');
+				session_id($pId);
+				$_SESSION['pr_key'] = $k;
+				session_write_close(); 
+				
+				if(isset($_SESSION))
+				{	
+					if($_SESSION['user'] != "guest")
+					{	
+						echo("<li class='nav-item'>
+									 <a class='nav-link' href='logout.php'>Logout</a>
+								 </li>");
+						
+					}
+					else
+					{
+						echo("<li class='nav-item'>
+							<a class='nav-link disabled' href='logout.php'>Logout</a>
+						 </li>");		
+					}
+				}	
+			?>
 		</ul>
-	  </div>
 	</nav>
 	
-	<div class="text-center" id="textResponse">
+	<?php
+		if(isset($_SESSION))
+		{
+			if($_SESSION['user'] != 'guest'  || $_SESSION['user'] != '' && isset($_SESSION))
+			{
+				echo ("<br><br><div class='text-center'>Welcome, ".$_SESSION['user']."!</div><br><br>".PHP_EOL);
+			}
+			else
+			{
+				echo ("<br><br><div class='text-center'>Welcome, guest!</div><br><br>".PHP_EOL);
+			}
+		}
 		
-	</div>
+	?>
+	
+	
 
 
 </body>

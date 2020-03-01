@@ -59,19 +59,55 @@ function SendRegisterRequest()
 	<div class="jumbotron text-center">
 		<h1>Welcome Page</h1>
 	</div>
-
-	<nav class="navbar navbar-default">
-	  <div class="container-fluid">
-		<div class="navbar-header">
-		  <a class="navbar-brand" href="#">IT490 - SFW</a>
-		</div>
-		<ul class="nav navbar-nav">
-		  <li><a href="index.php">Home</a></li>
-		  <li><a href="loginPage.php"><strong>Login</strong></a></li>
-		  <li class="active"><a href="#">Register</a></li>
+	<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+		<ul class="navbar-nav">
+			<li class="nav-item">
+			  <a class="nav-link" href="index.php">Home</a>
+			</li>
+			<li class="nav-item active">
+			  <a class="nav-link" href="login.php">Login</a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link" href="#">Register</a>
+			</li>
+			<?php
+				session_name('Private');
+				session_id($pId);
+				$_SESSION['pr_key'] = $k;
+				session_write_close(); 
+				
+				if(isset($_SESSION))
+				{	
+					if($_SESSION['user'] != "guest")
+					{	
+						echo("<li class='nav-item'>
+									 <a class='nav-link' href='logout.php'>Logout</a>
+								 </li>");
+						
+					}
+				}
+						
+				echo("<li class='nav-item'>
+							<a class='nav-link disabled' href='logout.php'>Logout</a>
+						 </li>");				
+			?>
 		</ul>
-	  </div>
 	</nav>
+	
+	<?php
+		if(isset($_SESSION))
+		{
+			if($_SESSION['user'] != 'guest'  || $_SESSION['user'] != '' && isset($_SESSION))
+			{
+				echo ("<br><br><div class='text-center'>Welcome, ".$_SESSION['user']."!</div><br><br>".PHP_EOL);
+			}
+			else
+			{
+				echo ("<br><br><div class='text-center'>Welcome, guest!</div><br><br>".PHP_EOL);
+			}
+		}
+		
+	?>
 
 	<div class="container-sm">
 		<div class="text-center">
@@ -84,7 +120,7 @@ function SendRegisterRequest()
 				<input type="password" id="password" name ="password" >
 				<br>
 				<br>
-				<input type="submit" id="button" value="Logout">
+				<input type="submit" id="button" value="Register">
 			</form>
 		</div>
 	</div>
