@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	
 	require_once('testClient.php.inc');
 	
@@ -9,9 +10,9 @@ if(isset($_POST))
 	$pass = trim($_POST['password']);
 	
 	$client = new Client();
-	$response = $client->Connect($user, $pass, 'Register');
+	$response = json_encode($client->Connect($user, $pass, 'Register'));
 	
-	if($response != 0)
+	if(json_decode($response) !=0)
 	{
 			$_SESSION['user'] = $user;
 	

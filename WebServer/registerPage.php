@@ -1,7 +1,11 @@
+<?php
+	session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Login</title>
+  <title>Register</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
    <meta charset="UTF-8">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -57,56 +61,56 @@ function SendRegisterRequest()
 
 <body>
 	<div class="jumbotron text-center">
-		<h1>Welcome Page</h1>
+		<h1>Registration</h1>
 	</div>
 	<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
 		<ul class="navbar-nav">
 			<li class="nav-item">
 			  <a class="nav-link" href="index.php">Home</a>
 			</li>
-			<li class="nav-item active">
-			  <a class="nav-link" href="login.php">Login</a>
+			<li class="nav-item">
+			  <a class="nav-link" href="loginPage.php">Login</a>
 			</li>
 			<li class="nav-item">
-			  <a class="nav-link" href="#">Register</a>
+			  <a class="nav-link active" href="#">Register</a>
 			</li>
 			<?php
-				session_name('Private');
-				session_id($pId);
-				$_SESSION['pr_key'] = $k;
-				session_write_close(); 
-				
-				if(isset($_SESSION))
+				if(!empty($_SESSION['user']))
 				{	
 					if($_SESSION['user'] != "guest")
 					{	
 						echo("<li class='nav-item'>
 									 <a class='nav-link' href='logout.php'>Logout</a>
-								 </li>");
-						
+								 </li>
+								  </ul>
+								 </nav>");	
 					}
-				}
-						
-				echo("<li class='nav-item'>
+					else
+					{
+						echo("<li class='nav-item'>
 							<a class='nav-link disabled' href='logout.php'>Logout</a>
-						 </li>");				
-			?>
-		</ul>
-	</nav>
-	
-	<?php
-		if(isset($_SESSION))
-		{
-			if($_SESSION['user'] != 'guest'  || $_SESSION['user'] != '' && isset($_SESSION))
-			{
-				echo ("<br><br><div class='text-center'>Welcome, ".$_SESSION['user']."!</div><br><br>".PHP_EOL);
+						 </li>
+						 </ul>
+						</nav>");				
+					}
+				}	
+				else
+				{
+					echo("<li class='nav-item'>
+							<a class='nav-link disabled' href='logout.php'>Logout</a>
+						 </li>
+						 </ul>
+						</nav>");			
+				}		
+		
+			if(!empty($_SESSION['user']))
+			{	
+				echo ("<br><br><div class='text-center'>Welcome, ".$_SESSION['user']."!</div><br><br>".PHP_EOL);				
 			}
 			else
 			{
 				echo ("<br><br><div class='text-center'>Welcome, guest!</div><br><br>".PHP_EOL);
 			}
-		}
-		
 	?>
 
 	<div class="container-sm">
@@ -125,7 +129,7 @@ function SendRegisterRequest()
 		</div>
 	</div>
 
-	<div class="container-sm">
+	<div class="container-sm" id="textResponse">
 		
 	</div>
 

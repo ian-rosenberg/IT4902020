@@ -3,18 +3,22 @@ session_start();
 
 require_once("testClient.php.inc");	
 	
-if(isset($_POST))
+if(!empty($_POST))
 {
 	$client = new Client();
 	$user = trim($_POST['username']);
 	$pass = trim($_POST['password']);
-	$response = $client->Connect( $user, $pass, 'Login');
 	
-	if($response != 0)
+	if(empty($_SESSION) || $_SESSION['user'] == 'guest')
 	{
+		$response = $client->Connect( $user, $pass, 'Login');
+		
+		if($response != null and $response != '')
+		{
 			$_SESSION['user'] = $user;
 	
-			$_SESSION['loggedIn'] = true;
+			$_SESSION['loggedIn'] = true;			
+		}
 	}
 	else
 	{
@@ -22,11 +26,6 @@ if(isset($_POST))
 	
 		$_SESSION['loggedIn'] = false;
 	}
-	
-	session_write_close();
-	
-	 header('Location: index.php'); 
-	 exit;
 }
 else
 {
@@ -34,9 +33,9 @@ else
 	
 	$_SESSION['loggedIn'] = false;
 }
-	
-	session_write_close();
-	
-	header('Location: index.php'); 
-	exit;
+
+session_write_close();
+
+header('Location: index.php'); 
+exit;
 ?>

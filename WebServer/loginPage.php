@@ -60,7 +60,7 @@ function SendLoginRequest()
 
 <body>
 	<div class="jumbotron text-center">
-		<h1>Welcome Page</h1>
+		<h1>Login</h1>
 	</div>
 
 	<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
@@ -68,51 +68,50 @@ function SendLoginRequest()
 			<li class="nav-item">
 			  <a class="nav-link" href="index.php">Home</a>
 			</li>
-			<li class="nav-item active">
-			  <a class="nav-link" href="#">Login</a>
+			<li class="nav-item">
+			  <a class="nav-link active" href="#">Login</a>
 			</li>
 			<li class="nav-item">
 			  <a class="nav-link" href="registerPage.php">Register</a>
 			</li>
 			<?php
-				session_name('Private');
-				session_id($pId);
-				$_SESSION['pr_key'] = $k;
-				session_write_close(); 
-				
-				if(isset($_SESSION))
+				if(!empty($_SESSION['user']))
 				{	
 					if($_SESSION['user'] != "guest")
 					{	
 						echo("<li class='nav-item'>
 									 <a class='nav-link' href='logout.php'>Logout</a>
-								 </li>");
-						
+								 </li>
+								  </ul>
+								 </nav>");	
 					}
-				}
-						
-				echo("<li class='nav-item'>
+					else
+					{
+						echo("<li class='nav-item'>
 							<a class='nav-link disabled' href='logout.php'>Logout</a>
-						 </li>");				
-			?>
-		</ul>
-	</nav>
-	
-	<?php
-		if(isset($_SESSION))
-		{
-			if($_SESSION['user'] != 'guest'  || $_SESSION['user'] != '' && isset($_SESSION))
-			{
+						 </li>
+						 </ul>
+						</nav>");				
+					}
+				}	
+				else
+				{
+					echo("<li class='nav-item'>
+							<a class='nav-link disabled' href='logout.php'>Logout</a>
+						 </li>
+						 </ul>
+						</nav>");			
+				}		
+		
+			if(!empty($_SESSION['user']))
+			{	
 				echo ("<br><br><div class='text-center'>Welcome, ".$_SESSION['user']."!</div><br><br>".PHP_EOL);
 			}
 			else
 			{
 				echo ("<br><br><div class='text-center'>Welcome, guest!</div><br><br>".PHP_EOL);
 			}
-		}
-		
 	?>
-
 	<div class="container-sm">
 		<div class="text-center">
 			<form name = "loginForm" method="POST" action="login.php" onsubmit="SendLoginRequest()">

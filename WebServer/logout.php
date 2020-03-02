@@ -1,20 +1,22 @@
 <?php
+	session_start();
 	
 	require_once("testClient.php.inc");
 	
 	
-if(isset($_POST))
-{
-	$user = $_POST["username"].trim();
-	$pass = $_POST["password"].trim();
+	$user = trim($_SESSION["user"]);
 
-	$_SESSION["user"] = "guest";
+	if(isset($_SESSION["user"])){
+		unset($_SESSION["user"]);
+	}
 	
 	$_SESSION["loggedIn"] = false;
 	
 	$client = new Client();
 	$response = $client->Connect($user, $pass, "Logout");
+	
+	session_destroy();
+	
 	 header("Location: index.php"); 
 	 exit
-}
 ?>
