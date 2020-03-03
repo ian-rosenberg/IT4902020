@@ -60,7 +60,7 @@
 						 </li>
 						 </ul>
 						</nav>");			
-				}		
+				}				
 		
 			if(!empty($_SESSION['user']))
 			{	
