@@ -11,7 +11,7 @@ function SendToLogger($message){
 	//$request['message'] = $argv[1];
 	//$response = $client->send_request($request);
 	//$response = $client->publish($request);
-	$client->publish($message);
+	$client->publish($message, 15000);
 }
 
 ?>

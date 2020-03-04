@@ -26,7 +26,7 @@ public function validateLogin($username,$password)
 		throw new Exception("Database Error [{$this->logindb->errno}] {$this->logindb->errno}");
 		return;
 	}
-	echo "Pooooooooooooop";	
+	
 	while ($row = $response->fetch_assoc())
 	{
 		echo "checking password for $username".PHP_EOL;

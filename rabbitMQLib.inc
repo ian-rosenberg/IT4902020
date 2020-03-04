@@ -241,7 +241,7 @@ class rabbitMQClient
 	  @param message the body of the request.  This must make sense to the
 	  server
 	 */
-	function publish($message)
+	function publish($message, $ttl)
 	{
 		$json_message = json_encode($message);
 		try
@@ -260,7 +260,16 @@ class rabbitMQClient
 			$this->conn_queue = new AMQPQueue($channel);
 			$this->conn_queue->setName($this->queue);
 			$this->conn_queue->bind($exchange->getName(),$this->routing_key);
-			return $exchange->publish($json_message,$this->routing_key);
+
+			//Added ttl to the message so that they don't sit in the 			//queue for all of eternity
+			if($ttl > 10000){
+				$properties = array('expiration'=> $ttl);
+			}
+			else{
+				$properties = array('expiration' => 10000);
+			}
+
+			return $exchange->publish($json_message,$this->routing_key, null, $properties);
 		}
 		catch(Exception $e)
 		{

@@ -22,7 +22,7 @@ function doRegisterUser($username, $password)
 
 function doLogoutUser($username, $password)
 {
-		$login = new loginDB();
+		$login = new DatabaseAccess();
 		return $login->LogoutUser($username, $password);
 }
 
@@ -37,11 +37,11 @@ function requestProcessor($request)
   switch ($request['type'])
   {
     case "Login":
-      return doLogin($request['username'],$request['password']);
+	    return doLogin($request['username'],$request['password']);
     case "Register":
-      return doRegisterUser($request['username'], $request['password']);
+	    return doRegisterUser($request['username'], $request['password']);
 	 case "Logout":
-	  return doLogoutUser($request['username'], $request['password']);
+		return doLogoutUser($request['username'], $request['password']);
 	  default:
 	  break;
   }
