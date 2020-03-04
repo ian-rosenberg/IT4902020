@@ -1,0 +1,11 @@
+#calbudgetform {
+	margin: 0 auto;
+        width: 400px;
+        border: 2px solid black;
+        padding: 10px;
+        font-size: 18px;
+}
+
+#select {
+	width: 150px;
+}
