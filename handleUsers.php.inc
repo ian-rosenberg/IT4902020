@@ -1,4 +1,5 @@
 <?php
+
 class DatabaseAccess
 {
 	private $logindb;
@@ -71,7 +72,7 @@ class DatabaseAccess
 			
 			echo("Registered ".$un.PHP_EOL);
 			
-			return 0;//success
+			return 1;//success
 		}
 		else
 		{
@@ -80,20 +81,19 @@ class DatabaseAccess
 			$this->logindb->close();
 
 			echo("Username already exists!".PHP_EOL);
-			return -1;//Need to log that this is a registration of the same username
+			return 0;//Need to log that this is a registration of the same username
 		}
 	}
 	
-	public function logoutUser()
+	public function logoutUser($username)
 	{
 		$un = $this->logindb->real_escape_string($username);
-		$pw = $this->logindb->real_escape_string($password);
 		$sess = 0;
 		
 		echo "Logging out $username".PHP_EOL;
 					
-		$statement = $this->logindb->prepare('update login set loggedIn = ? where username = ? and password = ?');
-		$statement->bind_param('iss', $sess, $un, $pw);
+		$statement = $this->logindb->prepare('update login set loggedIn = ? where username = ?');
+		$statement->bind_param('is', $sess, $un);
 		$statement->execute();
 		$statement->store_result();
 

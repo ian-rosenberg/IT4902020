@@ -39,14 +39,19 @@ function requestProcessor($request)
   {
     case "Login":
       $response = doLogin($request['username'],$request['password']);
+	  break;
     case "Register":
       $response = doRegisterUser($request['username'], $request['password']);
+	  break;
 	 case "Logout":
 	  $response = doLogoutUser($request['username'], $request['password']);
+	  break;
 	  default:
 	  break;
   }
-  return array("returnCode" => '0', 'message'=>"Server received request and processed.".PHP_EOL/"Response: ".$response);
+  echo("Response ".$response.PHP_EOL);
+  
+  return array("returnCode" => '0', 'message'=>"Server received request and processed.");
 }
 
 $server = new rabbitMQServer("testRabbitMQ.ini","testServer");
