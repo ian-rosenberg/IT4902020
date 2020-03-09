@@ -1,14 +1,12 @@
 <?php
 
-if(isset($_POST['givems']) && ($_POST['givems']) == "Submit"){
+if(isset($_POST['subdata']) && ($_POST['subdata']) == "Submit"){
 	extract($_POST);
 
 	if($unit == 'Standard'){
-		$adj_weight = $weight * 0.045359237;
-		$adj_height = $height * 0.0254;
-		$adj_height_final = $adj_height * $adj_height;
-		$prep_bmi = $adj_weight / $adj_height_final;
-		$bmi = number_format($prep_bmi, 1);
+		$heightsquared = $height * $height;
+		$bmicalc = ($weight / $heightsquared) * 703;
+		$bmi = number_format($bmicalc, 1);
 
 		echo "<center>";
 		echo "Your BMI is $bmi. ";
@@ -35,10 +33,10 @@ if(isset($_POST['givems']) && ($_POST['givems']) == "Submit"){
 		echo "</center>";
 	}
 	elseif($unit == 'Metric'){
-		$adj_height = $height / 100;
-		$adj_height_final = $adj_height * $adj_height;
-		$prep_bmi = $weight / $adj_height_final;
-		$bmi = number_format($prep_bmi, 1);
+		$heightmet = $height / 100;
+		$heightsquared = $heightmet * $heightmet;
+		$bmicalc = $weight / $heightsquared;
+		$bmi = number_format($bmicalc, 1);
 
 		echo "<center>";
 		echo "Your BMI is $bmi. ";
@@ -77,14 +75,17 @@ if(isset($_POST['givems']) && ($_POST['givems']) == "Submit"){
 
         <body>
                 <center><h2> BMI Calculator </h2></center>
-                <div id="bmiform">
+                <div id="bmicalc">
                         <b>Please enter your measurements below. </b> <br /><br />
-                        <form id="bmicalcstyle" name="bmicalcstyle" method="post">
-                                Unit: <input type="radio" name="unit" value="Standard" checked> Standard
-                                      <input type="radio" name="unit" value="Metric"> Metric <br /><br />
+                        <form id="bmicalcform" name="bmicalcform" method="post">
+				Unit: <select name="unit">
+					<option value="pick">Pick A Unit</option>
+					<option value="Standard">Standard</option>
+					<option value="Metric">Metric</option>
+					</select><br /><br />
                                 Weight: <input type="number" name="weight" placeholder="(In lbs or kg)"> <br /><br />
                                 Height: <input type="number" name="height" placeholder="(In inches or cm)"> <br /><br />
-                                <input type="submit" name="givems" id="givems" class="btn" value="Submit"/>
+                                <input type="submit" name="subdata" id="subdata" class="btn" value="Submit"/>
                         </form>
                 </div>
         </body>
