@@ -26,6 +26,11 @@ function doLogoutUser($username, $password)
     return $login->LogoutUser($username, $password);
 }
 
+function doQueryRestrictions($username)
+{
+	$login = new DatabaseAccess();
+	return $login->queryRestrictions();
+}
 function requestProcessor($request)
 {
   echo "received request".PHP_EOL;

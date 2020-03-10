@@ -14,7 +14,7 @@ class DatabaseAccess
 			die ('Failed to connect to MySQL: '.mysqli_connect_error());
 			exit(1);
 		}
-		echo "correctly connected to database".PHP_EOL;
+		sendToLogger("correctly connected to database").PHP_EOL;
 	}			
 
 	public function validateLogin($username,$password)
@@ -70,7 +70,7 @@ class DatabaseAccess
 			$statement->close();
 			
 			$this->logindb->close();
-			
+			sendToLogger("Registered $un").PHP_EOL;
 			echo("Registered ".$un.PHP_EOL);
 			
 			return 1;//success
@@ -80,7 +80,7 @@ class DatabaseAccess
 			$statement->close();
 
 			$this->logindb->close();
-
+			sendToLogger("Username already exists").PHP_EOL;
 			echo("Username already exists!".PHP_EOL);
 			return -1;//Need to log that this is a registration of the same username
 		}
@@ -123,19 +123,41 @@ class DatabaseAccess
 		}
 	}
 
-	/*
-	 * @return An array of all the restrictions from the database
-	 */ 
 	public function queryRestrictions($username) {
 		$un = $this->logindb->real_escape_string($username);
 		$query = "SELECT restriction FROM login JOIN restrictions
 			WHERE login.id = restrictions.id
 			 AND  login.username = '$un'";
-		return $this->logindb->query($query);
+
+		$result = $this->logindb->query($query);
+
+		this->logindb.close();
+
+		if($result != null){
+			sendToLogger("Successfully queried restrictions").PHP_EOL;
+			return $result;
+		}
+		else{
+			sendToLogger("Failed queried restrictions").PHP_EOL;
+			return -1;
+		}
 	}
 
 	public function insertRestriction($username, $restriction) { 
+		$un = $this->logindb->real_escape_string($username);
+		$restrict = $this->logindb->real_escape_string($restriction);
+		$sess = 1;
+
+
+		$statement = $this->logindb->prepare('insert into [Wait] values(null, ?, ?, ?)');
+		$statement->bind_param('ssi', $un, $pw, $sess);
+		$statement->execute();
+
+		$statement->close();
 		
+		$this->logindb->close();
+		sendToLogger("Registered $un").PHP_EOL;
+		echo("Registered ".$un.PHP_EOL);
 	}
 
 	public function removeRestriction($username, $restriction) { 
