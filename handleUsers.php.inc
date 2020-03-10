@@ -1,11 +1,12 @@
 <?php
+require_once('sendDisLog.php');
 class DatabaseAccess
 {
 	private $logindb;
 
 	public function __construct()
 	{
-		$this->logindb = new mysqli("192.168.10.3","admin","admin","it490");
+		$this->logindb = new mysqli("192.168.10.3","david","admin","it490");
 
 		if ($this->logindb->connect_errno != 0)
 		{
@@ -26,24 +27,25 @@ class DatabaseAccess
 		$statement->bind_param('iss', $sess, $un, $pw);
 		$statement->execute();
 		$statement->store_result();
-
+		//print_r(mysqli_stmt_affected_rows($statement)).PHP_EOL;
 		if(mysqli_stmt_affected_rows($statement) == 1)
 		{
 			$statement->close();
 
 			$this->logindb->close();
-
+			sendToLogger("Successfully logged in $username").PHP_EOL;
 			echo "passwords match for $username".PHP_EOL;
 			return 1;// password match
 		}
-
+		
+		sendToLogger("Failed to log in $username").PHP_EOL;
 		echo "no match!".PHP_EOL;
 
 		$statement->close();
 
 		$this->logindb->close();
 		
-		return 0;//no users matched username
+		return -1;//no users matched username
 	}
 
 	public function registerUser($username,$password)
@@ -71,7 +73,7 @@ class DatabaseAccess
 			
 			echo("Registered ".$un.PHP_EOL);
 			
-			return 0;//success
+			return 1;//success
 		}
 		else
 		{
@@ -84,16 +86,16 @@ class DatabaseAccess
 		}
 	}
 	
-	public function logoutUser()
+	public function logoutUser($username)
 	{
 		$un = $this->logindb->real_escape_string($username);
-		$pw = $this->logindb->real_escape_string($password);
+		//$pw = $this->logindb->real_escape_string($password);
 		$sess = 0;
 		
 		echo "Logging out $username".PHP_EOL;
 					
-		$statement = $this->logindb->prepare('update login set loggedIn = ? where username = ? and password = ?');
-		$statement->bind_param('iss', $sess, $un, $pw);
+		$statement = $this->logindb->prepare('update login set loggedIn = ? where username = ?');
+		$statement->bind_param('is', $sess, $un);
 		$statement->execute();
 		$statement->store_result();
 
@@ -117,8 +119,27 @@ class DatabaseAccess
 
 			echo "User already logged out!".PHP_EOL;
 			
-			return 0;//no users matched username
+			return -1;//no users matched username
 		}
+	}
+
+	/*
+	 * @return An array of all the restrictions from the database
+	 */ 
+	public function queryRestrictions($username) {
+		$un = $this->logindb->real_escape_string($username);
+		$query = "SELECT restriction FROM login JOIN restrictions
+			WHERE login.id = restrictions.id
+			 AND  login.username = '$un'";
+		return $this->logindb->query($query);
+	}
+
+	public function insertRestriction($username, $restriction) { 
+		
+	}
+
+	public function removeRestriction($username, $restriction) { 
+		
 	}
 }
 ?>
