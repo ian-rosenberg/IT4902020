@@ -4,13 +4,13 @@ require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
 Class Client {
 
-	#private $client;
+#	private $client;
 	
 	public function __construct() {
-		#$client = new rabbitMQClient("testRabbitMQ.ini","testServer");
+#		$client = new rabbitMQClient("testRabbitMQ.ini","testServer");
 	}
 
-	public function Connect($username, $pass) {
+	public function Connect($username, $pass, $sessionType) {
 		
 		$client = new rabbitMQClient("testRabbitMQ.ini", "testServer");
 		
@@ -18,14 +18,14 @@ Class Client {
 			return "Did not get new client";
 		}
 		$request = array();
-		$request['type'] = "login";
 		$request['username'] = $username;
 		$request['password'] = $pass;
-		$request['message'] = "POOP";
+		$request['type'] = $sessionType;
+		$request['message'] = $sessionType;
 
 		$response = $client->send_request($request);
 		//$response = $client->publish($request);
-		return $response;
+		return json_encode($response.PHP_EOL);
 	}
 
 	public function Test() {
