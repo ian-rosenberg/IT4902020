@@ -60,7 +60,7 @@ if(isset($_POST['subdata']) && ($_POST['subdata']) == "Submit"){
 
 ?>
 
-<!doctype=html>
+<!DOCTYPE html>
 <html>
         <head>
                 <title>BMI Calculator</title>
