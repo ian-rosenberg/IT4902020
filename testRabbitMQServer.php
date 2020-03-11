@@ -16,19 +16,32 @@ function doLogin($username,$password)
 
 function doRegisterUser($username, $password)
 {
-		$login = new DatabaseAccess();
-		return $login->RegisterUser($username, $password);
+    $login = new DatabaseAccess();
+    return $login->RegisterUser($username, $password);
 }
 
 function doLogoutUser($username, $password)
 {
-		$login = new DatabaseAccess();
-		return $login->LogoutUser($username, $password);
+    $login = new DatabaseAccess();
+    return $login->LogoutUser($username, $password);
+}
+
+function doQueryRestrictions($username)
+{
+	$login = new DatabaseAccess();
+	return $login->queryRestrictions();
+}
+
+function doDatabaseTransaction($request){
+  //$login = new DatabaseAccess();
+  $client = new rabbitMQClient("testRabbitMQ.ini","dbServer");
+  $response = $client->send_request($request);
+  return $response;
+
 }
 
 function requestProcessor($request)
 {
-  $response = "";
   echo "received request".PHP_EOL;
   var_dump($request);
   if(!isset($request['type']))
@@ -38,15 +51,17 @@ function requestProcessor($request)
   switch ($request['type'])
   {
     case "Login":
-      $response = doLogin($request['username'],$request['password']);
+      return doLogin($request['username'],$request['password']);
     case "Register":
-      $response = doRegisterUser($request['username'], $request['password']);
-	 case "Logout":
-	  $response = doLogoutUser($request['username'], $request['password']);
-	  default:
-	  break;
+      return doRegisterUser($request['username'], $request['password']);
+   case "Logout":
+    return doLogoutUser($request['username'], $request['password']);
+   case "Database":
+      return doDatabaseTransaction($request);
+    default:
+    break;
   }
-  return array("returnCode" => '0', 'message'=>"Server received request and processed.".PHP_EOL/"Response: ".$response);
+  return array("returnCode" => '0', 'message'=>"Server received request and processed");
 }
 
 $server = new rabbitMQServer("testRabbitMQ.ini","testServer");
