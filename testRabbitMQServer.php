@@ -31,6 +31,15 @@ function doQueryRestrictions($username)
 	$login = new DatabaseAccess();
 	return $login->queryRestrictions();
 }
+
+function doDatabaseTransaction($request){
+  //$login = new DatabaseAccess();
+  $client = new rabbitMQClient("testRabbitMQ.ini","dbServer");
+  $response = $client->send_request($request);
+  return $response;
+
+}
+
 function requestProcessor($request)
 {
   echo "received request".PHP_EOL;
@@ -47,6 +56,8 @@ function requestProcessor($request)
       return doRegisterUser($request['username'], $request['password']);
    case "Logout":
     return doLogoutUser($request['username'], $request['password']);
+   case "Database":
+      return doDatabaseTransaction($request);
     default:
     break;
   }

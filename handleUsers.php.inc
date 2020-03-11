@@ -123,6 +123,10 @@ class DatabaseAccess
 		}
 	}
 
+	public function queryFromDatabase($message){
+		
+	}
+
 	public function queryRestrictions($username) {
 		$un = $this->logindb->real_escape_string($username);
 		$query = "SELECT restriction FROM login JOIN restrictions
@@ -163,7 +167,7 @@ class DatabaseAccess
 		$restrict = $this->logindb->real_escape_string($restriction);
 
 
-		$statement = $this->logindb->prepare("DELETE restrictions from restrictions INNER JOIN login ON login.id = restrictions.id where restrictions.restriction = ? and login.username = ?);
+		$statement = $this->logindb->prepare("DELETE restrictions from restrictions INNER JOIN login ON login.id = restrictions.id where restrictions.restriction = ? and login.username = ?");
 		$statement->bind_param('ss', $un, $restrict);
 		$statement->execute();
 

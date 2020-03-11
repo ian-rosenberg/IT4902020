@@ -8,8 +8,7 @@ $client = new rabbitMQClient("testRabbitMQ.ini","testServer");
 
 $request = array();
 $request['type'] = "Database";
-$request['queryType'] = 'insert';
-$request['query'] = "INSERT INTO restrictions (id, restriction) SELECT  login.id, 'boobies' FROM login WHERE login.username = 'ian'";
+$request["query"] = "SELECT * FROM login";
 $response = $client->send_request($request);
 //$response = $client->publish($request);
 
