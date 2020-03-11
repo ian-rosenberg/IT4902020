@@ -64,7 +64,7 @@ if(isset($_POST['subdata']) && ($_POST['subdata']) == "Submit"){
 <html>
         <head>
                 <title>BMI Calculator</title>
-                <link rel="stylesheet" type="text/css" href ="bmicalcstyle.css" />
+                <link rel="stylesheet" type="text/css" href="bmicalcstyle.css" />
         </head>
 
         <body>
