@@ -131,7 +131,7 @@ class DatabaseAccess
 
 		$result = $this->logindb->query($query);
 
-		this->logindb.close();
+		$this->logindb.close();
 
 		if($result != null){
 			sendToLogger("Successfully queried restrictions").PHP_EOL;
@@ -146,22 +146,31 @@ class DatabaseAccess
 	public function insertRestriction($username, $restriction) { 
 		$un = $this->logindb->real_escape_string($username);
 		$restrict = $this->logindb->real_escape_string($restriction);
-		$sess = 1;
 
 
-		$statement = $this->logindb->prepare('insert into [Wait] values(null, ?, ?, ?)');
-		$statement->bind_param('ssi', $un, $pw, $sess);
+		$statement = $this->logindb->prepare("INSERT INTO restrictions (id, restriction) SELECT  login.id, ? WHERE login.username = ?");
+		$statement->bind_param('ss', $un, $restrict);
 		$statement->execute();
 
 		$statement->close();
 		
 		$this->logindb->close();
-		sendToLogger("Registered $un").PHP_EOL;
-		echo("Registered ".$un.PHP_EOL);
+		sendToLogger("Inserted new restriction for $un with $restrict").PHP_EOL;
 	}
 
 	public function removeRestriction($username, $restriction) { 
+		$un = $this->logindb->real_escape_string($username);
+		$restrict = $this->logindb->real_escape_string($restriction);
+
+
+		$statement = $this->logindb->prepare("DELETE restrictions from restrictions INNER JOIN login ON login.id = restrictions.id where restrictions.restriction = ? and login.username = ?);
+		$statement->bind_param('ss', $un, $restrict);
+		$statement->execute();
+
+		$statement->close();
 		
+		$this->logindb->close();
+		sendToLogger("Deleted restriction for $un with $restrict").PHP_EOL;
 	}
 }
 ?>
