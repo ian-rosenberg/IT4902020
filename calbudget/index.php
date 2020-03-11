@@ -320,7 +320,7 @@
 	<body>
 		<h2>BMR and Calorie Budget Calculator</h2>
 
-		<div id="calbudget">
+		<div class="calbudget">
 			<form id="calbudgetform" name="calbudgetform" method="post">
 			Select Unit: <select name="unit" id="select">
 					<option value="pick" checked>Pick A Unit</option>

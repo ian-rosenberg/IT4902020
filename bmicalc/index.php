@@ -69,7 +69,7 @@ if(isset($_POST['subdata']) && ($_POST['subdata']) == "Submit"){
 
         <body>
                 <h2> BMI Calculator </h2>
-                <div id="bmicalc">
+                <div class="bmicalc">
                         <form id="bmicalcform" name="bmicalcform" method="post">
 				Unit: <select name="unit">
 					<option value="pick">Pick A Unit</option>
