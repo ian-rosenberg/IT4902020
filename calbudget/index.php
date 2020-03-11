@@ -333,8 +333,8 @@
                                         <option value-"Male">Male</option>
 					</select><br /><br />
 			Age: <input type="number" min="1" max="150" name="age" placeholder="Enter your age here"><br /><br />
-			Weight: <input type="number" min="1" max="1500" name="weight" placeholder="Enter your weight (lbs or kg)"><br /><br />
-			Height: <input type="number" min="1" max="250" name="height" placeholder="Enter your height (inches or cm)"><br /><br />
+			Weight: <input type="number" min="1" max="1500" name="weight" placeholder="(lbs or kg)"><br /><br />
+			Height: <input type="number" min="1" max="250" name="height" placeholder="(inches or c)m"><br /><br />
 			Activity Level: <select name="activitylevel" id="select">
 					  <option value="pick" checked>Pick An Activity Level</option>
 					  <option value="Sedentary">Sedentary</option>
