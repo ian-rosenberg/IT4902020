@@ -3,12 +3,7 @@
 require_once('path.inc');
 require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
-require_once('handleUsers.php.inc');
-
-function GetRandomRecipe()
-{
-	
-}
+require_once('handleApi.php.inc');
 
 function requestProcessor($request)
 {
@@ -21,13 +16,9 @@ function requestProcessor($request)
   }
   switch ($request['type'])
   {
-    case "Login":
-      $response = doLogin($request['username'],$request['password']);
-    case "Register":
-      $response = doRegisterUser($request['username'], $request['password']);
-	 case "Logout":
-	  $response = doLogoutUser($request['username'], $request['password']);
-	  default:
+    case "RandomRecipeGet"
+      return GetRandomRecipeFromServer($request);
+	 default:
 	  break;
   }
   return array("returnCode" => '0', 'message'=>"Server received request and processed.".PHP_EOL/"Response: ".$response);

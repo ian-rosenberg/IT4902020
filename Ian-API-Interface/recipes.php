@@ -1,6 +1,6 @@
 <?php
-require_once('rabbitMQLib.inc');
-require_once("sendDisLog.php");
+require_once('../rabbitMQLib.inc');
+require_once("../sendDisLog.php");
 
 class APIAccess
 {
@@ -8,12 +8,17 @@ class APIAccess
 
 	public function __construct()
 	{
-		$client = new rabbitMQClient("testRabbitMQ.ini","testServer");
+		$client = new rabbitMQClient("testRabbitMQ.ini","apiServer");
 	}		
 
-	public function SendRandomRecipe($filename)
+	public function GetRandomRecipeFromServer($filename, $title, $url)
 	{
+		$ar = new array("type" => "RandomRecipeGet",
+		"filename" => $filename,
+		"title" => $title,
+		"url" => $url);
 		
+		$this->client->connect($ar);
 	}
 
 	public function SaveImage($img, $path)
@@ -124,6 +129,7 @@ $json =json_decode($response, true);
 
 $img = $json['recipes'][0]['image'];
 $imgName  = $json['recipes'][0]['title'];
+$recipeURL = $json['recipes'][0]['spoonacularSourceUrl'];
 
 sendToLogger($img.PHP_EOL.PHP_EOL);
 		 
@@ -132,6 +138,8 @@ $saveResponse = $api->SaveImage($img, "RecipeIcons/".$imgName);
 if(!empty($saveResponse))
 {
 	sendToLogger("Saved image ".$img.PHP_EOL);
+	
+	SendRandomRecipeToServer($img, $imgName, $recipeURL);
 }
 else
 {
