@@ -310,7 +310,7 @@
 
 ?>
 
-<!doctype html>
+<!DOCTYPE html>
 <html>
 	<head>
 		<title>BMR and Calorie Budget Calculator</title>
