@@ -41,6 +41,9 @@
 						echo("<li class='nav-item'>
 									 <a class='nav-link' href='logout.php'>Logout</a>
 								 </li>
+								 <li class='nav-item'>
+									 <a class='nav-link' href='profilePage.php'>My Profile</a>
+								 </li>
 								  </ul>
 								 </nav>");	
 					}
@@ -49,6 +52,9 @@
 						echo("<li class='nav-item'>
 							<a class='nav-link disabled' href='logout.php'>Logout</a>
 						 </li>
+						 <li class='nav-item'>
+							<a class='nav-link disabled' href='profilePage.php'>My Profile</a>
+						</li>
 						 </ul>
 						</nav>");				
 					}
@@ -58,6 +64,9 @@
 					echo("<li class='nav-item'>
 							<a class='nav-link disabled' href='logout.php'>Logout</a>
 						 </li>
+						 <li class='nav-item'>
+							<a class='nav-link disabled' href='profilePage.php'>My Profile</a>
+						</li>
 						 </ul>
 						</nav>");			
 				}				
