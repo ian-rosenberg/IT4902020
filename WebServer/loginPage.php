@@ -16,46 +16,6 @@ session_start();
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-<script>
-function HandleLoginResponse(response)
-{
- var text = JSON.parse(response);
- document.getElementById("textResponse").innerHTML = "response: "+text+"<p>";
-}
-
-function SendLoginRequest()
-{
-	var request = new XMLHttpRequest();
-	
-	var un = document.getElementById("username").value;
-	var pw = document.getElementById("password").value;
-	
-	request.open("POST","login.php",true);
-	request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	request.onreadystatechange= function ()
-	{
-		console.log("Ready state " + this.readyState);
-		console.log("Status " + this.status);
-		
-		
-		HandleLoginResponse(this.responseText);
-			
-		document.getElementById("textResponse").text = this.responseText;
-		
-	};
-		
-	request.onerror= function()
-	{
-		document.getElementById("textResponse").value = "Failure!";
-	};
-	
-	request.onload = function () {
-		console.log("Loaded");
-	};
-	request.send("uname="+un+"&pword="+pw);	
-}
-</script>
-
 </head>
 
 <body>
@@ -123,7 +83,7 @@ function SendLoginRequest()
 	?>
 	<div class="container-sm">
 		<div class="text-center">
-			<form name = "loginForm" method="POST" action="login.php" onsubmit="SendLoginRequest()">
+			<form name = "loginForm" method="POST" action="login.php">
 				<label for="username">Username:</label>
 				<input type="text" id="username" name ="username">
 				<br>

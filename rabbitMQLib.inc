@@ -85,7 +85,6 @@ class rabbitMQServer
 			// ampq throws exception if get fails...
 			echo "error: rabbitMQServer: process_message: exception caught: ".$e;
 		}
-
 		// message does not require a response, send ack immediately
 		$body = $msg->getBody();
 		$payload = json_decode($body, true);
@@ -115,10 +114,10 @@ class rabbitMQServer
 			$exchange = new AMQPExchange($channel);
 			$exchange->setName($this->exchange);
 			$exchange->setType($this->exchange_type);
+
 			$this->conn_queue = new AMQPQueue($channel);
 			$this->conn_queue->setName($this->queue);
 			$this->conn_queue->bind($exchange->getName(),$this->routing_key);
-
 
 			$this->conn_queue->consume(array($this,'process_message'));
 
@@ -237,10 +236,11 @@ class rabbitMQClient
 	/**
 	  @brief send a one-way message to the server.  These are
 	  auto-acknowledged and give no response.
+
 	  @param message the body of the request.  This must make sense to the
 	  server
 	 */
-	function publish($message, $ttl)
+	function publish($message)
 	{
 		$json_message = json_encode($message);
 		try
@@ -256,19 +256,11 @@ class rabbitMQClient
 			$channel = new AMQPChannel($conn);
 			$exchange = new AMQPExchange($channel);
 			$exchange->setName($this->exchange);
+			$exchange->setType($this->exchange_type);
 			$this->conn_queue = new AMQPQueue($channel);
 			$this->conn_queue->setName($this->queue);
 			$this->conn_queue->bind($exchange->getName(),$this->routing_key);
-
-			//Added ttl to the message so that they don't sit in the 			//queue for all of eternity
-			if($ttl > 10000){
-				$properties = array('expiration'=> $ttl);
-			}
-			else{
-				$properties = array('expiration' => 10000);
-			}
-
-			return $exchange->publish($json_message,$this->routing_key, null, $properties);
+			return $exchange->publish($json_message,$this->routing_key);
 		}
 		catch(Exception $e)
 		{
@@ -277,3 +269,4 @@ class rabbitMQClient
 	}
 }
 ?>
+
