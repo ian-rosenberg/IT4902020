@@ -14,18 +14,18 @@ function requestProcessor($request)
 		$curl = curl_init();
 
 	curl_setopt_array($curl, array(
-		CURLOPT_URL => "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/mealplans/generate?targetCalories=2000&timeFrame=day",
-		CURLOPT_RETURNTRANSFER => true,
-		CURLOPT_FOLLOWLOCATION => true,
-		CURLOPT_ENCODING => "",
-		CURLOPT_MAXREDIRS => 10,
-		CURLOPT_TIMEOUT => 30,
-		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-		CURLOPT_CUSTOMREQUEST => "GET",
-		CURLOPT_HTTPHEADER => array(
-			"x-rapidapi-host: spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-			"x-rapidapi-key: 121607682cmsh2a3a276639a2519p11fb8bjsn875259b25ff8"
-		),
+		CURLOPT_URL => "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/mealplans/generate?timeFrame=day&targetCalories=2000&diet=vegan&exclude=olives",
+	CURLOPT_RETURNTRANSFER => true,
+	CURLOPT_FOLLOWLOCATION => true,
+	CURLOPT_ENCODING => "",
+	CURLOPT_MAXREDIRS => 10,
+	CURLOPT_TIMEOUT => 30,
+	CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+	CURLOPT_CUSTOMREQUEST => "GET",
+	CURLOPT_HTTPHEADER => array(
+		"x-rapidapi-host: spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+		"x-rapidapi-key: 121607682cmsh2a3a276639a2519p11fb8bjsn875259b25ff8"
+	),
 	));
 
 	$response = curl_exec($curl);
