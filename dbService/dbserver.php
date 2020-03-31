@@ -37,7 +37,7 @@ function requestProcessor($request)
 			echo "Processing Data Query".PHP_EOL;
                         try{
                                 $db = new mysqli("127.0.0.1", "david", "admin", "it490");
-                                //print_r($request).PHP_EOL;
+                                print_r($request).PHP_EOL;
 				//$query = $db->real_escape_string($request['query']);
 				$query = $request['query'];
 				$response = $db->query($query);
