@@ -362,7 +362,7 @@ session_start();
 			How Much Weight: <input type="number" min="0" max="1000" name="weightchange" placeholder="Enter change in weight wanted (lbs or kg)"><br /><br />
 			Time Period: <input type="number" min="0" max="3650" name="days" placeholder="Enter the number of days"><br /><br />
 			<input type="submit" name="subdata" id="subdata" class="btn" value="Submit"/><br /><br />
-			Result: <?php echo $result; sleep(5); header('profilePage.php');?>
+			Result: <?phpif(!empty($result)){echo $result; sleep(5); header('profilePage.php');}?>
 			</form>
 		</div>
 	</body>

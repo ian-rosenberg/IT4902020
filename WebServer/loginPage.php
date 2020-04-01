@@ -17,43 +17,7 @@ session_start();
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 <script>
-function HandleLoginResponse(response)
-{
- var text = JSON.parse(response);
- document.getElementById("textResponse").innerHTML = "response: "+text+"<p>";
-}
-
-function SendLoginRequest()
-{
-	var request = new XMLHttpRequest();
-	
-	var un = document.getElementById("username").value;
-	var pw = document.getElementById("password").value;
-	
-	request.open("POST","login.php",true);
-	request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	request.onreadystatechange= function ()
-	{
-		console.log("Ready state " + this.readyState);
-		console.log("Status " + this.status);
-		
-		
-		HandleLoginResponse(this.responseText);
-			
-		document.getElementById("textResponse").text = this.responseText;
-		
-	};
-		
-	request.onerror= function()
-	{
-		document.getElementById("textResponse").value = "Failure!";
-	};
-	
-	request.onload = function () {
-		console.log("Loaded");
-	};
-	request.send("uname="+un+"&pword="+pw);	
-}
+	document.GetElementById("button").setAttribute('disabled', true);
 </script>
 
 </head>
@@ -63,7 +27,7 @@ function SendLoginRequest()
 		<h1>Login</h1>
 	</div>
 
-	<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+	<nav class="navbar navbar-expand-md bg-primary navbar-dark">
 		<ul class="navbar-nav">
 			<li class="nav-item">
 			  <a class="nav-link" href="index.php">Home</a>
@@ -121,18 +85,57 @@ function SendLoginRequest()
 				echo ("<br><br><div class='text-center'>Welcome, guest!</div><br><br>".PHP_EOL);
 			}
 	?>
+
+	<script>
+		function ValidateForm() {
+	 		var form = document.forms["loginForm"];
+			var pw = form["password"];
+			var un = form["username"];
+			var b = document.getElementById("button");
+			var flag = 0;
+
+  			if (un.value == "") {
+    				un.style.background = "red";
+				document.getElementById("errUN").innerHTML = "Enter a username!";
+				b.disabled = true;
+			}
+			else
+			{
+				un.style.background = "white";
+				document.getElementById("errUN").innerHTML = "";
+				b.disabled = false;
+			}
+
+			if (pw.value == "") {
+                               	pw.style.background = "red";
+				document.getElementById("errPW").innerHTML = "Enter a password!";
+                        	b.disabled = true;
+			}
+			else
+			{
+				pw.style.background = "white";
+				document.getElementById("errPW").innerHTML = "";
+				b.disabled = false;
+			}
+			
+			return;
+		}
+	</script>
+
 	<div class="container-sm">
 		<div class="text-center">
-			<form name = "loginForm" method="POST" action="login.php" onsubmit="SendLoginRequest()">
+			<form name = "loginForm" method="POST" action="login.php">
 				<label for="username">Username:</label>
-				<input type="text" id="username" name ="username">
+				<input type="text" id="username" name ="username" onblur="ValidateForm()" aria-required="true" data-ok="false">
+				<span style = "color:red;" id ="errUN"></span>
 				<br>
 				<br>
 				<label for="password">Password:</label>
-				<input type="password" id="password" name ="password" >
+				<input type="password" id="password" name ="password" onblur="ValidateForm()" aria-required="true" data-ok="false">
+				<span style = "color:red;" id ="errPW"></span>
 				<br>
 				<br>
-				<input type="submit" id="button" value="Login">
+				<button type="submit" id="button" disabled>Login</button>
 			</form>
 		</div>
 	</div>

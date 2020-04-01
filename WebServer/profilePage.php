@@ -17,57 +17,15 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
-<script>
-function HandleAPIResponse(response)
-{
- var text = JSON.parse(response);
- 
- document.getElementById("RecipeResponse").innerHTML = text+"<p>";
-}
-
-function PullRandomRecipes()
-{
-	var request = new XMLHttpRequest();
-	
-	var un = document.getElementById("username").value;
-	var pw = document.getElementById("password").value;
-	
-	request.open("POST","pullRecipeTest.php",true);
-	request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	request.onreadystatechange= function ()
-	{
-		console.log("Ready state " + this.readyState);
-		console.log("Status " + this.status);
-		
-		
-		HandleAPIResponse(this.responseText);
-			
-		document.getElementById("RecipeResponse").innerHTML = this.responseText;
-		
-		
-	};
-		
-	request.onerror= function()
-	{
-		document.getElementById("RecipeResponse").value = "Failure!";
-	};
-	
-	request.onload = function () {
-		console.log("Loaded");
-	};
-	request.send();	
-}
-</script>
-
 <body>
 	<div class="jumbotron text-center">
 		<h1>IT490 - SFW</h1>
 	</div>
 	
-	<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+	<nav class="navbar navbar-expand-md bg-primary navbar-dark">
 		<ul class="navbar-nav">
 			<li class="nav-item">
-			  <a class="nav-link active" href="#">Home</a>
+			  <a class="nav-link active" href="index.php">Home</a>
 			</li>
 			<li class="nav-item">
 			  <a class="nav-link" href="loginPage.php">Login</a>
@@ -115,7 +73,9 @@ function PullRandomRecipes()
 								  </ul>
 								 </nav>");	
 				}				
-		
+		?>
+		<div class="text-center">
+		<?php
 			if(!empty($_SESSION['user']))
 			{	
 				if($_SESSION['user'] != 'guest')
@@ -131,10 +91,10 @@ function PullRandomRecipes()
 			{
 				echo ("<br><br><div>Welcome, guest!</div><br><br>".PHP_EOL);
 			}
-	?>
-	
-	 <div class="row">
-	  <div class="col-3">
+		?>
+		</div>
+	<div class="row">
+	 <div class="col-3 text-center">
 		<h1>
 			<?php echo $_SESSION['user']."'s profile"?>
 		</h1>
@@ -164,39 +124,21 @@ function PullRandomRecipes()
 			
 		</div>
 	  </div>
-	  <div class="col-6">
-
-	  </div>
-	  <div class="col-3">
-
-	  </div>
-	</div> 
 	
-	Random Recipe Generator for later
-	<div class = "col">
-		<h2 class ="text-center">Random Recipe Generator</h2>
-		
-		<div class="container-sm">
-			<div class="text-center">
-				<form name = "recipeGen" method="POST" action="getRandomRecipe.php" onsubmit="GetRandomRecipe()">
-					<label for="tags">Tags:</label>
-					<input type="text" id="tags" name ="tags">
-					<p>
-						*Valid tags include examples like: vegetarian, kosher, pescatarian
-						<br>
-						**Enter a comma-separated list.
-					</p>
-					<br>
-					<br>
-					<input type="submit" id="button" value="Get Recipe!">
-				</form>
-			</div>
+	
+	<div class = "col-6 text-center">
+		<div class="row">
+			<ul>
+				<li>
+					<a href="restriction.php">Add Restrictions</a>
+				</li>
+			</ul>
 		</div> 
 	</div>
+	</div class="row">
 	
 	<div class="text-center" id="RecipeResponse">
 		
 	</div>
-	
 </body>
 </html>

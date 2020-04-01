@@ -22,7 +22,7 @@
 		<h1>IT490 - SFW</h1>
 	</div>
 	
-	<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+	<nav class="navbar navbar-expand-md bg-primary navbar-dark">
 		<ul class="navbar-nav">
 			<li class="nav-item">
 			  <a class="nav-link active" href="#">Home</a>

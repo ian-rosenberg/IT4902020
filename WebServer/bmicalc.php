@@ -81,10 +81,10 @@ if(isset($_POST['subdata']) && ($_POST['subdata']) == "Submit"){
 					<option value="Standard">Standard</option>
 					<option value="Metric">Metric</option>
 					</select><br /><br />
-                                Weight: <input type="number" min="1" max="1500" name="weight" placeholder="(In lbs or kg)"> <br /><br />
-                                Height: <input type="number" min="1" max="150" name="height" placeholder="(In inches or cm)"> <br /><br />
+                                Weight: <input type="number" name="weight" placeholder="(In lbs or kg)"> <br /><br />
+                                Height: <input type="number" name="height" placeholder="(In inches or cm)"> <br /><br />
 				<input type="submit" name="subdata" id="subdata" class="btn" value="Submit"/><br /><br />
-				Result: <?php echo $result; sleep(5); header('profilePage.php');?> 
+				Result: <?php if(!empty($result)){echo $result; sleep(5); header('profilePage.php');}?> 
                         </form>
 		</div>
         </body>

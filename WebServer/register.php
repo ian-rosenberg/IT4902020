@@ -4,7 +4,7 @@
 	require_once('testClient.php.inc');
 	
 	
-if(isset($_POST))
+if(!empty($_POST))
 {
 	$user = trim($_POST['username']);
 	$pass = trim($_POST['password']);
@@ -22,4 +22,6 @@ if(isset($_POST))
 	 header('Location: index.php'); 
 	 exit;
 }
+header('Location: index.php');
+exit;
 ?>
