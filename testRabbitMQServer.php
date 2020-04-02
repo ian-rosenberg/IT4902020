@@ -4,6 +4,7 @@ require_once('path.inc');
 require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
 require_once('handleUsers.php.inc');
+require_once('sendDisLog.php');
 
 function doLogin($username,$password)
 {
@@ -54,6 +55,9 @@ function requestProcessor($request)
   {
     return "ERROR: unsupported message type";
   }
+
+  SendToLogger("Rabbit " . $request['message']);
+
   switch ($request['type'])
   {
     case "Login":
