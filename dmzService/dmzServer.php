@@ -37,8 +37,26 @@ function requestProcessor($request)
 		echo "cURL Error #:" . $err;
 	} else {
 		echo $response;
-	}	
-	return($response);
+	}
+
+	$recipesNames = getRecipeNames(json_decode($response, true));
+	$recipes = getRecipes($recipesNames);
+		
+	return($recipes);
+}
+
+function getRecipeNames($recipes){
+
+	$recipeNames = array();
+	$index = 0;
+	for($i = 0; $i < 3; $i++) {
+		$recipeNames[$i] = $recipes['meals'][$i]['title'];
+	}
+
+}
+
+function getRecipes($recipeName){
+
 }
 
 #Second parameter must match info from testRabbitMQ.ini
