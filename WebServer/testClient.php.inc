@@ -2,6 +2,8 @@
 require_once('path.inc');
 require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
+require_once('sendDisLog.php');
+
 Class Client {
 
 #	private $client;
@@ -17,6 +19,9 @@ Class Client {
 		if(!$client){
 			return "Did not get new client";
 		}
+		
+		SendToLogger("Login");
+
 		$request = array();
 		$request['username'] = $username;
 		$request['password'] = $pass;
@@ -42,6 +47,9 @@ Class Client {
 		if(!$client){
 			return "Did not get new client";
 		}
+
+		SendToLogger("Logout");
+
 		$request = array();
 		$request['username'] = $username;
 		$request['type'] = 'Database';
@@ -61,6 +69,9 @@ Class Client {
 		if(!$client){
 			return "Did not get new client";
 		}
+
+		SendToLogger("Register");
+
 		$request = array();
 		$request['username'] = $username;
 		$request['password'] = $pass;

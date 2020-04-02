@@ -2,18 +2,21 @@
 session_start();
 
 require_once("testClient.php.inc");	
-	
+require_once("sendDisLog.php");	
+
 if(!empty($_POST))
 {
 	$client = new Client();
 	$user = trim($_POST['username']);
 	$pass = trim($_POST['password']);
 	
-	if(empty($_SESSION) || $_SESSION['user'] == 'guest')
+	if(empty($_SESSION))
 	{
-		$response = $client->LoginConnect( $user, $pass, 'Login');
+		$response = $client->LoginConnect( $user, $pass, "Login");
 		
-		if($response == true)
+		sendToLogger($response);
+
+		if($response == 1)
 		{
 			$_SESSION['user'] = $user;
 	
@@ -22,16 +25,11 @@ if(!empty($_POST))
 	}
 	else
 	{
-		$_SESSION['user'] = 'guest';
-	
-		$_SESSION['loggedIn'] = false;
+		session_write_close();		
+		header('Location: index.php');
+		
+		exit;
 	}
-}
-else
-{
-	$_SESSION['user'] = 'guest';
-	
-	$_SESSION['loggedIn'] = false;
 }
 
 session_write_close();

@@ -99,6 +99,7 @@
                                 document.getElementById("errUN").innerHTML = "";
                                 b.disabled = false;
                         }
+		}
 	</script>
 
 
@@ -106,12 +107,12 @@
 		<div class="text-center">
 			<form name = "loginForm" method="POST" action="register.php"  onsubmit="SendRegisterRequest()">
 				<label for="username">Username:</label>
-				<input type="text" id="username" name ="username">
+				<input type="text" id="username" name ="username" onblur="ValidateForm()" required>
 				<span style="color:red;" id="errUN"></span>
 				<br>
 				<br>
 				<label for="password">Password:</label>
-				<input type="password" id="password" name ="password" >
+				<input type="password" id="password" name ="password" onblur="ValidateForm()" required>
 				<br>
 				<br>
 				<input type="submit" id="button" value="Register" disabled>

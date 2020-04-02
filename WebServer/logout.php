@@ -3,17 +3,10 @@
 	
 	require_once("testClient.php.inc");
 	
-	
-	$user = trim($_SESSION["user"]);
-
-	if(isset($_SESSION["user"])){
-		unset($_SESSION["user"]);
-	}
-	
-	$_SESSION["loggedIn"] = false;
-	
+	$user = trim($_SESSION['user']);
+		
 	$client = new Client();
-	$response = $client->LogoutConnect($user, $pass, "Logout");
+	$response = $client->LogoutConnect($user, "Logout");
 	
 	session_destroy();
 	
