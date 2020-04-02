@@ -52,7 +52,8 @@ function getRecipeNames($recipes){
 	for($i = 0; $i < 3; $i++) {
 		$recipeNames[$i] = $recipes['meals'][$i]['title'];
 	}
-
+	
+	return $recipeNames;
 }
 
 function getRecipes($recipeName){
