@@ -112,7 +112,12 @@ function requestProcessor($request)
 				return $e->getMessage();
 			}
 		case 'DMZ':
+			for($i=0; $i < 3; $i++){
+				$arr = json_decode($request[$i], true);
+				var_dump($arr);
+			}
 			return 1;
+
 	}
 
 	/**if($request['type'] == 'Database'){
