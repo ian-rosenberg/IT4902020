@@ -19,7 +19,7 @@
 	<script>
 		function ShowRecipes()
 		{
-			window.location.href = "showRecipes.php";
+			window.location.assign("showRecipes.php");
 		}
 
 		function VoteRecipe($index)
@@ -31,9 +31,8 @@
 		invoke = (event) => {
    			 let nameOfFunction = this[event.target.name];
    			 let arg1 = event.target.getAttribute('data-arg1');
-   			 window[nameOfFunction](arg1)  
-    			})
-  		}
+   			 window[VoteRecipe](arg1); 
+    		}
 	</script>
 </head>
 
@@ -45,7 +44,7 @@
 	<nav class="navbar navbar-expand-md bg-primary navbar-dark">
 		<ul class="navbar-nav">
 			<li class="nav-item">
-			  <a class="nav-link active" href="index.php">Home</a>
+			  <a class="nav-link" href="index.php">Home</a>
 			</li>
 			<li class="nav-item">
 			  <a class="nav-link" href="loginPage.php">Login</a>
@@ -63,7 +62,7 @@
 								 </li>");	
 								 
 						echo("<li class='nav-item'>
-									 <a class='nav-link' active href='profilePage.php'>My Profile</a>
+									 <a class='nav-link active' href='profilePage.php'>My Profile</a>
 								 </li>
 								  </ul>
 								 </nav>");	
@@ -147,12 +146,12 @@
      <form>
       <div class="bg-dark mr-md-3 pt-3 px-5 pt-md-5 px-md-5 text-center overflow-hidden">
         <div class="my-3 py-3">
-          <button type="button" onclick="ShowRecipes()">Show Recipes</button>
+          <button type="button" onclick="ShowRecipes();">Show Recipes</button>
         </div>
         <div class="bg-light box-shadow mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
          <div id="recipeLikeDislike">
 	  <?php
-		if(!empty($_SESSION['toLikeDislike']));
+		if(!empty($_SESSION['likedislikes']));
 		{
 			$index = 0;
 
@@ -169,10 +168,7 @@
 	  ?>
 	 </div>
 	</div>
+       </form>
       </div>
-	
-	<div class="text-center" id="RecipeResponse">
-	
-	</div>
 </body>
 </html>

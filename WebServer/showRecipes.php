@@ -4,15 +4,25 @@ session_start();
 require_once("testClient.php.inc");	
 require_once("sendDisLog.php");	
 
-	$client = new Client();
-	$user = trim($_SESSION['user']);
-	$response = $client->GetRecipe( $user, "DMZ");
+$client = new Client();
+$user = trim($_SESSION['user']);
+
+
+$response = $client->GetRecipe( $user, "DMZ");
+
 		
-	sendToLogger($response);
+if(!empty($_SESSION['likedislikes']))
+{
+	$index = 0;
 
-	$_SESSION
+	foreach($response as $r)
+	{
+		$_SESSION['likedislikes'][$index++] = $r; 
+	}
+}
 
-	session_write_close();		
-	header('Location: profilePage.php');
-	exit;
+session_write_close();		
+header('Location: profilePage.php');
+exit;
+
 ?>
