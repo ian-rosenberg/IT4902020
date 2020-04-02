@@ -40,6 +40,12 @@ function doDatabaseTransaction($request){
 
 }
 
+function doDmzTransaction($request){
+	$client = new rabbitMQClient("testRabbitMQ.ini", "dmzServer");
+	$response = $client->send_request($request);
+	return $response;
+}
+
 function requestProcessor($request)
 {
   echo "received request".PHP_EOL;
@@ -51,15 +57,17 @@ function requestProcessor($request)
   switch ($request['type'])
   {
     case "Login":
-      return doLogin($request['username'],$request['password']);
+    	return doLogin($request['username'],$request['password']);
     case "Register":
-      return doRegisterUser($request['username'], $request['password']);
+    	return doRegisterUser($request['username'], $request['password']);
    case "Logout":
-    return doLogoutUser($request['username'], $request['password']);
+   	return doLogoutUser($request['username'], $request['password']);
    case "Database":
-      return doDatabaseTransaction($request);
-    default:
-    break;
+   	return doDatabaseTransaction($request);
+   case "DMZ":
+	return doDmzTransaction($request);
+   default:
+   	 break;
   }
   return array("returnCode" => '0', 'message'=>"Server received request and processed");
 }
