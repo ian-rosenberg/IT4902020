@@ -35,11 +35,11 @@ function requestProcessor($request)
 
 	if ($err) {
 		echo "cURL Error #:" . $err;
-	} else {
+	} 
+	else {
 		echo $response;
 	}	
-	return($response);
-	}
+
 	$recipesid = getRecipeid(json_decode($response, true));
 	$recipes = getRecipes($recipesNames);
 		
@@ -59,37 +59,40 @@ function getRecipeid($recipes){
 
 function getRecipes($recipeid){
 	
-	for($i=0; $i <=2; $i++){
+	$recipes = array();
+	
+	for($i=0; $i < 2; $i++){
 		
-		$recipeid[i];
-		$curl_url= "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/"+recipeid[i]+"/information?includeNutrition=false", 
-		}	
-	curl_setopt_array($curl, array(
-	CURLOPT_URL => "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/505163/information?includeNutrition=false",
-	CURLOPT_RETURNTRANSFER => true,
-	CURLOPT_FOLLOWLOCATION => true,
-	CURLOPT_ENCODING => "",
-	CURLOPT_MAXREDIRS => 10,
-	CURLOPT_TIMEOUT => 30,
-	CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-	CURLOPT_CUSTOMREQUEST => "GET",
-	CURLOPT_HTTPHEADER => array(
-		"x-rapidapi-host: spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-		"x-rapidapi-key: 121607682cmsh2a3a276639a2519p11fb8bjsn875259b25ff8"
-	),
-));
+		$id = $recipeid[$i];
+		$curl_url= "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/$id/information?includeNutrition=false", 
+			
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => $curl_url,
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_FOLLOWLOCATION => true,
+		CURLOPT_ENCODING => "",
+		CURLOPT_MAXREDIRS => 10,
+		CURLOPT_TIMEOUT => 30,
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => "GET",
+		CURLOPT_HTTPHEADER => array(
+			"x-rapidapi-host: spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+			"x-rapidapi-key: 121607682cmsh2a3a276639a2519p11fb8bjsn875259b25ff8"
+		),
+		));
 
-$response = curl_exec($curl);
-$err = curl_error($curl);
+		$response = curl_exec($curl);
+		$err = curl_error($curl);
 
-curl_close($curl);
+		curl_close($curl);
 
-if ($err) {
-	echo "cURL Error #:" . $err;
-} else {
-	echo $response;
-}
-	return($response);
+		if ($err) {
+			echo "cURL Error #:" . $err;
+		} 
+		else {
+			recipes[$i] = $response;
+		}
+	}
 }
 
 #Second parameter must match info from testRabbitMQ.ini
