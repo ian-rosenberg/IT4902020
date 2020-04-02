@@ -59,3 +59,27 @@ Login
 1
 Logout
 23:52:16pm:Rabbit Logout
+23:58:56pm:Rabbit Machine Start
+23:59:49pm:Rabbit Machine Start
+Login
+23:59:54pm:Rabbit Login
+1
+Get Recipe
+23:59:57pm:Rabbit DMZ
+00:11:42am:Rabbit Machine Start
+Logout
+00:13:59am:Rabbit Logout
+Login
+00:14:07am:Rabbit Login
+1
+Get Recipe
+00:14:12am:Rabbit DMZ
+00:16:21am:Rabbit Machine Start
+Get Recipe
+00:16:54am:Rabbit DMZ
+00:17:40am:Rabbit Machine Start
+Logout
+00:18:12am:Rabbit Logout
+Login
+00:18:36am:Rabbit Login
+1

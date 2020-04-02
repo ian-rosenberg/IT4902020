@@ -21,6 +21,19 @@
 		{
 			window.location.href = "showRecipes.php";
 		}
+
+		function VoteRecipe($index)
+		{
+			document.getElementById("like".$index).disabled = true;
+			document.getElementById("dislike".$index).disabled = true;
+		}
+
+		invoke = (event) => {
+   			 let nameOfFunction = this[event.target.name];
+   			 let arg1 = event.target.getAttribute('data-arg1');
+   			 window[nameOfFunction](arg1)  
+    			})
+  		}
 	</script>
 </head>
 
@@ -103,7 +116,7 @@
 
 
     <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
-      <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+      <div class="bg-dark mr-md-3 pt-3 px-5 pt-md-5 px-md-5 text-center text-white overflow-hidden">
         <div class="my-3 py-3">
           <h2 class="display-5"><?php echo $_SESSION['user']."'s profile"?></h2>
           <p class="lead"></p>
@@ -132,16 +145,34 @@
       </div>
 
      <form>
-      <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-        <div class="my-3 p-3">
+      <div class="bg-dark mr-md-3 pt-3 px-5 pt-md-5 px-md-5 text-center overflow-hidden">
+        <div class="my-3 py-3">
           <button type="button" onclick="ShowRecipes()">Show Recipes</button>
         </div>
-        <div class="bg-dark box-shadow mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-        </div>
+        <div class="bg-light box-shadow mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+         <div id="recipeLikeDislike">
+	  <?php
+		if(!empty($_SESSION['toLikeDislike']));
+		{
+			$index = 0;
+
+			echo "<ul>";
+
+			foreach($_SESSION['toLikeDislike'] as $item)
+			{
+				echo "<li>" . $item . "</li><button type='button' id='like$index' onclick='invoke' name='VoteRecipe' data-arg1='$index' disabled>Like</button><button type='button' id='dislike$index' onclick='invoke' name='VoteRecipe' data-arg1='$index' disable>Dislike</button>";
+				$index++;
+			}
+		
+			echo "</ul>";
+		}
+	  ?>
+	 </div>
+	</div>
       </div>
 	
 	<div class="text-center" id="RecipeResponse">
-		
+	
 	</div>
 </body>
 </html>
