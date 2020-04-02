@@ -69,9 +69,11 @@ function requestProcessor($request)
 				$response = $db->query($query);
 				var_dump($response);
 				if($db->affected_rows != 0){
-					$username=$_REQUEST('username');
-					$query="insert into bmi(id) select login.id from login where login.username='$username'";
-					$query="insert into calbudget(id) select login.id from login where login.username='$username'";
+					$username=$request['username'];
+					$query1="insert into bmi(id) select login.id from login where login.username='$username'";
+					$query2="insert into calbudget(id) select login.id from login where login.username='$username'";
+					$db->query($query1);
+					$db->query($query2);
 					return 1;
 				}
 				else{
