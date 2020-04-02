@@ -81,9 +81,16 @@ if(isset($_POST['subdata']) && ($_POST['subdata']) == "Submit"){
 				<input type="submit" name="subdata" id="subdata" class="btn" value="Submit"/><br /><br />
 
 				<input type="submit" name="remdata" id="remdata" class="btn" value="Remove"><br /><br />
-				Result: <?php echo $result; ?> 
+				Result: <?php if(!empty($restriction))
+						{
+							echo $result;
+
+							sleep(3);
+
+							header("Location: profilePage.php");
+						}?> 
                         </form>
 		</div>
         </body>
 </html>
-
+<?
