@@ -42,9 +42,10 @@ function doDatabaseTransaction($request){
 
 function doDmzTransaction($request){
 	$client = new rabbitMQClient("testRabbitMQ.ini", "dmzServer");
-	$response = $client->send_request($request);
+	$response = $client->send_request($request); //First we get the information from api
 	var_dump($response);
-	return $response;
+	$db_response = doDatabaseTransaction($response); //Then send information to database
+	return $db_response;
 }
 
 function requestProcessor($request)
