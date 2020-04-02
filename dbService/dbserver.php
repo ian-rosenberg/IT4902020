@@ -42,12 +42,12 @@ function requestProcessor($request)
 				$query = $request['query'];
 				$response = $db->query($query);
 				var_dump($response);
-				/**if($response){
-					return $response;
+				if($db->affected_rows != 0){
+					return 1;
 				}
 				else{
 					return -1;
-				}*/	
+				}	
 				return $response;
 				$response->close();
 				$db->close();
