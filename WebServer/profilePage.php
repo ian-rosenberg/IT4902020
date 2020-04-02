@@ -15,6 +15,13 @@
 
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+	<script>
+		function ShowRecipes()
+		{
+			window.location.href = "showRecipes.php";
+		}
+	</script>
 </head>
 
 <body>
@@ -123,14 +130,15 @@
 
 	</div>
       </div>
+
+     <form>
       <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
         <div class="my-3 p-3">
-          <h2 class="display-5">Another headline</h2>
-          <p class="lead">And an even wittier subheading.</p>
+          <button type="button" onclick="ShowRecipes()">Show Recipes</button>
         </div>
         <div class="bg-dark box-shadow mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+        </div>
       </div>
-    </div>
 	
 	<div class="text-center" id="RecipeResponse">
 		
