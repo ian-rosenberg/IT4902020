@@ -42,9 +42,8 @@ function doDatabaseTransaction($request){
 
 function doDmzTransaction($request){
 	$client = new rabbitMQClient("testRabbitMQ.ini", "dmzServer");
-	echo "Did I crash?".PHP_EOL;
 	$response = $client->send_request($request);
-	var_dump(json_decode($response, true));
+	var_dump($response);
 	return $response;
 }
 
