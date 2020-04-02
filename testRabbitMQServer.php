@@ -34,7 +34,6 @@ function doQueryRestrictions($username)
 }
 
 function doDatabaseTransaction($request){
-  //$login = new DatabaseAccess();
   $client = new rabbitMQClient("testRabbitMQ.ini","dbServer");
   $response = $client->send_request($request);
   return $response;
@@ -44,6 +43,7 @@ function doDatabaseTransaction($request){
 function doDmzTransaction($request){
 	$client = new rabbitMQClient("testRabbitMQ.ini", "dmzServer");
 	$response = $client->send_request($request);
+	var_dump($response);
 	return $response;
 }
 
@@ -77,9 +77,10 @@ function requestProcessor($request)
 }
 
 $server = new rabbitMQServer("testRabbitMQ.ini","testServer");
-
+SendToLogger("Rabbit Machine Start");
 echo "testRabbitMQServer BEGIN".PHP_EOL;
 $server->process_requests('requestProcessor');
+SendToLogger("Rabbit Machine shutdown");
 echo "testRabbitMQServer END".PHP_EOL;
 exit();
 ?>
