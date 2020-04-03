@@ -114,24 +114,34 @@
 		</div>
 
 
-    <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
-      <div class="bg-dark mr-md-3 pt-3 px-5 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+    <div class="container-fluid my-md-3 pl-md-3">
+      <div class="bg-dark mr-md-3 pt-3 px-5 pt-md-5 px-md-5 text-center text-white overflow-hidden width: 40%">
         <div class="my-3 py-3">
           <h2 class="display-5"><?php echo $_SESSION['user']."'s profile"?></h2>
           <p class="lead"></p>
         </div>
-        <div class="bg-light box-shadow mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0; color: black;">
+        <div class="bg-light box-shadow mx-auto" style="width: 80%; height: 400px; border-radius: 21px 21px 0 0; color: black;">
 	  BMI:
                         <?php
                                 if(!empty($_SESSION['bmi'])){
-                                        echo $_SESSION['bmi'] + "<br>";
+                                        echo $_SESSION['bmi'] + "<br><br>";
 					echo "<a href='bmicalc.php'>Re-Calculate your BMI!</a><br>";
                                 }
                                 else{
                                         echo "<a href='bmicalc.php'>Calculate your BMI!</a><br>";
                                 }
+			?>
+	<br>
+	<br>
+	<br>
+
+
+
+	  BMR:
+
+			<?php
 				if(!empty($_SESSION['bmr'])){
-                                        echo $_SESSION['bmr'] + "<br>";
+                                        echo $_SESSION['bmr'] + "<br><br>";
                                         echo "<a href='calbudget.php'>Re-Calculate your BMR</a><br>";
                                 }
                                 else{
@@ -144,11 +154,14 @@
       </div>
 
      <form>
-      <div class="bg-dark mr-md-3 pt-3 px-5 pt-md-5 px-md-5 text-center overflow-hidden">
+      <div class="bg-dark mr-md-3 pt-3 px-5 pt-md-5 px-md-5 text-center overflow-hidden width: 40%">
         <div class="my-3 py-3">
           <button type="button" onclick="ShowRecipes();">Show Recipes</button>
+	  <br>
+	  <br>
+
         </div>
-        <div class="bg-light box-shadow mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+        <div class="bg-light box-shadow mx-auto" style="width: 80%; height: 400px; border-radius: 21px 21px 0 0;"></div>
          <div id="recipeLikeDislike">
 	  <?php
 		if(!empty($_SESSION['likedislikes']));
