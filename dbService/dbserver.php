@@ -75,7 +75,8 @@ function requestProcessor($request)
 			try{
 				$db = new mysqli("127.0.0.1", "brandon", "admin", "it490");
 				print_r($request).PHP_EOL;
-				$query = $db->real_escape_string($request['query']);
+				//$query = $db->real_escape_string($request['query']);
+				$query = $request['query'];
 				$response = $db->query($query);
 				print_r($response).PHP_EOL;
 				while($row = $response->fetch_assoc()){
@@ -189,15 +190,15 @@ function requestProcessor($request)
                                 return $response;
                                 $response->close();
                                 $db->close();
-                        }
-                        catch(Exception $e){
+			}	
+			catch(Exception $e){
                                 print_r($e->getMessage());
                                 return $e->getMessage();
                 }
 
 		case 'DMZ':
 			$db = new mysqli("127.0.0.1", "brandon", "admin", "it490");
-			
+			$recipe_info = array();	
 			for($i=0; $i < 3; $i++){
 				$arr = json_decode($request[$i], true);
 				//var_dump($arr);
@@ -215,32 +216,24 @@ function requestProcessor($request)
 					continue;
 				}
 
-				/**$title = $arr['title'];
+				$title = $arr['title'];
 				$url = $arr['spoonacularSourceUrl'];
 				$id = $arr['id'];
-				$imageType = $arr['imageType'];
+				//$imageType = $arr['imageType'];
 				$imageUrl = "https://spoonacular.com/recipeImages/$id-240x150.jpg";
-				$calories = $arr['nutrition']['nutrients'][0]['amount'];
-				$vegetarian = $arr['vegetarian'];
-				$vegan = $arr['vegan'];
-				$gluten = $arr['glutenFree'];
-				$dairy = $arr['dairyFree'];
-
-				$recipe = "insert into recipes(name, calories, url, image, recipe_id) values('$title', $calories, '$url', '$imageUrl', $id)"; 
-				$restrictions = "insert into recipe_restrictions(vegetarian, vegan, glutenFree, dairyFree) values ('$vegetarian', '$vegan', '$gluten', '$dairy')";
-				$ingredients
-
-				$response1 = $db->query($recipe);
-				$response2 = $db->query($restrictions);
-				//$response3 = $db->query($ingredients);
-
-				var_dump($response1);
-				var_dump($response2);
-				var_dump($response3);
-				echo "$title, $url, $id, $imageType, $imageUrl, $calories";*/
-
+				//$calories = $arr['nutrition']['nutrients'][0]['amount'];
+				//$vegetarian = $arr['vegetarian'];
+				//$vegan = $arr['vegan'];
+				//$gluten = $arr['glutenFree'];
+				//$dairy = $arr['dairyFree'];
+				
+				$recipe_info[$i]['title'] = $title;
+				$recipe_info[$i]['url'] = $url;
+				$recipe_info[$i]['imageUrl'] = $imageUrl;
+				$recipe_info[$i]['id'] = $id;
 			}
-			return 1;
+			var_dump($recipe_info);
+			return $recipe_info;
 
 	}
 
