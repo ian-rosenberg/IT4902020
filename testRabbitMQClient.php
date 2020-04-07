@@ -7,13 +7,24 @@ require_once('rabbitMQLib.inc');
 $client = new rabbitMQClient("testRabbitMQ.ini","testServer");
 
 
-$request = array();
-$request['type'] = "DMZ";
+//$request = array();
+//$request['type'] = "DMZ";
 //$request['username'] = $argv[1];
 //$request['password'] = $argv[2];
-$request['message'] = "Test DMZ";
-$response = $client->send_request($request);
+//$request['message'] = "Test DMZ";
+//$response = $client->send_request($request);
 //$response = $client->publish($request);
+
+$request = array();
+$request['type'] = "Database";
+$request['query'] = "update login set loggedIn = 1 where username = '1'";
+$request['queryType'] = "login";
+$request['username'] = "1";
+$request['message'] = "processing login";
+
+$response = $client->send_request($request);
+
+
 
 echo "client received response: ".PHP_EOL;
 print_r($response);

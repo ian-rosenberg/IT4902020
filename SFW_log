@@ -143,3 +143,174 @@ Login
 04:22:40am:Get Recipe
 04:22:40am:Rabbit DMZ
 04:22:41am:
+12:30:53pm:Get Recipe
+14:28:19pm:Get Recipe
+16:35:57pm:Rabbit Machine Start
+16:57:18pm:Rabbit Test DMZ
+17:07:03pm:DB Server start
+17:07:19pm:Rabbit Test DMZ
+17:11:16pm:Rabbit Machine Start
+17:44:33pm:Rabbit Test DMZ
+17:48:02pm:Rabbit Machine Start
+17:49:00pm:Rabbit Machine Start
+17:49:30pm:DB Server start
+17:49:43pm:Rabbit Test DMZ
+17:51:04pm:Rabbit Test DMZ
+17:53:07pm:DB Server start
+17:53:22pm:Rabbit Test DMZ
+17:56:39pm:DB Server start
+17:56:57pm:Rabbit Test DMZ
+17:57:35pm:Rabbit Test DMZ
+17:58:17pm:Rabbit Test DMZ
+18:00:44pm:DB Server start
+18:01:35pm:Rabbit Test DMZ
+18:05:34pm:DB Server start
+18:06:16pm:Rabbit Test DMZ
+18:16:21pm:Rabbit Test DMZ
+18:17:55pm:Rabbit Machine Start
+18:18:38pm:Rabbit Test DMZ
+18:23:07pm:DB Server start
+18:24:57pm:Rabbit Test DMZ
+18:26:51pm:DB Server start
+18:28:32pm:Rabbit Test DMZ
+18:29:49pm:Rabbit Test DMZ
+16:47:12pm:Register
+16:47:12pm:Rabbit Register
+16:53:26pm:DB Server start
+16:53:59pm:Register
+16:53:59pm:Rabbit Register
+16:55:46pm:Register
+16:55:46pm:Rabbit Register
+16:57:45pm:Register
+16:57:45pm:Rabbit Register
+16:58:05pm:Register
+16:58:05pm:Rabbit Register
+16:58:32pm:Register
+16:58:32pm:Rabbit Register
+17:00:55pm:Login
+17:00:55pm:Rabbit Login
+17:00:55pm:1
+17:06:33pm:Login
+17:06:34pm:Rabbit Login
+18:12:07pm:DB Server start
+18:15:44pm:Rabbit processing login
+18:19:41pm:Rabbit processing login
+18:24:29pm:DB Server start
+18:24:41pm:Rabbit processing login
+18:24:56pm:DB Server start
+18:26:04pm:DB Server start
+18:26:09pm:Rabbit Machine Start
+18:26:31pm:Rabbit processing login
+18:28:09pm:DB Server start
+18:28:22pm:Rabbit processing login
+18:28:40pm:Rabbit processing login
+18:29:31pm:DB Server start
+18:29:44pm:Rabbit processing login
+19:26:33pm:Login
+19:26:33pm:Rabbit Login
+19:26:33pm:"5"
+19:28:47pm:Login
+19:28:47pm:Rabbit Login
+19:28:47pm:"5"
+19:29:40pm:Login
+19:29:40pm:Rabbit Login
+19:29:40pm:"5"
+19:30:47pm:Login
+19:30:47pm:Rabbit Login
+19:30:47pm:"5"
+19:33:01pm:Login
+19:33:01pm:Rabbit Login
+19:33:02pm:string
+19:36:06pm:DB Server start
+19:36:42pm:Login
+19:36:42pm:Rabbit Login
+19:36:42pm:string
+19:39:39pm:Logout
+19:39:39pm:Rabbit Logout
+19:40:35pm:DB Server start
+19:40:46pm:Login
+19:40:46pm:Rabbit Login
+19:40:47pm:string
+19:44:23pm:Logout
+19:44:23pm:Rabbit Logout
+19:55:20pm:Login
+19:55:20pm:Rabbit Login
+19:55:20pm:string
+19:56:07pm:Login
+19:56:07pm:Rabbit Login
+19:56:07pm:string
+19:56:19pm:Logout
+19:56:19pm:Rabbit Logout
+19:57:20pm:Login
+19:57:20pm:Rabbit Login
+19:57:20pm:string
+19:58:56pm:Get Recipe
+19:58:56pm:Rabbit 
+19:59:41pm:Rabbit Machine Start
+20:00:14pm:Get Recipe
+20:00:14pm:Rabbit 
+20:00:14pm:Store BMI response: "[empty response]"
+20:10:25pm:Store BMI
+20:10:25pm:Rabbit 
+20:10:25pm:Store BMI response: 1
+20:11:49pm:Store BMI
+20:11:49pm:Rabbit 
+20:11:49pm:Store BMI response: 1
+20:17:22pm:Store BMI
+20:17:22pm:Rabbit 
+20:17:22pm:Store BMI response: 1
+20:20:23pm:450.8
+20:20:23pm:Rabbit 
+20:20:23pm:Store BMI response: 1
+20:21:40pm:249
+20:21:40pm:Rabbit 
+20:21:40pm:Store BMI response: 1
+20:22:13pm:299.2
+20:22:13pm:Rabbit 
+20:22:13pm:Store BMI response: 1
+20:23:26pm:11
+20:23:26pm:Rabbit 
+20:23:26pm:Store BMI response: 1
+20:23:45pm:297.2
+20:23:45pm:Rabbit 
+20:23:45pm:Store BMI response: 1
+21:24:45pm:Login
+21:24:45pm:Rabbit Login
+21:24:49pm:Logout
+21:24:49pm:Rabbit Logout
+21:24:56pm:Login
+21:24:56pm:Rabbit Login
+21:25:06pm:Store BMI
+21:25:06pm:Rabbit 
+21:25:06pm:Store BMI response: 1
+21:27:11pm:Store BMR
+21:27:11pm:Rabbit 
+21:27:11pm:Store BMR response: 1
+21:29:13pm:Store BMR
+21:29:13pm:Rabbit 
+21:29:13pm:Store BMR response: 1
+21:31:07pm:Update BMR
+21:31:07pm:Rabbit 
+21:31:07pm:Store BMR response: 1
+21:33:01pm:Update BMR
+21:33:01pm:Rabbit 
+21:33:02pm:Store BMR response: 1
+21:35:49pm:Rabbit Machine Start
+21:36:13pm:Update BMR
+21:36:13pm:Rabbit 
+21:36:13pm:Store BMR response: 1
+21:39:48pm:Rabbit Machine Start
+21:40:09pm:Login
+21:40:09pm:Rabbit Login
+21:40:24pm:Store BMI
+21:40:24pm:Rabbit 
+21:40:24pm:Store BMI response: 1
+21:41:56pm:DB Server start
+21:43:00pm:Update BMR
+21:43:00pm:Rabbit 
+21:45:18pm:Update BMR
+21:45:18pm:Rabbit 
+21:48:22pm:Update BMR
+21:48:22pm:Rabbit 
+21:49:50pm:Update BMR
+21:49:50pm:Rabbit 
