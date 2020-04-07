@@ -1,6 +1,9 @@
 <?php
 session_start();
 
+require_once("sendDisLog.php");
+require_once("testClient.php.inc");
+
 if(isset($_POST['subdata']) && ($_POST['subdata']) == "Submit"){
 	extract($_POST);
 
@@ -53,7 +56,33 @@ if(isset($_POST['subdata']) && ($_POST['subdata']) == "Submit"){
 			}       
 		}
 		
-		$_SESSION['bmi'] = $result;
+		$_SESSION['bmi'] = $bmi;
+		$_SESSION['bmiResult'] = $result;
+
+		if($unit != 'Metric')
+		{
+			$metric = 1;
+		}
+		else
+		{
+			$metric = -1;
+		}
+
+		$_SESSION['bmiMetric'] = $metric;
+
+		$_SESSION['bmiHeight'] = $height;
+		$_SESSION['bmiWeight'] = $weight; 
+
+		$client = new Client();
+		
+		$response = $client->StoreBMI($bmi, $height, $weight, $_SESSION['userID'], $metric);
+
+		SendToLogger("Store BMI response: " . $response);
+
+		sleep(2);
+
+		header('Location: profilePage.php');
+
 	}
 	elseif($unit == 'pick' || empty($weight) || empty($height))
 	{
@@ -84,7 +113,6 @@ if(isset($_POST['subdata']) && ($_POST['subdata']) == "Submit"){
                                 Weight: <input type="number" name="weight" placeholder="(In lbs or kg)"> <br /><br />
                                 Height: <input type="number" name="height" placeholder="(In inches or cm)"> <br /><br />
 				<input type="submit" name="subdata" id="subdata" class="btn" value="Submit"/><br /><br />
-				Result: <?php if(!empty($result)){echo $result; sleep(5); header('Location: profilePage.php'); exit;}?> 
                         </form>
 		</div>
         </body>

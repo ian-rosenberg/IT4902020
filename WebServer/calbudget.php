@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+require_once("sendDisLog.php");
+require_once("testClient.php.inc");
 
   if(isset($_POST['subdata']) && ($_POST['subdata']) == "Submit"){
 	  extract($_POST);
@@ -305,10 +307,29 @@ session_start();
 			}
 		  }
 		  
-		  $_SESSION['bmr'] = $result;
-		  $_SESSION['cal'] = $cal;
+		  if($unit == 'Metric')
+		  {
+		  	$metricFlag = 1;
+		  }
+		  else
+		  {
+		  	$metricFlag = -1;
+		  }
+
+		  $_SESSION['weightchange'] $weightchange;
+		  $_SESSION['losegain'] = $losegain;
+		  $_SESSION['bmr'] = $bmr;
+		  $_SESSION['days'] = $days;
+		  $_SESSION['calories'] = $cal;
+		  $_SESSION['metric'] = $metricFlag;
 		  
-		  sleep(5);
+		  $client = new Client();
+
+                  $response = $client->StoreBMR( $losechange, $weightchange, $cal, $bmr, $height, $weight, $_SESSION['userID'], $metricFlag);
+
+                  SendToLogger("Store BMR response: " . $response);
+
+		  sleep(2);
 		  
 		  header("profilePage.php");
 	  }
@@ -362,7 +383,6 @@ session_start();
 			How Much Weight: <input type="number" min="0" max="1000" name="weightchange" placeholder="Enter change in weight wanted (lbs or kg)"><br /><br />
 			Time Period: <input type="number" min="0" max="3650" name="days" placeholder="Enter the number of days"><br /><br />
 			<input type="submit" name="subdata" id="subdata" class="btn" value="Submit"/><br /><br />
-			Result: <?php if(!empty($result)){echo $result; sleep(5); header('Location: profilePage.php'); exit;}?>
 			</form>
 		</div>
 	</body>

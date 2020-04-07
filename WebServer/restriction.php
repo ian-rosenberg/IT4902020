@@ -14,6 +14,7 @@ if(isset($_POST['subdata']) && ($_POST['subdata']) == "Submit"){
 		$request['username'] = "Poopy";
 		$request['type'] = 'Database';
 		$request['queryType'] = 'insert';
+		//FIX QUERY
 		$request['query'] = "insert into restrictions(id, restriction) SELECT login.id, '$restriction' from login where login.username = '$un'";
 		//$request['query'] = "SELECT * from restrictions";
 		$request['message'] = "Here's your stink'in restrictions ya filthy animal";
@@ -88,7 +89,8 @@ if(isset($_POST['subdata']) && ($_POST['subdata']) == "Submit"){
 							sleep(3);
 
 							header("Location: profilePage.php");
-						}?> 
+						}
+					?> 
                         </form>
 		</div>
         </body>
