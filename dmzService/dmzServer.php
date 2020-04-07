@@ -12,9 +12,30 @@ function requestProcessor($request)
 {
 	#RETURN WHATEVER NEEDS TO BE SENT TO RABBITMQ
 		$curl = curl_init();
+		$vegan = null;
+		$vegetarian = null;
+		$dairy = null;
+		$gluten = null;
+		$calories = $request['calories'];	
+		
+		if($request['vegan'] == 1){
+			$vegan = 'vegan';
+		}
+
+		if($request['vegetarian'] == 1){
+			$vegetarian = 'vegetarian';
+		}
+
+		if($request['dairyFree'] == 1){
+			$dairy = 'dairy';
+		}
+
+		if($request['glutenFree'] == 1){
+			$gluten = 'gluten';
+		}	
 
 	curl_setopt_array($curl, array(
-		CURLOPT_URL => "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/mealplans/generate?timeFrame=day&targetCalories=2000",
+		CURLOPT_URL => "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/mealplans/generate?timeFrame=day&targetCalories=$calories&diet=$vegan%252C%20$vegetarian&exclude=$gluten%252C%20$dairy",
 	CURLOPT_RETURNTRANSFER => true,
 	CURLOPT_FOLLOWLOCATION => true,
 	CURLOPT_ENCODING => "",
@@ -42,7 +63,7 @@ function requestProcessor($request)
 
 	$recipesid = getRecipeid(json_decode($response, true));
 	$recipes = getRecipes($recipesid);
-		
+	$recipes['id'] = $request['userID'];
 	return($recipes);
 }
 

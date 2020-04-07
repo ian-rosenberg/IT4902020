@@ -17,14 +17,17 @@ $client = new rabbitMQClient("testRabbitMQ.ini","testServer");
 
 $request = array();
 $request['type'] = "Database";
-$request['query'] = "update login set loggedIn = 1 where username = '1'";
-$request['queryType'] = "login";
-$request['username'] = "1";
-$request['message'] = "processing login";
+$request['query'] = "select vegan, vegetarian, dairyFree, glutenFree, calories from restrictions join calbudget where restrictions.id = 5 and calbudget.id = 5";
+$request['queryType'] = "select";
+$request['username'] = "5";
+$request['message'] = "getting restrictions";
 
 $response = $client->send_request($request);
 
-
+print_r($response[0]['vegan']);
+print_r($response[0]['vegetarian']);
+print_r($response[0]['dairyFree']);
+print_r($response[0]['glutenFree']);
 
 echo "client received response: ".PHP_EOL;
 print_r($response);
