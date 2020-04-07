@@ -172,15 +172,18 @@
 	  <?php
 		if(!empty($_SESSION['likedislikes']));
 		{
-			$index = 0;
-
 			echo "<ul>";
 
-			foreach($_SESSION['toLikeDislike'] as $item)
+			for($i = 0; $i < 3; $i++)
 			{
-				//This will need to change
-				echo '<li><img src=$item["imgUrl"] alt=$item["name"]>$item["name"]</li>
-				<li><button type="button" id="like$index" onclick="invoke" name="VoteRecipe" data-arg1=$index disabled>Like</button>
+				$imgUrl = $_SESSION['likesdislikes'][$i]['imgUrl'];
+				$title = $_SESSION['likesdislikes'][$i]['title'];
+				$url = $_SESSION['likesdislikes'][$i]['url'];
+	
+
+				echo '<li><img src='$imgUrl' alt='$title'><a href='$url'>$title</a>
+				</li><li><button type="button" id="like$index" 
+				onclick="invoke" name="VoteRecipe" data-arg1=$index disabled>Like</button>
 				<button type="button" id="dislike$index" onclick="invoke" name="VoteRecipe" data-arg1=$index disable>Dislike</button></li>';
 				
 				$index++;

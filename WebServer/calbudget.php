@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-require_once("sendDisLog.php");
-require_once("testClient.php.inc");
+require_once('testClient.php.inc');
+require_once('sendDisLog.php');
 
   if(isset($_POST['subdata']) && ($_POST['subdata']) == "Submit"){
 	  extract($_POST);
@@ -17,33 +17,33 @@ require_once("testClient.php.inc");
 					  
 					  if($activitylevel == 'Sedentary'){
                       				$multbmr = $bmrcalc * 1.2;
-                      				$bmr = number_format($multbmr, 0);
-                      				$cal = number_format($multbmr - (((500 / $days) * 7) / $weightchange));
+                      				$bmr = $multbmr;
+                      				$cal = ($multbmr - (((500 / $days) * 7) / $weightchange));
                       				$result = "Your Basal Metabolic Rate is $bmr calories a day. <br /> To $losegain $weightchange pound in $days days, your caloric budget would be $cal calories every day.<br /><br />";
 					  }
 					  elseif($activitylevel == 'Light'){
 						$multbmr = $bmrcalc * 1.375;
-                                                $bmr = number_format($multbmr, 0);
-                                                $cal = number_format($multbmr - (((500 / $days) * 7) / $weightchange));
+                                                $bmr = $multbmr;
+                                                $cal = ($multbmr - (((500 / $days) * 7) / $weightchange));
                                                 $result = "Your Basal Metabolic Rate is $bmr calories a day. <br /> To $losegain $weightchange pound in $days days, your caloric budget would be $cal calories every day.<br /><br />";
 
 					  }
 					  elseif($activitylevel == 'Moderate'){
                       				$multbmr = $bmrcalc * 1.55;
-                      				$bmr = number_format($multbmr, 0);
-                      				$cal = number_format($multbmr - (((500 / $days) * 7) / $weightchange));
+                      				$bmr = $multbmr;
+                      				$cal = ($multbmr - (((500 / $days) * 7) / $weightchange));
                       				$result = "Your Basal Metabolic Rate is $bmr calories a day. <br /> To $losegain $weightchange pound in $days days, your caloric budget would be $cal calories every day.<br /><br />";
 					  }
 					  elseif($activitylevel == 'Very'){
                       				$multbmr = $bmrcalc * 1.725;
-                      				$bmr = number_format($multbmr, 0);
-                      				$cal = number_format($multbmr - (((500 / $days) * 7) / $weightchange));
+                      				$bmr = $multbmr;
+                      				$cal = ($multbmr - (((500 / $days) * 7) / $weightchange));
                       				$result = "Your Basal Metabolic Rate is $bmr calories a day. <br /> To $losegain $weightchange pound in $days days, your caloric budget would be $cal calories every day.<br /><br />";
 					  }
 					  elseif($activitylevel == 'Extremely'){
                       				$multbmr = $bmrcalc * 1.9;
-                      				$bmr = number_format($multbmr, 0);
-                      				$cal = number_format($multbmr - (((500 / $days) * 7) / $weightchange));
+                      				$bmr = $multbmr;
+                      				$cal = ($multbmr - (((500 / $days) * 7) / $weightchange));
                       				$result = "Your Basal Metabolic Rate is $bmr calories a day. <br /> To $losegain $weightchange pound in $days days, your caloric budget would be $cal calories every day.<br /><br />";
 					  }
 
@@ -55,32 +55,32 @@ require_once("testClient.php.inc");
 					
 					if($activitylevel == 'Sedentary'){
                       				$multbmr = $bmrcalc * 1.2;
-                      				$bmr = number_format($multbmr, 0);
-                      				$cal = number_format($multbmr - (((500 / $days) * 7) / $weightchange));
+                      				$bmr = $multbmr;
+                      				$cal = ($multbmr - (((500 / $days) * 7) / $weightchange));
                       				$result = "Your Basal Metabolic Rate is $bmr calories a day. <br /> To $losegain $weightchange pound in $days days, your caloric budget would be $cal calories every day.<br /><br />";
 					}
 					elseif($activitylevel == 'Light'){
                       				$multbmr = $bmrcalc * 1.375;
-                      				$bmr = number_format($multbmr, 0);
-                      				$cal = number_format($multbmr - (((500 / $days) * 7) / $weightchange));
+                      				$bmr = $multbmr;
+                      				$cal = ($multbmr - (((500 / $days) * 7) / $weightchange));
                       				$result = "Your Basal Metabolic Rate is $bmr calories a day. <br /> To $losegain $weightchange pound in $days days, your caloric budget would be $cal calories every day.<br /><br />";
 					}
 					elseif($activitylevel == 'Moderate'){
                       				$multbmr = $bmrcalc * 1.55;
-                      				$bmr = number_format($multbmr, 0);
-                      				$cal = number_format($multbmr - (((500 / $days) * 7) / $weightchange));
+                      				$bmr = $multbmr;
+                      				$cal = ($multbmr - (((500 / $days) * 7) / $weightchange));
                       				$result = "Your Basal Metabolic Rate is $bmr calories a day. <br /> To $losegain $weightchange pound in $days days, your caloric budget would be $cal calories every day.<br /><br />";
 					}
 					elseif($activitylevel == 'Very'){
                       				$multbmr = $bmrcalc * 1.725;
-                      				$bmr = number_format($multbmr, 0);
-                      				$cal = number_format($multbmr - (((500 / $days) * 7) / $weightchange));
+                      				$bmr = $multbmr;
+                      				$cal = ($multbmr - (((500 / $days) * 7) / $weightchange));
                       				$result = "Your Basal Metabolic Rate is $bmr calories a day. <br /> To $losegain $weightchange pound in $days days, your caloric budget would be $cal calories every day.<br /><br />";
 					}
 					elseif($activitylevel == 'Extremely'){
                       				$multbmr = $bmrcalc * 1.9;
-                      				$bmr = number_format($multbmr, 0);
-                      				$cal = number_format($multbmr - (((500 / $days) * 7) / $weightchange));
+                      				$bmr = $multbmr;
+                      				$cal = ($multbmr - (((500 / $days) * 7) / $weightchange));
 						$result = "Your Basal Metabolic Rate is $bmr calories a day. <br /> To $losegain $weightchange pound in $days days, your caloric budget would be $cal calories every day.<br /><br />";
 					}
 				  }
@@ -94,33 +94,33 @@ require_once("testClient.php.inc");
 
                                           if($activitylevel == 'Sedentary'){
                                                 $multbmr = $bmrcalc * 1.2;
-                                                $bmr = number_format($multbmr, 0);
-                                                $cal = number_format($multbmr + (((500 / $days) * 7) / $weightchange));
+                                                $bmr = $multbmr;
+                                                $cal = ($multbmr + (((500 / $days) * 7) / $weightchange));
                                                 $result = "Your Basal Metabolic Rate is $bmr calories a day. <br /> To $losegain $weightchange pound in $days days, your caloric budget would be $cal calories every day.<br /><br />";
                                           }
                                           elseif($activitylevel == 'Light'){
                                                 $multbmr = $bmrcalc * 1.375;
-                                                $bmr = number_format($multbmr, 0);
-                                                $cal = number_format($multbmr + (((500 / $days) * 7) / $weightchange));
+                                                $bmr = $multbmr;
+                                                $cal = ($multbmr + (((500 / $days) * 7) / $weightchange));
                                                 $result = "Your Basal Metabolic Rate is $bmr calories a day. <br /> To $losegain $weightchange pound in $days days, your caloric budget would be $cal calories every day.<br /><br />";
 
                                           }
                                           elseif($activitylevel == 'Moderate'){
                                                 $multbmr = $bmrcalc * 1.55;
-                                                $bmr = number_format($multbmr, 0);
-                                                $cal = number_format($multbmr + (((500 / $days) * 7) / $weightchange));
+                                                $bmr = $multbmr;
+                                                $cal = ($multbmr + (((500 / $days) * 7) / $weightchange));
                                                 $result = "Your Basal Metabolic Rate is $bmr calories a day. <br /> To $losegain $weightchange pound in $days days, your caloric budget would be $cal calories every day.<br /><br />";
                                           }
                                           elseif($activitylevel == 'Very'){
                                                 $multbmr = $bmrcalc * 1.725;
-                                                $bmr = number_format($multbmr, 0);
-                                                $cal = number_format($multbmr + (((500 / $days) * 7) / $weightchange));
+                                                $bmr = $multbmr;
+                                                $cal = ($multbmr + (((500 / $days) * 7) / $weightchange));
                                                 $result = "Your Basal Metabolic Rate is $bmr calories a day. <br /> To $losegain $weightchange pound in $days days, your caloric budget would be $cal calories every day.<br /><br />";
                                           }
                                           elseif($activitylevel == 'Extremely'){
                                                 $multbmr = $bmrcalc * 1.9;
-                                                $bmr = number_format($multbmr, 0);
-                                                $cal = number_format($multbmr + (((500 / $days) * 7) / $weightchange));
+                                                $bmr = $multbmr;
+                                                $cal = ($multbmr + (((500 / $days) * 7) / $weightchange));
                                                 $result = "Your Basal Metabolic Rate is $bmr calories a day. <br /> To $losegain $weightchange pound in $days days, your caloric budget would be $cal calories every day.<br /><br />";
                                           }
                                   }
@@ -132,32 +132,32 @@ require_once("testClient.php.inc");
 
                                         if($activitylevel == 'Sedentary'){
                                                 $multbmr = $bmrcalc * 1.2;
-                                                $bmr = number_format($multbmr, 0);
-                                                $cal = number_format($multbmr + (((500 / $days) * 7) / $weightchange));
+                                                $bmr = $multbmr;
+                                                $cal = ($multbmr + (((500 / $days) * 7) / $weightchange));
                                                 $result = "Your Basal Metabolic Rate is $bmr calories a day. <br /> To $losegain $weightchange pound in $days days, your caloric budget would be $cal calories every day.<br /><br />";
                                         }
                                         elseif($activitylevel == 'Light'){
                                                 $multbmr = $bmrcalc * 1.375;
-                                                $bmr = number_format($multbmr, 0);
-                                                $cal = number_format($multbmr + (((500 / $days) * 7) / $weightchange));
+                                                $bmr = $multbmr;
+                                                $cal = ($multbmr + (((500 / $days) * 7) / $weightchange));
                                                 $result = "Your Basal Metabolic Rate is $bmr calories a day. <br /> To $losegain $weightchange pound in $days days, your caloric budget would be $cal calories every day.<br /><br />";
                                         }
                                         elseif($activitylevel == 'Moderate'){
                                                 $multbmr = $bmrcalc * 1.55;
-                                                $bmr = number_format($multbmr, 0);
-                                                $cal = number_format($multbmr + (((500 / $days) * 7) / $weightchange));
+                                                $bmr = $multbmr;
+                                                $cal = ($multbmr + (((500 / $days) * 7) / $weightchange));
                                                 $result = "Your Basal Metabolic Rate is $bmr calories a day. <br /> To $losegain $weightchange pound in $days days, your caloric budget would be $cal calories every day.<br /><br />";
                                         }
                                         elseif($activitylevel == 'Very'){
                                                 $multbmr = $bmrcalc * 1.725;
-                                                $bmr = number_format($multbmr, 0);
-                                                $cal = number_format($multbmr + (((500 / $days) * 7) / $weightchange));
+                                                $bmr = $multbmr;
+                                                $cal = ($multbmr + (((500 / $days) * 7) / $weightchange));
                                                 $result = "Your Basal Metabolic Rate is $bmr calories a day. <br /> To $losegain $weightchange pound in $days days, your caloric budget would be $cal calories every day.<br /><br />";
                                         }
                                         elseif($activitylevel == 'Extremely'){
                                                 $multbmr = $bmrcalc * 1.9;
-                                                $bmr = number_format($multbmr, 0);
-                                                $cal = number_format($multbmr + (((500 / $days) * 7) / $weightchange));
+                                                $bmr = $multbmr;
+                                                $cal = ($multbmr + (((500 / $days) * 7) / $weightchange));
                                                 $result = "Your Basal Metabolic Rate is $bmr calories a day. <br /> To $losegain $weightchange pound in $days, your caloric budget would be $cal calories every day.<br /><br />";
                                         }
                                   }
@@ -170,33 +170,33 @@ require_once("testClient.php.inc");
 
                                           if($activitylevel == 'Sedentary'){
                                                 $multbmr = $bmrcalc * 1.2;
-                                                $bmr = number_format($multbmr, 0);
-                                                $cal = number_format($multbmr - (((500 / $days) * 7) / $weightchange));
+                                                $bmr = $multbmr;
+                                                $cal = ($multbmr - (((500 / $days) * 7) / $weightchange));
                                                 $result = "Your Basal Metabolic Rate is $bmr calories a day. <br /> To $losegain $weightchange pound in $days days, your caloric budget would be $cal calories every day.<br /><br />";
                                           }
                                           elseif($activitylevel == 'Light'){
                                                 $multbmr = $bmrcalc * 1.375;
-                                                $bmr = number_format($multbmr, 0);
-                                                $cal = number_format($multbmr - (((500 / $days) * 7) / $weightchange));
+                                                $bmr = $multbmr;
+                                                $cal = ($multbmr - (((500 / $days) * 7) / $weightchange));
                                                 $result = "Your Basal Metabolic Rate is $bmr calories a day. <br /> To $losegain $weightchange pound in $days days, your caloric budget would be $cal calories every day.<br /><br />";
 
                                           }
                                           elseif($activitylevel == 'Moderate'){
                                                 $multbmr = $bmrcalc * 1.55;
-                                                $bmr = number_format($multbmr, 0);
-                                                $cal = number_format($multbmr - (((500 / $days) * 7) / $weightchange));
+                                                $bmr = $multbmr;
+                                                $cal = ($multbmr - (((500 / $days) * 7) / $weightchange));
                                                 $result = "Your Basal Metabolic Rate is $bmr calories a day. <br /> To $losegain $weightchange pound in $days days, your caloric budget would be $cal calories every day.<br /><br />";
                                           }
                                           elseif($activitylevel == 'Very'){
                                                 $multbmr = $bmrcalc * 1.725;
-                                                $bmr = number_format($multbmr, 0);
-                                                $cal = number_format($multbmr - (((500 / $days) * 7) / $weightchange));
+                                                $bmr = $multbmr;
+                                                $cal = ($multbmr - (((500 / $days) * 7) / $weightchange));
                                                 $result = "Your Basal Metabolic Rate is $bmr calories a day. <br /> To $losegain $weightchange pound in $days days, your caloric budget would be $cal calories every day.<br /><br />";
                                           }
                                           elseif($activitylevel == 'Extremely'){
                                                 $multbmr = $bmrcalc * 1.9;
-                                                $bmr = number_format($multbmr, 0);
-                                                $cal = number_format($multbmr - (((500 / $days) * 7) / $weightchange));
+                                                $bmr = $multbmr;
+                                                $cal = ($multbmr - (((500 / $days) * 7) / $weightchange));
                                                 $result = "Your Basal Metabolic Rate is $bmr calories a day. <br /> To $losegain $weightchange pound in $days days, your caloric budget would be $cal calories every day.<br /><br />";
                                           }
                                   }
@@ -205,32 +205,32 @@ require_once("testClient.php.inc");
 					
 					  if($activitylevel == 'Sedentary'){
                                                 $multbmr = $bmrcalc * 1.2;
-                                                $bmr = number_format($multbmr, 0);
-                                                $cal = number_format($multbmr - (((500 / $days) * 7) / $weightchange));
+                                                $bmr = $multbmr;
+                                                $cal = ($multbmr - (((500 / $days) * 7) / $weightchange));
                                                 $result = "Your Basal Metabolic Rate is $bmr calories a day. <br /> To $losegain $weightchange pound in $days days, your caloric budget would be $cal calories every day.<br /><br />";
                                           }
                                           elseif($activitylevel == 'Light'){
                                                 $multbmr = $bmrcalc * 1.375;
-                                                $bmr = number_format($multbmr, 0);
-                                                $cal = number_format($multbmr - (((500 / $days) * 7) / $weightchange));
+                                                $bmr = $multbmr;
+                                                $cal = ($multbmr - (((500 / $days) * 7) / $weightchange));
                                                 $result = "Your Basal Metabolic Rate is $bmr calories a day. <br /> To $losegain $weightchange pound in $days, your caloric budget would be $cal calories every day.<br /><br />";
                                           }
 					  elseif($activitylevel == 'Moderate'){
                                                 $multbmr = $bmrcalc * 1.55;
-                                                $bmr = number_format($multbmr, 0);
-                                                $cal = number_format($multbmr - (((500 / $days) * 7) / $weightchange));
+                                                $bmr = $multbmr;
+                                                $cal = ($multbmr - (((500 / $days) * 7) / $weightchange));
                                                 $result = "Your Basal Metabolic Rate is $bmr calories a day. <br /> To $losegain $weightchange pound in $days days, your caloric budget would be $cal calories every day.<br /><br />";
                                           }
                                           elseif($activitylevel == 'Very'){
                                                 $multbmr = $bmrcalc * 1.725;
-                                                $bmr = number_format($multbmr, 0);
-                                                $cal = number_format($multbmr - (((500 / $days) * 7) / $weightchange));
+                                                $bmr = $multbmr;
+                                                $cal = ($multbmr - (((500 / $days) * 7) / $weightchange));
                                                 $result = "Your Basal Metabolic Rate is $bmr calories a day. <br /> To $losegain $weightchange pound in $days days, your caloric budget would be $cal calories every day.<br /><br />";
                                           }
                                           elseif($activitylevel == 'Extremely'){
                                                 $multbmr = $bmrcalc * 1.9;
-                                                $bmr = number_format($multbmr, 0);
-                                                $cal = number_format($multbmr - (((500 / $days) * 7) / $weightchange));
+                                                $bmr = $multbmr;
+                                                $cal = ($multbmr - (((500 / $days) * 7) / $weightchange));
                                                 $result = "Your Basal Metabolic Rate is $bmr calories a day. <br /> To $losegain $weightchange pound in $days days, your caloric budget would be $cal calories every day.<br /><br />";
                                           }
 				  }
@@ -241,32 +241,32 @@ require_once("testClient.php.inc");
 
                                         if($activitylevel == 'Sedentary'){
                                               	$multbmr = $bmrcalc * 1.2;
-                                              	$bmr = number_format($multbmr, 0);
-                                              	$cal = number_format($multbmr + (((500 / $days) * 7) / $weightchange));
+                                              	$bmr = $multbmr;
+                                              	$cal = ($multbmr + (((500 / $days) * 7) / $weightchange));
                                               	$result = "Your Basal Metabolic Rate is $bmr calories a day. <br /> To $losegain $weightchange pound in $days days, your caloric budget would be $cal calories every day.<br /><br />";
                                         }
                                         elseif($activitylevel == 'Light'){
                                               	$multbmr = $bmrcalc * 1.375;
-                                              	$bmr = number_format($multbmr, 0);
-                                              	$cal = number_format($multbmr + (((500 / $days) * 7) / $weightchange));
+                                              	$bmr = $multbmr;
+                                              	$cal = ($multbmr + (((500 / $days) * 7) / $weightchange));
                                               	$result = "Your Basal Metabolic Rate is $bmr calories a day. <br /> To $losegain $weightchange pound in $days days, your caloric budget would be $cal calories every day.<br /><br />";
                                         }
                                         elseif($activitylevel == 'Moderate'){
                                               	$multbmr = $bmrcalc * 1.55;
-                                              	$bmr = number_format($multbmr, 0);
-                                              	$cal = number_format($multbmr + (((500 / $days) * 7) / $weightchange));
+                                              	$bmr = $multbmr;
+                                              	$cal = ($multbmr + (((500 / $days) * 7) / $weightchange));
                                               	$result = "Your Basal Metabolic Rate is $bmr calories a day. <br /> To $losegain $weightchange pound in $days days, your caloric budget would be $cal calories every day.<br /><br />";
                                         }
                                         elseif($activitylevel == 'Very'){
                                               	$multbmr = $bmrcalc * 1.725;
-                                              	$bmr = number_format($multbmr, 0);
-                                              	$cal = number_format($multbmr + (((500 / $days) * 7) / $weightchange));
+                                              	$bmr = $multbmr;
+                                              	$cal = ($multbmr + (((500 / $days) * 7) / $weightchange));
                                               	$result = "Your Basal Metabolic Rate is $bmr calories a day. <br /> To $losegain $weightchange pound in $days days, your caloric budget would be $cal calories every day.<br /><br />";
                                         }
 					elseif($activitylevel == 'Extremely'){
                                               	$multbmr = $bmrcalc * 1.9;
-                                              	$bmr = number_format($multbmr, 0);
-                                              	$cal = number_format($multbmr + (((500 / $days) * 7) / $weightchange));
+                                              	$bmr = $multbmr;
+                                              	$cal = ($multbmr + (((500 / $days) * 7) / $weightchange));
                                               	$result = "Your Basal Metabolic Rate is $bmr calories a day. <br /> To $losegain $weightchange pound in $days days, your caloric budget would be $cal calories every day.<br /><br />";
                                         }
                                   }
@@ -275,39 +275,39 @@ require_once("testClient.php.inc");
 
 					if($activitylevel == 'Sedentary'){
                                                 $multbmr = $bmrcalc * 1.2;
-                                                $bmr = number_format($multbmr, 0);
-                                                $cal = number_format($multbmr + (((500 / $days) * 7) / $weightchange));
+                                                $bmr = $multbmr;
+                                                $cal = ($multbmr + (((500 / $days) * 7) / $weightchange));
                                                 $result = "Your Basal Metabolic Rate is $bmr calories a day. <br /> To $losegain $weightchange pound in $days days, your caloric budget would be $cal calories every day.<br /><br />";
                                         }
                                         elseif($activitylevel == 'Light'){
                                                 $multbmr = $bmrcalc * 1.375;
-                                                $bmr = number_format($multbmr, 0);
-                                                $cal = number_format($multbmr + (((500 / $days) * 7) / $weightchange));
+                                                $bmr = $multbmr;
+                                                $cal = ($multbmr + (((500 / $days) * 7) / $weightchange));
                                                 $result = "Your Basal Metabolic Rate is $bmr calories a day. <br /> To $losegain $weightchange pound in $days days, your caloric budget would be $cal calories every day.<br /><br />";
                                         }
                                         elseif($activitylevel == 'Moderate'){
                                                 $multbmr = $bmrcalc * 1.55;
-                                                $bmr = number_format($multbmr, 0);
-                                                $cal = number_format($multbmr + (((500 / $days) * 7) / $weightchange));
+                                                $bmr = $multbmr;
+                                                $cal = ($multbmr + (((500 / $days) * 7) / $weightchange));
                                                 $result = "Your Basal Metabolic Rate is $bmr calories a day. <br /> To $losegain $weightchange pound in $days days, your caloric budget would be $cal calories every day.<br /><br />";
                                         }
                                         elseif($activitylevel == 'Very'){
                                                 $multbmr = $bmrcalc * 1.725;
-                                                $bmr = number_format($multbmr, 0);
-                                                $cal = number_format($multbmr + (((500 / $days) * 7) / $weightchange));
+                                                $bmr = $multbmr;
+                                                $cal = ($multbmr + (((500 / $days) * 7) / $weightchange));
                                                 $result = "Your Basal Metabolic Rate is $bmr calories a day. <br /> To $losegain $weightchange pound in $days days, your caloric budget would be $cal calories every day.<br /><br />";
                                         }
                                         elseif($activitylevel == 'Extremely'){
                                                 $multbmr = $bmrcalc * 1.9;
-                                                $bmr = number_format($multbmr, 0);
-                                                $cal = number_format($multbmr + (((500 / $days) * 7) / $weightchange));
+                                                $bmr = $multbmr;
+                                                $cal = ($multbmr + (((500 / $days) * 7) / $weightchange));
                                                 $result = "Your Basal Metabolic Rate is $bmr calories a day. <br /> To $losegain $weightchange pound in $days days, your caloric budget would be $cal calories every day.<br /><br />";
                                         }
                                   }
 			}
 		  }
 		  
-		  if($unit == 'Metric')
+		   if($unit == 'Metric')
 		  {
 		  	$metricFlag = 1;
 		  }
@@ -316,22 +316,16 @@ require_once("testClient.php.inc");
 		  	$metricFlag = -1;
 		  }
 
-		  $_SESSION['weightchange'] $weightchange;
-		  $_SESSION['losegain'] = $losegain;
 		  $_SESSION['bmr'] = $bmr;
-		  $_SESSION['days'] = $days;
-		  $_SESSION['calories'] = $cal;
-		  $_SESSION['metric'] = $metricFlag;
+		  $_SESSION['bmrResult'] = $result;
 		  
 		  $client = new Client();
 
-                  $response = $client->StoreBMR( $losechange, $weightchange, $cal, $bmr, $height, $weight, $_SESSION['userID'], $metricFlag);
+                  $response = $client->StoreBMR( $losegain, $weightchange, $cal, $bmr, $_SESSION['userID'], $metricFlag, $days);
 
-                  SendToLogger("Store BMR response: " . $response);
-
-		  sleep(2);
+		  sleep(5);
 		  
-		  header("profilePage.php");
+		  header("Location: profilePage.php");
 	  }
 	  elseif($unit == 'pick' || $gender == 'pick' || $activitylevel == 'pick' || $losegain == 'pick' || empty($age) || empty($weight) || empty($height)){
           	$result = "Please fill out everything.";
@@ -383,9 +377,8 @@ require_once("testClient.php.inc");
 			How Much Weight: <input type="number" min="0" max="1000" name="weightchange" placeholder="Enter change in weight wanted (lbs or kg)"><br /><br />
 			Time Period: <input type="number" min="0" max="3650" name="days" placeholder="Enter the number of days"><br /><br />
 			<input type="submit" name="subdata" id="subdata" class="btn" value="Submit"/><br /><br />
+			Result: <?php echo $result; sleep(5); header('profilePage.php');?>
 			</form>
 		</div>
 	</body>
 </html>
-
-

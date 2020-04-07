@@ -102,24 +102,43 @@ Class Client{
                 return json_encode($response);
         }
 
-	public function GetRecipe($username, $sessionType) {
+	public function GetRecipe($username, $sessID) {
 
                 $client = new rabbitMQClient("testRabbitMQ.ini", "testServer");
-
+		$clientB = new rabbitMQClient("testRabbitMQ.ini", "brandonServer");
                 if(!$client){
                         return "Did not get new client";
                 }
 
-                SendToLogger("Get Recipe");
+		$request = array();
+                $request['type'] = 'Database';
+                $request['queryType'] = 'select';
+		$request['query'] = "select vegan, vegetarian, dairyFree, glutenFree, calories from restrictions join calbudget where restrictions.id = $sessID and calbudget.id = $sessID";
+		$request['message'] = 'recipe restrictions';
+		SendToLogger("Get recipe Restrctions");
 
-                $request = array();
-                $request['username'] = $username;
+		$r1 = $client->send_request($request);
+
+		$vegetarian = $r1[0]['vegetarian'];
+		$dairyFree = $r1[0]['dairyFree'];
+		$glutenFree = $r1[0]['glutenFree'];
+		$dairyFree = $r1[0]['dairyFree'];
+		$vegan = $r1[0]['vegan'];
+		$calories = $r1[0]['calories'];
+
+		$request = array();
+		$request['calories'] = $calories;	
+		$request['userID'] = $sessID;
+                $request['vegetarian'] = $vegetarian;
+		$request['vegan'] = $vegan;
+		$request['dairyFree'] = $dairyFree;
+		$request['glutenFree'] = $glutenFree;
                 $request['type'] = 'DMZ';
-                $request['message'] = $sessionType;
+		$request['message']= 'getting recipes';
 
-                $response = $client->send_request($request);
-                //$response = $client->publish($request);
-                return json_encode($response);
+                $response = $clientB->send_request($request);
+                
+                return $response;
         }
 
 	public function StoreBMI($bmi, $height, $weight, $userID, $metricFlag) {
@@ -145,7 +164,7 @@ Class Client{
                 return json_encode($response);
         }
 
-	public function StoreBMR($losechange, $weightchange, $calories, $bmr, $height, $weight, $userID, $metricFlag) {
+	public function StoreBMR($losegain, $weightchange, $calories, $bmr, $userID, $metricFlag, $days) {
 
                 $client = new rabbitMQClient("testRabbitMQ.ini", "testServer");
 
@@ -153,19 +172,19 @@ Class Client{
                         return "Did not get new client";
                 }
 
-                SendToLogger("Store BMR");
+                SendToLogger("Update BMR");
 
                 $request = array();
                 $request['userBMI'] = $bmi;
                 $request['metric'] = $metricFlag;
                 $request['type'] = 'Database';
                 $request['queryType'] = 'update';
-		$request['query'] = "update calbudget set height = '$height', weight = '$weight', bmr = '$bmr', losechange = '$losechange', weightchange = '$weightchange', days = '$days', calories = '$calories', metric = '$metricFlag' where id = '$userID'";
+		$request['query'] = "update calbudget set bmr = '$bmr', losegain = '$losegain', weightchange = '$weightchange', days = '$days', calories = '$calories',  metric = '$metricFlag' where id = '$userID'";
                 $request['message'] = $sessionType;
 
                 $response = $client->send_request($request);
                 //$response = $client->publish($request);
                 return json_encode($response);
-
+	}
 }
 ?>
