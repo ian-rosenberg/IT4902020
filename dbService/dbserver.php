@@ -125,12 +125,12 @@ function requestProcessor($request)
 				var_dump($response);
 				if($db->affected_rows != 0){
 					$username=$request['username'];
-					$query1="insert into bmi(id) select login.id from login where login.username='$username'";
-					$query2="insert into calbudget(id) select login.id from login where login.username='$username'";
-					$query3="insert into restrictions(id) select login.id from login where login.username='$username'";
-					$db->query($query1);
-					$db->query($query2);
-					$db->query($query3);
+					$bmi="insert into bmi(id) select login.id from login where login.username='$username'";
+					$calbudget="insert into calbudget(id) select login.id from login where login.username='$username'";
+					$restrictions="insert into restrictions(id) select login.id from login where login.username='$username'";
+					$db->query($bmi);
+					$db->query($calbudget);
+					$db->query($restrictions);
 					return 1;
 				}
 				else{
@@ -168,6 +168,33 @@ function requestProcessor($request)
 				print_r($e->getMessage());
 				return $e->getMessage();
 			}
+		case 'login':
+                        echo "Processing Data Query".PHP_EOL;
+                        try{
+                                $db = new mysqli("127.0.0.1", "brandon", "admin", "it490");
+                                print_r($request).PHP_EOL;
+                                //$query = $db->real_escape_string($request['query']);
+                                $query = $request['query'];
+                                $db->query($query);
+				if($db->affected_rows != 0){
+					$username = $request['username'];
+					$query = "select login.id from login where login.username = '$username'";
+					$response = $db->query($query);
+					$id = mysqli_fetch_assoc($response);
+					return $id['id'];
+                                }
+                                else{
+                                        return -1;
+                                }
+                                return $response;
+                                $response->close();
+                                $db->close();
+                        }
+                        catch(Exception $e){
+                                print_r($e->getMessage());
+                                return $e->getMessage();
+                }
+
 		case 'DMZ':
 			$db = new mysqli("127.0.0.1", "brandon", "admin", "it490");
 			
