@@ -63,7 +63,7 @@ function requestProcessor($request)
 
 	$recipesid = getRecipeid(json_decode($response, true));
 	$recipes = getRecipes($recipesid);
-	$recipes['id'] = $request['userID'];
+	$recipes['userID'] = $request['userID'];
 	return($recipes);
 }
 

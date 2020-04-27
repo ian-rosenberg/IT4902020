@@ -1,477 +1,87 @@
-Logout
-Rabbit Logout
-Login
-Rabbit Login
-"[empty response]"
-Login
-Rabbit Login
-"[empty response]"
-Login
-02:10:21am: Rabbit Login
-"[empty response]"
-Login
-02:11:44am: Rabbit Login
-"[empty response]"
-Login
-02:12:56am: Rabbit Login
-"[empty response]"
-Login
-22:21:39pm:Rabbit Login
-"[empty response]"
-Login
-22:29:55pm:Rabbit Login
-"[empty response]"
-Login
-22:32:27pm:Rabbit Login
-"[empty response]"
-Login
-22:36:53pm:Rabbit Login
-1
-Logout
-22:37:39pm:Rabbit Logout
-Login
-22:37:58pm:Rabbit Login
-1
-Logout
-22:38:07pm:Rabbit Logout
-Login
-22:40:21pm:Rabbit Login
-1
-Logout
-22:40:31pm:Rabbit Logout
-22:42:54pm:Rabbit Machine Start
-22:51:47pm:start
-22:53:30pm:DB Server start
-22:55:21pm:DB Server start
-22:56:59pm:DB Server start
-22:58:37pm:DB Server start
-22:59:23pm:DB Server start
-Register
-23:06:22pm:Rabbit Register
-Login
-23:06:30pm:Rabbit Login
-1
-Logout
-23:06:35pm:Rabbit Logout
-23:35:46pm:DB Server start
-23:38:48pm:DB Server start
-23:49:47pm:DB Server start
-Register
-23:51:26pm:Rabbit Register
-Login
-23:51:40pm:Rabbit Login
-1
-Logout
-23:52:16pm:Rabbit Logout
-23:58:56pm:Rabbit Machine Start
-23:59:49pm:Rabbit Machine Start
-Login
-23:59:54pm:Rabbit Login
-1
-Get Recipe
-23:59:57pm:Rabbit DMZ
-00:11:42am:Rabbit Machine Start
-Logout
-00:13:59am:Rabbit Logout
-Login
-00:14:07am:Rabbit Login
-1
-Get Recipe
-00:14:12am:Rabbit DMZ
-00:16:21am:Rabbit Machine Start
-Get Recipe
-00:16:54am:Rabbit DMZ
-00:17:40am:Rabbit Machine Start
-Logout
-00:18:12am:Rabbit Logout
-Login
-00:18:36am:Rabbit Login
-1
-Get Recipe
-00:20:42am:Rabbit DMZ
-00:21:46am:Rabbit Machine Start
-Get Recipe
-00:21:51am:Rabbit DMZ
-00:22:24am:Rabbit Machine Start
-Logout
-00:22:28am:Rabbit Logout
-Login
-00:22:54am:Rabbit Login
-1
-Get Recipe
-00:23:04am:Rabbit DMZ
-"{\"meals\":[{\"id\":505163,\"title\":\"Healthy Gluten-Free Breakfast Sandwich + a Yoga Challenge\",\"readyInMinutes\":5,\"servings\":1,\"image\":\"Healthy-Gluten-Free-Breakfast-Sandwich-+-a-Yoga-Challenge-505163.jpg\",\"imageUrls\":[\"Healthy-Gluten-Free-Breakfast-Sandwich-+-a-Yoga-Challenge-505163.jpg\"]},{\"id\":7154,\"title\":\"Smoked Trout\",\"readyInMinutes\":45,\"servings\":3,\"image\":\"smoked-trout-7154.jpg\",\"imageUrls\":[\"smoked-trout-7154.jpg\"]},{\"id\":636238,\"title\":\"Broccoli, Sausage and Fresh Basil Pasta\",\"readyInMinutes\":45,\"servings\":4,\"image\":\"Broccoli--Sausage-and-Fresh-Basil-Pasta-636238.jpg\",\"imageUrls\":[\"Broccoli--Sausage-and-Fresh-Basil-Pasta-636238.jpg\"]}],\"nutrients\":{\"calories\":1999.97,\"protein\":105.97,\"fat\":107.07,\"carbohydrates\":152.82}}"
-00:33:57am:Rabbit Machine Start
-Get Recipe
-00:35:22am:Rabbit DMZ
-"{\"meals\":[{\"id\":650377,\"title\":\"Low Carb Brunch Burger\",\"readyInMinutes\":30,\"servings\":2,\"image\":\"Low-Carb-Brunch-Burger-650377.jpg\",\"imageUrls\":[\"Low-Carb-Brunch-Burger-650377.jpg\"]},{\"id\":257333,\"title\":\"Honey-Soy Pork Chops\",\"readyInMinutes\":25,\"servings\":4,\"image\":\"honey-soy-pork-chops-257333.jpg\",\"imageUrls\":[\"honey-soy-pork-chops-257333.jpg\"]},{\"id\":975810,\"title\":\"Fear of Frying \u2013 Crispy Cod Po\u2019 Boy with Janes ultimates Tavern Battered Cod\",\"readyInMinutes\":40,\"servings\":4,\"image\":\"fear-of-frying-crispy-cod-po-boy-with-janes-ultimates-tavern-battered-cod-975810.jpg\",\"imageUrls\":[\"fear-of-frying-crispy-cod-po-boy-with-janes-ultimates-tavern-battered-cod-975810.jpg\"]}],\"nutrients\":{\"calories\":2000.06,\"protein\":120.18,\"fat\":133.65,\"carbohydrates\":80.9}}"
-03:00:07am:Rabbit Machine Start
-Login
-03:03:30am:Rabbit Login
-1
-Logout
-03:04:18am:Rabbit Logout
-Login
-03:04:27am:Rabbit Login
-1
-03:27:57am:Login
-03:27:57am:Rabbit Login
-03:27:57am:1
-03:35:45am:Rabbit Test DMZ
-03:40:43am:Get Recipe
-03:40:43am:Rabbit DMZ
-03:45:50am:Get Recipe
-03:58:04am:Rabbit Machine Start
-03:58:28am:Logout
-03:58:28am:Rabbit Logout
-03:58:37am:Login
-03:58:37am:Rabbit Login
-03:58:37am:1
-03:58:39am:Get Recipe
-03:58:39am:Rabbit DMZ
-03:58:40am:[null,null]
-04:03:52am:Get Recipe
-04:03:52am:Rabbit DMZ
-04:03:53am:["{\"vegetarian\":true,\"vegan\":true,\"glutenFree\":true,\"dairyFree\":true,\"veryHealthy\":false,\"cheap\":false,\"veryPopular\":false,\"sustainable\":false,\"weightWatcherSmartPoints\":6,\"gaps\":\"no\",\"lowFodmap\":false,\"sourceUrl\":\"https:\/\/www.foodista.com\/recipe\/N6ZLMBFK\/scrambled-tofu-with-rocket\",\"spoonacularSourceUrl\":\"https:\/\/spoonacular.com\/scrambled-tofu-with-rocket-659604\",\"aggregateLikes\":1,\"spoonacularScore\":77.0,\"healthScore\":40.0,\"creditsText\":\"Foodista.com \u2013 The Cooking Encyclopedia Everyone Can Edit\",\"license\":\"CC BY 3.0\",\"sourceName\":\"Foodista\",\"pricePerServing\":242.12,\"extendedIngredients\":[{\"id\":16213,\"aisle\":\"Refrigerated;Produce;Ethnic Foods\",\"image\":\"tofu.png\",\"consistency\":\"solid\",\"name\":\"tofu\",\"original\":\"150 gm organic tofu\",\"originalString\":\"150 gm organic tofu\",\"originalName\":\"organic tofu\",\"amount\":150.0,\"unit\":\"gm\",\"meta\":[\"organic\"],\"metaInformation\":[\"organic\"],\"measures\":{\"us\":{\"amount\":150.0,\"unitShort\":\"gm\",\"unitLong\":\"gms\"},\"metric\":{\"amount\":150.0,\"unitShort\":\"gm\",\"unitLong\":\"gms\"}}},{\"id\":4047,\"aisle\":\"Health Foods;Baking\",\"image\":\"oil-coconut.jpg\",\"consistency\":\"liquid\",\"name\":\"coconut oil\",\"original\":\"1 tsp pure coconut oil\",\"originalString\":\"1 tsp pure coconut oil\",\"originalName\":\"pure coconut oil\",\"amount\":1.0,\"unit\":\"tsp\",\"meta\":[\"pure\"],\"metaInformation\":[\"pure\"],\"measures\":{\"us\":{\"amount\":1.0,\"unitShort\":\"tsp\",\"unitLong\":\"teaspoon\"},\"metric\":{\"amount\":1.0,\"unitShort\":\"tsp\",\"unitLong\":\"teaspoon\"}}},{\"id\":2014,\"aisle\":\"Spices and Seasonings\",\"image\":\"ground-cumin.jpg\",\"consistency\":\"solid\",\"name\":\"cumin seeds\",\"original\":\"1\/2 tsp cumin seeds\",\"originalString\":\"1\/2 tsp cumin seeds\",\"originalName\":\"cumin seeds\",\"amount\":0.5,\"unit\":\"tsp\",\"meta\":[],\"metaInformation\":[],\"measures\":{\"us\":{\"amount\":0.5,\"unitShort\":\"tsps\",\"unitLong\":\"teaspoons\"},\"metric\":{\"amount\":0.5,\"unitShort\":\"tsps\",\"unitLong\":\"teaspoons\"}}},{\"id\":11282,\"aisle\":\"Produce\",\"image\":\"brown-onion.png\",\"consistency\":\"solid\",\"name\":\"onion\",\"original\":\"1\/2 onion, finely chopped\",\"originalString\":\"1\/2 onion, finely chopped\",\"originalName\":\"onion, finely chopped\",\"amount\":0.5,\"unit\":\"\",\"meta\":[\"finely chopped\"],\"metaInformation\":[\"finely chopped\"],\"measures\":{\"us\":{\"amount\":0.5,\"unitShort\":\"\",\"unitLong\":\"\"},\"metric\":{\"amount\":0.5,\"unitShort\":\"\",\"unitLong\":\"\"}}},{\"id\":11529,\"aisle\":\"Produce\",\"image\":\"tomato.png\",\"consistency\":\"solid\",\"name\":\"tomato\",\"original\":\"1 tomato, chopped\",\"originalString\":\"1 tomato, chopped\",\"originalName\":\"tomato, chopped\",\"amount\":1.0,\"unit\":\"\",\"meta\":[\"chopped\"],\"metaInformation\":[\"chopped\"],\"measures\":{\"us\":{\"amount\":1.0,\"unitShort\":\"\",\"unitLong\":\"\"},\"metric\":{\"amount\":1.0,\"unitShort\":\"\",\"unitLong\":\"\"}}},{\"id\":2043,\"aisle\":\"Spices and Seasonings\",\"image\":\"turmeric.jpg\",\"consistency\":\"solid\",\"name\":\"turmeric\",\"original\":\"1\/4 tsp turmeric\",\"originalString\":\"1\/4 tsp turmeric\",\"originalName\":\"turmeric\",\"amount\":0.25,\"unit\":\"tsp\",\"meta\":[],\"metaInformation\":[],\"measures\":{\"us\":{\"amount\":0.25,\"unitShort\":\"tsps\",\"unitLong\":\"teaspoons\"},\"metric\":{\"amount\":0.25,\"unitShort\":\"tsps\",\"unitLong\":\"teaspoons\"}}},{\"id\":11819,\"aisle\":\"Produce\",\"image\":\"red-chili.jpg\",\"consistency\":\"solid\",\"name\":\"red chilli\",\"original\":\"1 red chilli, finely chopped (optional)\",\"originalString\":\"1 red chilli, finely chopped (optional)\",\"originalName\":\"red chilli, finely chopped (optional)\",\"amount\":1.0,\"unit\":\"\",\"meta\":[\"red\",\"finely chopped\"],\"metaInformation\":[\"red\",\"finely chopped\"],\"measures\":{\"us\":{\"amount\":1.0,\"unitShort\":\"\",\"unitLong\":\"\"},\"metric\":{\"amount\":1.0,\"unitShort\":\"\",\"unitLong\":\"\"}}},{\"id\":11959,\"aisle\":\"Produce\",\"image\":\"arugula-or-rocket-salad.jpg\",\"consistency\":\"solid\",\"name\":\"rocket\",\"original\":\"Handful of rocket leaves\",\"originalString\":\"Handful of rocket leaves\",\"originalName\":\"rocket leaves\",\"amount\":1.0,\"unit\":\"Handful\",\"meta\":[],\"metaInformation\":[],\"measures\":{\"us\":{\"amount\":1.0,\"unitShort\":\"Handful\",\"unitLong\":\"Handful\"},\"metric\":{\"amount\":1.0,\"unitShort\":\"Handful\",\"unitLong\":\"Handful\"}}},{\"id\":1102047,\"aisle\":\"Spices and Seasonings\",\"image\":\"salt-and-pepper.jpg\",\"consistency\":\"solid\",\"name\":\"salt and pepper\",\"original\":\"Salt and pepper, as per taste\",\"originalString\":\"Salt and pepper, as per taste\",\"originalName\":\"Salt and pepper, as per taste\",\"amount\":1.0,\"unit\":\"serving\",\"meta\":[\"per taste\"],\"metaInformation\":[\"per taste\"],\"measures\":{\"us\":{\"amount\":1.0,\"unitShort\":\"serving\",\"unitLong\":\"serving\"},\"metric\":{\"amount\":1.0,\"unitShort\":\"serving\",\"unitLong\":\"serving\"}}}],\"id\":659604,\"title\":\"Scrambled tofu with rocket\",\"readyInMinutes\":45,\"servings\":1,\"image\":\"https:\/\/spoonacular.com\/recipeImages\/659604-556x370.jpg\",\"imageType\":\"jpg\",\"summary\":\"You can never have too many breakfast recipes, so give Scrambled tofu with rocket a try. This recipe serves 1 and costs $2.42 per serving. One portion of this dish contains about <b>17g of protein<\/b>, <b>12g of fat<\/b>, and a total of <b>238 calories<\/b>. It is brought to you by Foodista. From preparation to the plate, this recipe takes about <b>about 45 minutes<\/b>. Head to the store and pick up onion, coconut oil, cumin seeds, and a few other things to make it today. 1 person has tried and liked this recipe. It is a good option if you're following a <b>gluten free, dairy free, lacto ovo vegetarian, and vegan<\/b> diet. All things considered, we decided this recipe <b>deserves a spoonacular score of 78%<\/b>. This score is good. If you like this recipe, you might also like recipes such as <a href=\\\"https:\/\/spoonacular.com\/recipes\/scrambled-eggs-with-goats-cheese-and-rocket-68732\\\">Scrambled Eggs With Goat\u2019s Cheese And Rocket<\/a>, <a href=\\\"https:\/\/spoonacular.com\/recipes\/scrambled-silken-tofu-how-to-make-thai-scrambled-silken-tofu-487482\\\">scrambled silken tofu , how to make thai scrambled silken tofu<\/a>, and <a href=\\\"https:\/\/spoonacular.com\/recipes\/tofu-bhurji-how-to-make-tofu-bhurji-or-scrambled-tofu-488216\\\">tofu bhurji , how to make tofu bhurji or scrambled tofu<\/a>.\",\"cuisines\":[],\"dishTypes\":[\"morning meal\",\"brunch\",\"breakfast\"],\"diets\":[\"gluten free\",\"dairy free\",\"lacto ovo vegetarian\",\"vegan\"],\"occasions\":[],\"winePairing\":{\"pairedWines\":[\"sparkling wine\"],\"pairingText\":\"Sparkling Wine are my top picks for Scramble. Even if you aren't making mimosas, sparkling wine is great with eggs for two reasons. One, if you're eating eggs early in the day, sparkling wine has less alcohol. Secondly, it cleanses the palate, which is important since yolk is known to coat the palate. The Moet & Chandon Nectar Imperial ros\u00e9 with a 4.5 out of 5 star rating seems like a good match. It costs about 23 dollars per bottle.\",\"productMatches\":[{\"id\":456037,\"title\":\"Moet & Chandon Nectar Imperial Rose\",\"description\":\"Lively and generous Nectar Imp\u00e9rial distinguishes itself by its extravagant fruitiness, its density on the palate and its crisp finish that instantly surprise and delight. Nectar Ros\u00e9s assemblage is built on the intensity of Pinot Noir, the fruitiness of Pinot Meunier, and the freshness of Chardonnay.Its red color is sustained and nuanced with coppery shades.Its aromas are intense and deep with ripe berries (wild strawberry, blackberry, black currant) and cherry, nuanced by herbal and heady flowers notes.On the palate it is a succulent blend of richness and elegance, density and creaminess, extreme fruitiness and vibrant freshness.Ideal for all sweet and sour, fatty-spicy, sugary-spicy or sweet dishes, Nectar Ros\u00e9 offers amazing pairings with foie gras marinated in red wines and red fruits based desserts.\",\"price\":\"$22.99\",\"imageUrl\":\"https:\/\/spoonacular.com\/productImages\/456037-312x231.jpg\",\"averageRating\":0.9,\"ratingCount\":25.0,\"score\":0.8868421052631579,\"link\":\"https:\/\/click.linksynergy.com\/deeplink?id=*QCiIS6t4gA&mid=2025&murl=https%3A%2F%2Fwww.wine.com%2Fproduct%2Fmoet-and-chandon-nectar-imperial-rose%2F62124\"}]},\"instructions\":\"Heat the coconut oil in a pan, on medium heat. Add the cumin and let it sputter. Add in the chopped onion and green chilli and cook for 5 minutes. Add the tomatoes and cook for a further minute.\\nAdd the turmeric powder and salt to taste, and stir well. Lightly crumble the tofu and and mix gently. Cook for 5 minutes. Toss in the rocket, mix and cook for a couple of minutes. Season with some pepper.\\nServe the scrambled tofu with some grilled tomatoes, rocket leaves and vegan sausages.\",\"analyzedInstructions\":[{\"name\":\"\",\"steps\":[{\"number\":1,\"step\":\"Heat the coconut oil in a pan, on medium heat.\",\"ingredients\":[{\"id\":4047,\"name\":\"coconut oil\",\"image\":\"oil-coconut.jpg\"}],\"equipment\":[{\"id\":404645,\"name\":\"frying pan\",\"image\":\"pan.png\"}]},{\"number\":2,\"step\":\"Add the cumin and let it sputter.\",\"ingredients\":[{\"id\":1002014,\"name\":\"cumin\",\"image\":\"ground-cumin.jpg\"}],\"equipment\":[]},{\"number\":3,\"step\":\"Add in the chopped onion and green chilli and cook for 5 minutes.\",\"ingredients\":[{\"id\":11282,\"name\":\"onion\",\"image\":\"brown-onion.png\"}],\"equipment\":[],\"length\":{\"number\":5,\"unit\":\"minutes\"}},{\"number\":4,\"step\":\"Add the tomatoes and cook for a further minute.\",\"ingredients\":[{\"id\":11529,\"name\":\"tomato\",\"image\":\"tomato.png\"}],\"equipment\":[]},{\"number\":5,\"step\":\"Add the turmeric powder and salt to taste, and stir well. Lightly crumble the tofu and and mix gently. Cook for 5 minutes. Toss in the rocket, mix and cook for a couple of minutes. Season with some pepper.\",\"ingredients\":[{\"id\":2043,\"name\":\"turmeric\",\"image\":\"turmeric.jpg\"},{\"id\":11959,\"name\":\"arugula\",\"image\":\"arugula-or-rocket-salad.jpg\"},{\"id\":2047,\"name\":\"salt\",\"image\":\"salt.jpg\"},{\"id\":16213,\"name\":\"tofu\",\"image\":\"tofu.png\"}],\"equipment\":[],\"length\":{\"number\":5,\"unit\":\"minutes\"}},{\"number\":6,\"step\":\"Serve the scrambled tofu with some grilled tomatoes, rocket leaves and vegan sausages.\",\"ingredients\":[{\"id\":11529,\"name\":\"tomato\",\"image\":\"tomato.png\"},{\"id\":11959,\"name\":\"arugula\",\"image\":\"arugula-or-rocket-salad.jpg\"},{\"id\":16213,\"name\":\"tofu\",\"image\":\"tofu.png\"}],\"equipment\":[]}]}],\"originalId\":null}",false,false]
-04:13:00am:Get Recipe
-04:13:00am:Rabbit DMZ
-04:16:59am:Get Recipe
-04:16:59am:Rabbit DMZ
-04:19:30am:Get Recipe
-04:19:30am:Rabbit DMZ
-04:19:31am:
-04:22:40am:Get Recipe
-04:22:40am:Rabbit DMZ
-04:22:41am:
-12:30:53pm:Get Recipe
-14:28:19pm:Get Recipe
-16:35:57pm:Rabbit Machine Start
-16:57:18pm:Rabbit Test DMZ
-17:07:03pm:DB Server start
-17:07:19pm:Rabbit Test DMZ
-17:11:16pm:Rabbit Machine Start
-17:44:33pm:Rabbit Test DMZ
-17:48:02pm:Rabbit Machine Start
-17:49:00pm:Rabbit Machine Start
-17:49:30pm:DB Server start
-17:49:43pm:Rabbit Test DMZ
-17:51:04pm:Rabbit Test DMZ
-17:53:07pm:DB Server start
-17:53:22pm:Rabbit Test DMZ
-17:56:39pm:DB Server start
-17:56:57pm:Rabbit Test DMZ
-17:57:35pm:Rabbit Test DMZ
-17:58:17pm:Rabbit Test DMZ
-18:00:44pm:DB Server start
-18:01:35pm:Rabbit Test DMZ
-18:05:34pm:DB Server start
-18:06:16pm:Rabbit Test DMZ
-18:16:21pm:Rabbit Test DMZ
-18:17:55pm:Rabbit Machine Start
-18:18:38pm:Rabbit Test DMZ
-18:23:07pm:DB Server start
-18:24:57pm:Rabbit Test DMZ
-18:26:51pm:DB Server start
-18:28:32pm:Rabbit Test DMZ
-18:29:49pm:Rabbit Test DMZ
-16:47:12pm:Register
-16:47:12pm:Rabbit Register
-16:53:26pm:DB Server start
-16:53:59pm:Register
-16:53:59pm:Rabbit Register
-16:55:46pm:Register
-16:55:46pm:Rabbit Register
-16:57:45pm:Register
-16:57:45pm:Rabbit Register
-16:58:05pm:Register
-16:58:05pm:Rabbit Register
-16:58:32pm:Register
-16:58:32pm:Rabbit Register
-17:00:55pm:Login
-17:00:55pm:Rabbit Login
-17:00:55pm:1
-17:06:33pm:Login
-17:06:34pm:Rabbit Login
-18:12:07pm:DB Server start
-18:15:44pm:Rabbit processing login
-18:19:41pm:Rabbit processing login
-18:24:29pm:DB Server start
-18:24:41pm:Rabbit processing login
-18:24:56pm:DB Server start
-18:26:04pm:DB Server start
-18:26:09pm:Rabbit Machine Start
-18:26:31pm:Rabbit processing login
-18:28:09pm:DB Server start
-18:28:22pm:Rabbit processing login
-18:28:40pm:Rabbit processing login
-18:29:31pm:DB Server start
-18:29:44pm:Rabbit processing login
-19:26:33pm:Login
-19:26:33pm:Rabbit Login
-19:26:33pm:"5"
-19:28:47pm:Login
-19:28:47pm:Rabbit Login
-19:28:47pm:"5"
-19:29:40pm:Login
-19:29:40pm:Rabbit Login
-19:29:40pm:"5"
-19:30:47pm:Login
-19:30:47pm:Rabbit Login
-19:30:47pm:"5"
-19:33:01pm:Login
-19:33:01pm:Rabbit Login
-19:33:02pm:string
-19:36:06pm:DB Server start
-19:36:42pm:Login
-19:36:42pm:Rabbit Login
-19:36:42pm:string
-19:39:39pm:Logout
-19:39:39pm:Rabbit Logout
-19:40:35pm:DB Server start
-19:40:46pm:Login
-19:40:46pm:Rabbit Login
-19:40:47pm:string
-19:44:23pm:Logout
-19:44:23pm:Rabbit Logout
-19:55:20pm:Login
-19:55:20pm:Rabbit Login
-19:55:20pm:string
-19:56:07pm:Login
-19:56:07pm:Rabbit Login
-19:56:07pm:string
-19:56:19pm:Logout
-19:56:19pm:Rabbit Logout
-19:57:20pm:Login
-19:57:20pm:Rabbit Login
-19:57:20pm:string
-19:58:56pm:Get Recipe
-19:58:56pm:Rabbit 
-19:59:41pm:Rabbit Machine Start
-20:00:14pm:Get Recipe
-20:00:14pm:Rabbit 
-20:00:14pm:Store BMI response: "[empty response]"
-20:10:25pm:Store BMI
-20:10:25pm:Rabbit 
-20:10:25pm:Store BMI response: 1
-20:11:49pm:Store BMI
-20:11:49pm:Rabbit 
-20:11:49pm:Store BMI response: 1
-20:17:22pm:Store BMI
-20:17:22pm:Rabbit 
-20:17:22pm:Store BMI response: 1
-20:20:23pm:450.8
-20:20:23pm:Rabbit 
-20:20:23pm:Store BMI response: 1
-20:21:40pm:249
-20:21:40pm:Rabbit 
-20:21:40pm:Store BMI response: 1
-20:22:13pm:299.2
-20:22:13pm:Rabbit 
-20:22:13pm:Store BMI response: 1
-20:23:26pm:11
-20:23:26pm:Rabbit 
-20:23:26pm:Store BMI response: 1
-20:23:45pm:297.2
-20:23:45pm:Rabbit 
-20:23:45pm:Store BMI response: 1
-21:24:45pm:Login
-21:24:45pm:Rabbit Login
-21:24:49pm:Logout
-21:24:49pm:Rabbit Logout
-21:24:56pm:Login
-21:24:56pm:Rabbit Login
-21:25:06pm:Store BMI
-21:25:06pm:Rabbit 
-21:25:06pm:Store BMI response: 1
-21:27:11pm:Store BMR
-21:27:11pm:Rabbit 
-21:27:11pm:Store BMR response: 1
-21:29:13pm:Store BMR
-21:29:13pm:Rabbit 
-21:29:13pm:Store BMR response: 1
-21:31:07pm:Update BMR
-21:31:07pm:Rabbit 
-21:31:07pm:Store BMR response: 1
-21:33:01pm:Update BMR
-21:33:01pm:Rabbit 
-21:33:02pm:Store BMR response: 1
-21:35:49pm:Rabbit Machine Start
-21:36:13pm:Update BMR
-21:36:13pm:Rabbit 
-21:36:13pm:Store BMR response: 1
-21:39:48pm:Rabbit Machine Start
-21:40:09pm:Login
-21:40:09pm:Rabbit Login
-21:40:24pm:Store BMI
-21:40:24pm:Rabbit 
-21:40:24pm:Store BMI response: 1
-21:41:56pm:DB Server start
-21:43:00pm:Update BMR
-21:43:00pm:Rabbit 
-21:45:18pm:Update BMR
-21:45:18pm:Rabbit 
-21:48:22pm:Update BMR
-21:48:22pm:Rabbit 
-21:49:50pm:Update BMR
-21:49:50pm:Rabbit 
-22:15:56pm:Update BMR
-22:15:56pm:Rabbit 
-22:17:07pm:Update BMR
-22:17:07pm:Rabbit 
-22:18:12pm:Update BMR
-22:18:12pm:Rabbit 
-22:18:22pm:Update BMR
-22:18:22pm:Rabbit 
-23:12:27pm:Rabbit Here's your stink'in restrictions ya filthy animal
-23:13:54pm:Rabbit Updating restriction
-23:15:52pm:Rabbit Updating restriction
-23:16:51pm:Login
-23:16:51pm:Rabbit Login
-23:17:22pm:Rabbit Updating restriction
-23:17:39pm:Logout
-23:17:39pm:Rabbit Logout
-23:17:59pm:Login
-23:17:59pm:Rabbit Login
-23:18:08pm:Rabbit Updating restriction
-23:19:20pm:Rabbit Updating restriction
-23:20:47pm:Rabbit Updating restriction
-23:21:00pm:Rabbit Updating restriction
-23:21:29pm:Rabbit Updating restriction
-23:23:47pm:Rabbit Happy Birthday Brandon
-23:23:59pm:Rabbit Updating restriction
-23:24:15pm:Rabbit Updating restriction
-23:44:51pm:Rabbit getting restrictions
-23:45:12pm:Rabbit getting restrictions
-23:46:42pm:Rabbit getting restrictions
-23:47:22pm:Rabbit getting restrictions
-00:00:39am:Rabbit getting restrictions
-00:01:56am:Rabbit Machine Start
-00:02:16am:DB Server start
-00:28:36am:Get recipe Restrctions
-00:28:36am:Rabbit 
-00:29:52am:DB Server start
-00:30:51am:Rabbit Machine Start
-00:31:41am:Login
-00:31:41am:Rabbit Login
-00:31:46am:Get recipe Restrctions
-00:31:46am:Rabbit 
-00:31:54am:DB Server start
-00:32:27am:Rabbit Machine Start
-00:34:55am:Get recipe Restrctions
-00:34:55am:Rabbit 
-00:35:45am:Rabbit Machine Start
-00:36:09am:Logout
-00:36:09am:Rabbit Logout
-00:36:28am:DB Server start
-00:38:24am:DB Server start
-00:38:27am:Rabbit Machine Start
-00:38:49am:Logout
-00:38:49am:Rabbit Logout
-00:39:06am:Login
-00:39:06am:Rabbit Login
-00:39:24am:Get recipe Restrctions
-00:39:24am:Rabbit 
-00:39:32am:DB Server start
-00:41:29am:Rabbit Machine Start
-00:42:16am:Logout
-00:42:16am:Rabbit Logout
-00:42:22am:Login
-00:42:22am:Rabbit Login
-00:43:28am:Get recipe Restrctions
-00:43:28am:Rabbit 
-00:43:34am:DB Server start
-00:44:03am:Rabbit Machine Start
-00:44:16am:Get recipe Restrctions
-00:44:17am:Rabbit 
-00:47:50am:DB Server start
-00:47:59am:Rabbit Machine Start
-00:48:16am:Get recipe Restrctions
-00:48:16am:Rabbit 
-00:48:16am:Rabbit 
-00:48:16am:Rabbit 
-00:48:35am:Get recipe Restrctions
-00:48:35am:Rabbit 
-00:48:35am:Rabbit 
-00:48:35am:Rabbit 
-00:50:40am:Get recipe Restrctions
-00:50:40am:Rabbit recipe restrictions
-00:50:40am:Rabbit 
-00:50:40am:Rabbit 
-00:51:35am:Rabbit Machine Start
-00:51:50am:Get recipe Restrctions
-00:51:50am:Rabbit recipe restrictions
-00:51:50am:Rabbit getting cals
-00:51:50am:Rabbit getting cals
-00:52:53am:Rabbit Machine Start
-00:53:37am:Get recipe Restrctions
-00:53:37am:Rabbit recipe restrictions
-00:53:37am:Rabbit getting cals
-00:53:37am:Rabbit getting cals
-01:04:23am:Get recipe Restrctions
-01:04:23am:Rabbit recipe restrictions
-01:04:23am:Rabbit getting cals
-01:04:23am:Rabbit getting cals
-01:12:27am:Rabbit getting restrictions
-01:12:57am:DB Server start
-01:14:27am:Rabbit Machine Start
-01:14:31am:Rabbit getting restrictions
-01:14:45am:DB Server start
-01:14:55am:Rabbit Machine Start
-01:15:26am:Rabbit getting restrictions
-01:20:07am:Get recipe Restrctions
-01:20:07am:Rabbit recipe restrictions
-01:20:07am:Rabbit getting recipes
-01:20:07am:Rabbit getting recipes
-01:20:53am:Rabbit Machine Start
-01:22:25am:Get recipe Restrctions
-01:22:25am:Rabbit recipe restrictions
-01:22:25am:Rabbit getting recipes
-01:22:28am:Rabbit getting recipes
-01:27:28am:Get recipe Restrctions
-01:27:28am:Rabbit recipe restrictions
-01:27:28am:Rabbit getting recipes
-01:27:31am:Rabbit getting recipes
-01:36:55am:Get recipe Restrctions
-01:36:55am:Rabbit recipe restrictions
-01:37:01am:Rabbit getting recipes
-01:37:02am:Rabbit getting recipes
-01:43:27am:Get recipe Restrctions
-01:43:27am:Rabbit recipe restrictions
-01:43:32am:Rabbit getting recipes
-01:43:34am:Rabbit getting recipes
-01:47:23am:Rabbit Machine Start
-01:47:36am:Get recipe Restrctions
-01:47:36am:Rabbit recipe restrictions
-01:49:38am:Rabbit Machine Start
-01:49:46am:Get recipe Restrctions
-01:49:46am:Rabbit recipe restrictions
-01:52:18am:Get recipe Restrctions
-01:52:18am:Rabbit recipe restrictions
-01:52:18am:Rabbit getting recipes
-02:09:35am:DB Server start
-02:10:26am:Get recipe Restrctions
-02:10:26am:Rabbit recipe restrictions
-02:10:26am:Rabbit getting recipes
-02:11:28am:DB Server start
-02:12:45am:Rabbit Machine Start
-02:14:12am:DB Server start
-02:14:24am:Get recipe Restrctions
-02:14:24am:Rabbit recipe restrictions
-02:14:24am:Rabbit getting recipes
-02:15:09am:Get recipe Restrctions
-02:15:09am:Rabbit recipe restrictions
-02:15:09am:Rabbit getting recipes
-02:16:17am:Get recipe Restrctions
-02:16:17am:Rabbit recipe restrictions
-02:16:17am:Rabbit getting recipes
-02:17:01am:DB Server start
-02:17:35am:Get recipe Restrctions
-02:17:35am:Rabbit recipe restrictions
-02:17:35am:Rabbit getting recipes
-02:20:30am:DB Server start
-02:20:40am:Get recipe Restrctions
-02:20:40am:Rabbit recipe restrictions
-02:20:40am:Rabbit getting recipes
-02:31:44am:Get recipe Restrctions
-02:31:44am:Rabbit recipe restrictions
-02:31:44am:Rabbit getting recipes
+14:01:55pm:DB Server start
+14:02:02pm:Rabbit Machine Start
+14:04:06pm:Login
+14:04:06pm:Rabbit Login
+14:04:22pm:
+14:04:22pm:
+14:04:22pm:
+14:04:36pm:Store BMI
+14:04:36pm:Rabbit 
+14:04:36pm:Store BMI response: 1
+14:04:38pm:
+14:04:38pm:
+14:04:38pm:
+14:05:10pm:Update BMR
+14:05:10pm:Rabbit 
+14:05:20pm:
+14:05:20pm:
+14:05:20pm:
+14:05:32pm:Rabbit Updating restriction
+14:05:35pm:
+14:05:35pm:
+14:05:35pm:
+14:05:40pm:Rabbit Updating restriction
+14:05:43pm:
+14:05:43pm:
+14:05:43pm:
+14:05:49pm:Rabbit Happy Birthday Ian
+14:05:53pm:
+14:05:53pm:
+14:05:53pm:
+14:05:55pm:Get recipe Restrctions
+14:05:55pm:Rabbit recipe restrictions
+14:05:55pm:Rabbit getting recipes
+14:05:56pm:
+14:05:56pm:
+14:05:56pm:
+14:06:38pm:Get recipe Restrctions
+14:06:38pm:Rabbit recipe restrictions
+14:06:38pm:Rabbit getting recipes
+14:06:38pm:
+14:06:38pm:
+14:06:38pm:
+14:08:15pm:Get recipe Restrctions
+14:08:15pm:Rabbit recipe restrictions
+14:08:15pm:Rabbit getting recipes
+14:08:18pm:https://spoonacular.com/vegan-breakfast-burrito-bowl-with-chipotle-sauce-940395
+14:08:18pm:https://spoonacular.com/clean-eating-butternut-squash-stew-1062974
+14:08:18pm:https://spoonacular.com/indian-lentil-dahl-647830
+14:08:43pm:https://spoonacular.com/vegan-breakfast-burrito-bowl-with-chipotle-sauce-940395
+14:08:43pm:https://spoonacular.com/clean-eating-butternut-squash-stew-1062974
+14:08:43pm:https://spoonacular.com/indian-lentil-dahl-647830
+14:08:47pm:https://spoonacular.com/vegan-breakfast-burrito-bowl-with-chipotle-sauce-940395
+14:08:47pm:https://spoonacular.com/clean-eating-butternut-squash-stew-1062974
+14:08:47pm:https://spoonacular.com/indian-lentil-dahl-647830
+14:11:38pm:https://spoonacular.com/vegan-breakfast-burrito-bowl-with-chipotle-sauce-940395
+14:11:38pm:https://spoonacular.com/clean-eating-butternut-squash-stew-1062974
+14:11:38pm:https://spoonacular.com/indian-lentil-dahl-647830
+14:11:41pm:Logout
+14:11:41pm:Rabbit Logout
+14:11:50pm:Login
+14:11:50pm:Rabbit Login
+14:11:52pm:
+14:11:52pm:
+14:11:52pm:
+14:11:59pm:Store BMI
+14:11:59pm:Rabbit 
+14:11:59pm:Store BMI response: 1
+14:12:01pm:
+14:12:01pm:
+14:12:01pm:
+14:13:05pm:Update BMR
+14:13:05pm:Rabbit 
+14:13:15pm:
+14:13:15pm:
+14:13:15pm:
+14:13:53pm:Rabbit Updating restriction
+14:13:56pm:
+14:13:56pm:
+14:13:56pm:
+14:14:14pm:Get recipe Restrctions
+14:14:14pm:Rabbit recipe restrictions
+14:14:14pm:Rabbit getting recipes
+14:14:16pm:https://spoonacular.com/tropical-steel-cut-oatmeal-663867
+14:14:16pm:https://spoonacular.com/instant-pot-quinoa-grain-bowl-982371
+14:14:16pm:https://spoonacular.com/caribbean-black-bean-and-sweet-potato-soup-637099
+14:39:45pm:Logout
+14:39:45pm:Rabbit Logout
