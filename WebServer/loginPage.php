@@ -82,6 +82,9 @@ function SendLoginRequest()
 						echo("<li class='nav-item'>
 									 <a class='nav-link' href='logout.php'>Logout</a>
 								 </li>
+								 <li class='nav-item'>
+									 <a class='nav-link' href='profilePage.php'>My Profile</a>
+								 </li>
 								  </ul>
 								 </nav>");	
 					}
@@ -90,6 +93,9 @@ function SendLoginRequest()
 						echo("<li class='nav-item'>
 							<a class='nav-link disabled' href='logout.php'>Logout</a>
 						 </li>
+						 <li class='nav-item'>
+							<a class='nav-link disabled' href='profilePage.php'>My Profile</a>
+						</li>
 						 </ul>
 						</nav>");				
 					}
@@ -99,9 +105,12 @@ function SendLoginRequest()
 					echo("<li class='nav-item'>
 							<a class='nav-link disabled' href='logout.php'>Logout</a>
 						 </li>
+						 <li class='nav-item'>
+							<a class='nav-link disabled' href='profilePage.php'>My Profile</a>
+						</li>
 						 </ul>
 						</nav>");			
-				}		
+				}	
 		
 			if(!empty($_SESSION['user']))
 			{	

@@ -1,11 +1,7 @@
-<?php
-	session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Register</title>
+  <title>Login</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
    <meta charset="UTF-8">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -61,66 +57,20 @@ function SendRegisterRequest()
 
 <body>
 	<div class="jumbotron text-center">
-		<h1>Registration</h1>
+		<h1>Welcome Page</h1>
 	</div>
-	<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
-		<ul class="navbar-nav">
-			<li class="nav-item">
-			  <a class="nav-link" href="index.php">Home</a>
-			</li>
-			<li class="nav-item">
-			  <a class="nav-link" href="loginPage.php">Login</a>
-			</li>
-			<li class="nav-item">
-			  <a class="nav-link active" href="#">Register</a>
-			</li>
-			<?php
-				if(!empty($_SESSION['user']))
-				{	
-					if($_SESSION['user'] != "guest")
-					{	
-						echo("<li class='nav-item'>
-									 <a class='nav-link' href='logout.php'>Logout</a>
-								 </li>
-								 <li class='nav-item'>
-									 <a class='nav-link' href='profilePage.php'>My Profile</a>
-								 </li>
-								  </ul>
-								 </nav>");	
-					}
-					else
-					{
-						echo("<li class='nav-item'>
-							<a class='nav-link disabled' href='logout.php'>Logout</a>
-						 </li>
-						 <li class='nav-item'>
-							<a class='nav-link disabled' href='profilePage.php'>My Profile</a>
-						</li>
-						 </ul>
-						</nav>");				
-					}
-				}	
-				else
-				{
-					echo("<li class='nav-item'>
-							<a class='nav-link disabled' href='logout.php'>Logout</a>
-						 </li>
-						 <li class='nav-item'>
-							<a class='nav-link disabled' href='profilePage.php'>My Profile</a>
-						</li>
-						 </ul>
-						</nav>");			
-				}				
-		
-			if(!empty($_SESSION['user']))
-			{	
-				echo ("<br><br><div class='text-center'>Welcome, ".$_SESSION['user']."!</div><br><br>".PHP_EOL);				
-			}
-			else
-			{
-				echo ("<br><br><div class='text-center'>Welcome, guest!</div><br><br>".PHP_EOL);
-			}
-	?>
+
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+		<div class="navbar-header">
+		  <a class="navbar-brand" href="#">IT490 - SFW</a>
+		</div>
+		<ul class="nav navbar-nav">
+		  <li><a href="index.php">Home</a></li>
+		  <li><a href="loginPage.php"Logi</a></li>
+		</ul>
+	  </div>
+	</nav>
 
 	<div class="container-sm">
 		<div class="text-center">
@@ -138,7 +88,7 @@ function SendRegisterRequest()
 		</div>
 	</div>
 
-	<div class="container-sm" id="textResponse">
+	<div class="container-sm">
 		
 	</div>
 

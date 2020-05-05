@@ -42,7 +42,7 @@ function PullRandomRecipes()
 		
 		HandleAPIResponse(this.responseText);
 			
-		document.getElementById("RecipeResponse").innherHTML = this.responseText;
+		document.getElementById("RecipeResponse").innerHTML = this.responseText;
 		
 		
 	};
@@ -139,35 +139,42 @@ function PullRandomRecipes()
 			<?php echo $_SESSION['user']."'s profile"?>
 		</h1>
 		<div>
-			BMI: 
+			BMI:
+			<?php 
+				if(!empty($_SESSION['bmi'])){
+					echo $_SESSION['bmi'];
+				}
+				else{
+					echo "<a href='bmicalc.php'>Calculate your BMI!</a>";
+				}
+			?>
 		</div>
 		<div>
 			BMR: 
+			<?php 
+				if(!empty($_SESSION['bmr'])){
+					echo $_SESSION['bmr'];
+				}
+				else{
+					echo "<a href='calbudget.php'>Calculate your BMR!</a>";
+				}
+			?>
 		</div>
 		<div class = "text-center" id = "RecipeResponse">
 			
 		</div>
 	  </div>
 	  <div class="col-6">
-		<div>
-			Liked Recipes:
-			<ul>
-			
-			</ul>
-		</div>
+
 	  </div>
 	  <div class="col-3">
-		<div>
-			Disliked Recipes:
-			<ul>
-			
-			</ul>
-		</div>
+
 	  </div>
 	</div> 
 	
+	Random Recipe Generator for later
 	<div class = "col">
-		<h2>Random Recipe Generator</h2>
+		<h2 class ="text-center">Random Recipe Generator</h2>
 		
 		<div class="container-sm">
 			<div class="text-center">
@@ -184,7 +191,7 @@ function PullRandomRecipes()
 					<input type="submit" id="button" value="Get Recipe!">
 				</form>
 			</div>
-		</div>
+		</div> 
 	</div>
 	
 	<div class="text-center" id="RecipeResponse">
