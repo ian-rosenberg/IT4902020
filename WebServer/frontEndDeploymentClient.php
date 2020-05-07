@@ -6,7 +6,7 @@ require_once('rabbitMQLib.inc');
 
 echo "Starting update for front-end".PHP_EOL;
 
-exec("ls -t | head -1  ../packages", $output);
+exec("ls -t ../packages | head -1", $output);
 
 $filename = "frontendPackage.";
 $version = "1";
@@ -26,7 +26,7 @@ $filename = $filename . "." . $version;
 echo "Current version: ". $version.PHP_EOL;
 
 exec("tar -czvf $filename.tar.gz /home/ubuntu/git/IT4902020/WebServer", $output, $return_val);
-exec("mv  $filename.tar.gz ..packages/");
+exec("mv  $filename.tar.gz ../packages");
 exec("scp ../packages/$filename.tar.gz ubuntu@10.0.1.40:~/git/IT4902020/deployment/frontEnd/");
 
 print_r($output);
