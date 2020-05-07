@@ -24,20 +24,23 @@ if(!empty($output))
 {
         $filename = $output[count($output)-1];
 
-	$exploded = explode('.', $filename);
+	$fileVersion = explode('.', $filename);
 
-	$version = ++$exploded[1];
+	$version = (int)$fileVersion[1];
+	$version += 1;
+
+	$filename = $fileVersion[0] . "." . $version;
 }
 
 SendToLogger("Current version: ". $version.PHP_EOL);
 echo "Current version: ". $version.PHP_EOL;
 
-exec("tar -czf " . $filename . " " . $filesString, $output, $return_val);
-exec("mv " . $filename . " packages/");
-exec("scp packages/$filename ubuntu@10.0.1.40:~/git/IT4902020/deployment/rabbitMQ");
+exec("tar -czvf $filename.tar.gz /home/ubuntu/git/IT4902020/WebServer", $output, $return_val);
+exec("mv  $filename.tar.gz packages/");
+exec("scp packages/$filename.tar.gz ubuntu@10.0.1.40:~/git/IT4902020/deployment/frontEnd/");
 
 print_r($output);
-SendToLogger($output.PHP_EOL);
+SendToLogger($output);
 
 $client = new rabbitMQClient("testRabbitMQ.ini","brandonServer");
 
