@@ -1,0 +1,14 @@
+#!/bin/sh
+
+echo "Compressing Front-End.tar.gz"
+
+tar -czvf Front-End.tar.gz WebServer/
+
+echo "Compressed!"
+echo "SCP'ing file to deployment"
+
+scp Front-End.tar.gz ubuntu@10.0.1.40:~/FrontEnd
+
+echo "Done!"
+
+
