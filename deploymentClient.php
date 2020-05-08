@@ -28,7 +28,7 @@ for($i = 0; $i < count($filesArray); $i++){
 exec("ls packages", $output);
 
 $fileName = "rabbitMQPackage.1.+.tar.gz";
-
+$latestVersion = 1;
 if(!empty($output)){
 
 	
@@ -39,8 +39,6 @@ if(!empty($output)){
  
 exec("tar -czf " . $fileName . " " . $filesString, $output, $return_val);
 exec("mv $fileName packages/");
-echo $fileName;
-exit();
 exec("scp packages/$fileName ubuntu@10.0.1.40:~/git/IT4902020/deployment/rabbitMQ");
 
 $client = new rabbitMQClient("testRabbitMQ.ini","brandonServer");
