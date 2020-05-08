@@ -17,16 +17,18 @@ if(!empty($output))
 
 	$version = $exploded[1];
 
-	$version += 1;
+	$version = $version + 1;
 }
 
-$filename = $filename . "." . $version;
+$filename .= $version;
 
 
 echo "Current version: ". $version.PHP_EOL;
 
-exec("tar -czvf $filename.tar.gz /home/ubuntu/git/IT4902020/WebServer", $output, $return_val);
+exec("touch $filename.tar.gz");
+exec("tar -czvf $filename.tar.gz --exclude='frontEndDeployment.php' .", $output, $return_val);
 exec("mv  $filename.tar.gz ../packages");
+
 exec("scp ../packages/$filename.tar.gz ubuntu@10.0.1.40:~/git/IT4902020/deployment/frontEnd/");
 
 print_r($output);
