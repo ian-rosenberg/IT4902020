@@ -4,11 +4,13 @@ require_once('path.inc');
 require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
 
+$client = new rabbitMQClient("testRabbitMQ.ini", "brandonServer");
+
 echo "Starting update for front-end".PHP_EOL;
 
 exec("ls -t ../packages | head -1", $output);
 
-$filename = "frontendPackage.";
+$filename = "frontEndPackage.";
 $version = "1";
 
 if(!empty($output))
@@ -17,7 +19,7 @@ if(!empty($output))
 
 	$version = $exploded[1];
 
-	$version = $version + 1;
+	$version = (int)$version + 1;
 }
 
 $filename .= $version;
@@ -25,19 +27,16 @@ $filename .= $version;
 
 echo "Current version: ". $version.PHP_EOL;
 
-exec("touch $filename.tar.gz");
-exec("tar -czvf $filename.tar.gz --exclude='frontEndDeployment.php' .", $output, $return_val);
-exec("mv  $filename.tar.gz ../packages");
+exec("touch $filename.+.tar.gz");
+exec("tar -czf $filename.+.tar.gz --exclude='frontEndDeployment.php $filename* rollback.php' .", $output, $return_val);
+exec("mv  $filename.+.tar.gz ../packages/$filename.+.tar.gz");
 
-exec("scp ../packages/$filename.tar.gz ubuntu@10.0.1.40:~/git/IT4902020/deployment/frontEnd/");
+exec("scp ../packages/$filename.+.tar.gz ubuntu@10.0.1.40:~/git/IT4902020/deployment/frontEnd", $output);
 
-print_r($output);
-
-$client = new rabbitMQClient("testRabbitMQ.ini","brandonServer");
 
 $request = array();
 $request['type'] = "update";
-$request['server'] = "rabbitMQ";
+$request['server'] = "frontEnd";
 $request['version'] = $version;
 
 $response = $client->send_request($request);
@@ -48,3 +47,5 @@ print_r($response);
 echo "\n\n";
 
 echo $argv[0]." END".PHP_EOL;
+
+?>
