@@ -7,8 +7,6 @@ require_once('handleUsers.php.inc');
 require_once('sendDisLog.php');
 
 
-
-
 function doLogin($username,$password)
 {
     // lookup username in databas

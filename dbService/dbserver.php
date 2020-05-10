@@ -235,28 +235,6 @@ function requestProcessor($request)
 			return $recipe_info;
 
 	}
-
-	/**if($request['type'] == 'Database'){
-		echo "Processing Data Query".PHP_EOL;
-		try{
-			$db = new mysqli("127.0.0.1", "david", "admin", "it490");
-			//print_r($request).PHP_EOL;
-			$query = $db->real_escape_string($request['query']);
-			$response = $db->query($query);
-			print_r($response).PHP_EOL;
-			while($row = $response->fetch_assoc()){
-				$rows[] = $row;
-			}
-			$response->close();
-			$db->close();
-			return $rows;
-		}catch(Exception $e){
-			print_r($e->getMessage());
-			return $e->getMessage();
-		}
-	}*/
-	
-	
 	
 
 }
