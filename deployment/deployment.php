@@ -147,7 +147,7 @@ function requestProcessor($request)
                         case "frontEnd":
                                 $client = new rabbitMQClient("testRabbitMQ.ini", "frontEnd.prod");
 				
-				$version = recentVersion("frontEnd/");
+				$version = getRecentGood("frontEnd/");
 				markBad("frontEnd/", $version);
 				$fileName = getRecentGood("frontEnd/");
 				$path = "frontEnd/$fileName ubuntu@10.0.1.142:~/git/IT4902020/packages";
@@ -155,7 +155,7 @@ function requestProcessor($request)
                         case "DMZ":
                                 $client = new rabbitMQClient("testRabbitMQ.ini", "DMZ.prod");
 
-				$version = recentVersion("DMZ/");
+				$version = getRecentGood("DMZ/");
 				markBad("DMZ/", $version);
 				$fileName = getRecentGood("DMZ/");
 				$path = "DMZ/$fileName ubuntu@10.0.1.81:~git/IT4902020/packages";
@@ -165,7 +165,10 @@ function requestProcessor($request)
                 }
 		shell_exec("scp " .$path);
 		$explode = explode(".", $fileName);
-		return $explode[1];
+		$msg = $request;
+		$msg['version'] = $explode[1];
+		$client->send_request($msg);
+		return "Rollback Successful";
 	case "service":
 		//Deployment controls systemd service
 		switch ($request['server'])
