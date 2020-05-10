@@ -14,21 +14,12 @@ if(!empty($_POST))
 	{
 		$response = $client->LoginConnect( $user, $pass, "Login");
 		
-		sendToLogger($response);
-
-		if($response == 1)
+		if($reponse != "-1" )
 		{
 			$_SESSION['user'] = $user;
-	
+			$_SESSION['userID'] = $response;
 			$_SESSION['loggedIn'] = true;			
 		}
-	}
-	else
-	{
-		session_write_close();		
-		header('Location: index.php');
-		
-		exit;
 	}
 }
 

@@ -21,7 +21,7 @@ function requestProcessor($request)
 
 
 function WriteToLog($message){
-	$fp = fopen('SFW_log.txt', 'a');
+	$fp = fopen('/home/ubuntu/SFW_log.txt', 'a');
 	fwrite($fp, $message.PHP_EOL);
 	fclose($fp);
 }

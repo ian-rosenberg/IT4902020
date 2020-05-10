@@ -1,0 +1,44 @@
+USER PID %CPU %MEM VSZ RSS TTY STAT START TIME COMMAND root 1 0.0 0.8 159600 8892 ?  Ss 20:56 0:03 /sbin/init root 2 0.0 0.0 0 0 ?  S 20:56 0:00 
+[kthreadd] root 3 0.0 0.0 0 0 ?  I< 20:56 0:00 [rcu_gp] root 4 0.0 0.0 0 0 ?  I< 20:56 0:00 [rcu_par_gp] root 6 0.0 0.0 0 0 ?  I< 20:56 0:00 
+[kworker/0:0H-kb] root 9 0.0 0.0 0 0 ?  I< 20:56 0:00 [mm_percpu_wq] root 10 0.0 0.0 0 0 ?  S 20:56 0:00 [ksoftirqd/0] root 11 0.0 0.0 0 0 ?  I 20:56 
+0:00 [rcu_sched] root 12 0.0 0.0 0 0 ?  S 20:56 0:00 [migration/0] root 13 0.0 0.0 0 0 ?  S 20:56 0:00 [cpuhp/0] root 14 0.0 0.0 0 0 ?  S 20:56 0:00 
+[kdevtmpfs] root 15 0.0 0.0 0 0 ?  I< 20:56 0:00 [netns] root 16 0.0 0.0 0 0 ?  S 20:56 0:00 [rcu_tasks_kthre] root 17 0.0 0.0 0 0 ?  S 20:56 0:00 
+[kauditd] root 18 0.0 0.0 0 0 ?  S 20:56 0:00 [xenbus] root 19 0.0 0.0 0 0 ?  S 20:56 0:00 [xenwatch] root 20 0.0 0.0 0 0 ?  S 20:56 0:00 
+[khungtaskd] root 21 0.0 0.0 0 0 ?  S 20:56 0:00 [oom_reaper] root 22 0.0 0.0 0 0 ?  I< 20:56 0:00 [writeback] root 23 0.0 0.0 0 0 ?  S 20:56 0:00 
+[kcompactd0] root 24 0.0 0.0 0 0 ?  SN 20:56 0:00 [ksmd] root 25 0.0 0.0 0 0 ?  SN 20:56 0:00 [khugepaged] root 27 0.0 0.0 0 0 ?  I 20:56 0:00 
+[kworker/u30:1-e] root 117 0.0 0.0 0 0 ?  I< 20:56 0:00 [kintegrityd] root 118 0.0 0.0 0 0 ?  I< 20:56 0:00 [kblockd] root 119 0.0 0.0 0 0 ?  I< 
+20:56 0:00 [blkcg_punt_bio] root 120 0.0 0.0 0 0 ?  I< 20:56 0:00 [tpm_dev_wq] root 121 0.0 0.0 0 0 ?  I< 20:56 0:00 [ata_sff] root 122 0.0 0.0 0 0 ?  
+I< 20:56 0:00 [md] root 123 0.0 0.0 0 0 ?  I< 20:56 0:00 [edac-poller] root 124 0.0 0.0 0 0 ?  I< 20:56 0:00 [devfreq_wq] root 125 0.0 0.0 0 0 ?  S 
+20:56 0:00 [watchdogd] root 128 0.0 0.0 0 0 ?  S 20:56 0:00 [kswapd0] root 129 0.0 0.0 0 0 ?  I< 20:56 0:00 [kworker/u31:0] root 130 0.0 0.0 0 0 ?  S 
+20:56 0:00 [ecryptfs-kthrea] root 133 0.0 0.0 0 0 ?  I< 20:56 0:00 [kthrotld] root 134 0.0 0.0 0 0 ?  I< 20:56 0:00 [nvme-wq] root 135 0.0 0.0 0 0 ?  
+I< 20:56 0:00 [nvme-reset-wq] root 136 0.0 0.0 0 0 ?  I< 20:56 0:00 [nvme-delete-wq] root 137 0.0 0.0 0 0 ?  S 20:56 0:00 [scsi_eh_0] root 138 0.0 
+0.0 0 0 ?  I< 20:56 0:00 [scsi_tmf_0] root 139 0.0 0.0 0 0 ?  S 20:56 0:00 [scsi_eh_1] root 140 0.0 0.0 0 0 ?  I< 20:56 0:00 [scsi_tmf_1] root 142 
+0.0 0.0 0 0 ?  I< 20:56 0:00 [ipv6_addrconf] root 150 0.0 0.0 0 0 ?  I< 20:56 0:00 [kworker/0:1H-kb] root 154 0.0 0.0 0 0 ?  I< 20:56 0:00 [kstrp] 
+root 234 0.0 0.0 0 0 ?  I< 20:56 0:00 [cryptd] root 355 0.0 0.0 0 0 ?  I< 20:57 0:00 [raid5wq] root 405 0.0 0.0 0 0 ?  S 20:57 0:00 [jbd2/xvda1-8] 
+root 406 0.0 0.0 0 0 ?  I< 20:57 0:00 [ext4-rsv-conver] root 469 0.0 2.4 111236 24444 ?  S<s 20:57 0:00 /lib/systemd/systemd-journald root 488 0.0 
+0.1 97704 1900 ?  Ss 20:57 0:00 /sbin/lvmetad -f root 490 0.0 0.0 0 0 ?  I< 20:57 0:00 [iscsi_eh] root 494 0.0 0.4 43416 4540 ?  Ss 20:57 0:00 
+/lib/systemd/systemd-udevd root 495 0.0 0.0 0 0 ?  I< 20:57 0:00 [ib-comp-wq] root 496 0.0 0.0 0 0 ?  I< 20:57 0:00 [ib-comp-unb-wq] root 497 0.0 0.0 
+0 0 ?  I< 20:57 0:00 [ib_mcast] root 498 0.0 0.0 0 0 ?  I< 20:57 0:00 [ib_nl_sa_wq] root 499 0.0 0.0 0 0 ?  I< 20:57 0:00 [rdma_cm] root 516 0.0 0.0 
+0 0 ?  S< 20:57 0:00 [loop0] root 527 0.0 0.0 0 0 ?  S< 20:57 0:00 [loop1] root 529 0.0 0.0 0 0 ?  S< 20:57 0:00 [loop2] root 534 0.0 0.0 0 0 ?  S< 
+20:57 0:00 [loop3] root 549 0.0 0.3 47600 3480 ?  Ss 20:57 0:00 /sbin/rpcbind -f -w systemd+ 557 0.0 0.3 141932 3260 ?  Ssl 20:57 0:00 
+/lib/systemd/systemd-timesyncd systemd+ 706 0.0 0.5 80052 5392 ?  Ss 20:57 0:00 /lib/systemd/systemd-networkd systemd+ 724 0.0 0.5 70636 5140 ?  Ss 
+20:57 0:00 /lib/systemd/systemd-resolved nagios 873 0.0 0.5 27020 5148 ?  Ss 20:57 0:00 /usr/sbin/nrpe -c /etc/nagios/nrpe.cfg -f root 875 0.0 1.7 
+170828 17144 ?  Ssl 20:57 0:00 /usr/bin/python3 /usr/bin/networkd-dispatcher --run-startup-triggers syslog 877 0.0 0.4 267264 4300 ?  Ssl 20:57 0:00 
+/usr/sbin/rsyslogd -n root 881 0.0 0.1 95536 1672 ?  Ssl 20:57 0:00 /usr/bin/lxcfs /var/lib/lxcfs/ root 890 0.0 0.0 4548 760 ?  Ss 20:57 0:00 
+/usr/sbin/acpid root 894 0.0 0.6 70580 6088 ?  Ss 20:57 0:00 /lib/systemd/systemd-logind message+ 897 0.0 0.4 50096 4464 ?  Ss 20:57 0:00 
+/usr/bin/dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only root 898 0.0 1.4 469028 14200 ?  Ssl 20:57 
+0:00 /snap/amazon-ssm-agent/1566/amazon-ssm-agent root 899 0.0 0.3 31744 3280 ?  Ss 20:57 0:00 /usr/sbin/cron -f root 905 0.0 0.6 288108 6864 ?  Ssl 
+20:57 0:00 /usr/lib/accountsservice/accounts-daemon daemon 913 0.0 0.2 28328 2440 ?  Ss 20:57 0:00 /usr/sbin/atd -f root 917 0.0 2.7 562240 27252 ?  
+Ssl 20:57 0:00 /usr/lib/snapd/snapd root 936 0.0 0.6 72296 6644 ?  Ss 20:57 0:00 /usr/sbin/sshd -D root 951 0.0 0.6 288880 6600 ?  Ssl 20:57 0:00 
+/usr/lib/policykit-1/polkitd --no-debug root 953 0.0 1.9 187672 19952 ?  Ssl 20:57 0:00 /usr/bin/python3 
+/usr/share/unattended-upgrades/unattended-upgrade-shutdown --wait-for-signal root 960 0.0 0.2 16408 2420 ttyS0 Ss+ 20:57 0:00 /sbin/agetty -o -p -- 
+\u --keep-baud 115200,38400,9600 ttyS0 vt220 root 970 0.0 0.1 14884 1948 tty1 Ss+ 20:57 0:00 /sbin/agetty -o -p -- \u --noclear tty1 linux root 989 
+0.0 1.8 347344 18048 ?  Ss 20:57 0:00 /usr/sbin/apache2 -k start www-data 1003 0.0 0.9 349664 9712 ?  S 20:57 0:00 /usr/sbin/apache2 -k start 
+www-data 1004 0.0 1.1 349832 11972 ?  S 20:57 0:00 /usr/sbin/apache2 -k start www-data 1005 0.0 0.9 349664 9712 ?  S 20:57 0:00 /usr/sbin/apache2 -k 
+start www-data 1006 0.0 1.1 349832 11972 ?  S 20:57 0:00 /usr/sbin/apache2 -k start www-data 1007 0.0 1.1 349832 11972 ?  S 20:57 0:00 
+/usr/sbin/apache2 -k start root 1734 0.0 0.7 107980 7144 ?  Ss 21:02 0:00 sshd: ubuntu [priv] ubuntu 1741 0.0 0.7 76532 7552 ?  Ss 21:02 0:00 
+/lib/systemd/systemd --user ubuntu 1745 0.0 0.2 193580 2316 ?  S 21:02 0:00 (sd-pam) ubuntu 1867 0.0 0.3 107980 3376 ?  S 21:02 0:00 sshd: 
+ubuntu@pts/0 ubuntu 1868 0.0 0.5 23376 5448 pts/0 Ss 21:02 0:00 -bash root 1959 0.0 0.0 0 0 ?  I 21:09 0:00 [kworker/0:0-mm_] root 2022 0.0 0.0 0 0 ?  
+I 21:31 0:00 [kworker/u30:2-e] root 2419 0.0 0.0 0 0 ?  I 22:39 0:00 [kworker/0:1-eve] root 2430 0.0 0.0 0 0 ?  I 22:46 0:00 [kworker/u30:0-e] ubuntu 
+2433 0.0 0.5 25312 5412 pts/0 T 22:48 0:00 nano rollback.php ubuntu 2435 0.0 0.3 40088 3608 pts/0 R+ 22:49 0:00 ps aux ubuntu 2436 0.0 0.2 14912 2712 
+pts/0 R+ 22:49 0:00 nano

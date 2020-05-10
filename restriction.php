@@ -9,14 +9,14 @@ if(isset($_POST['subdata']) && ($_POST['subdata']) == "Submit"){
 
 	if($restriction != 'pick'){
 		$un = trim($_SESSION['user']);
+		$id = trim($_SESSION['userID']);
 		$client = new rabbitMQClient("testRabbitMQ.ini", "testServer");
 		$request = array();
-		$request['username'] = "Poopy";
+		$request['username'] = $un;
 		$request['type'] = 'Database';
-		$request['queryType'] = 'insert';
-		$request['query'] = "insert into restrictions(id, restriction) SELECT login.id, '$restriction' from login where login.username = '$un'";
-		//$request['query'] = "SELECT * from restrictions";
-		$request['message'] = "Here's your stink'in restrictions ya filthy animal";
+		$request['queryType'] = 'update';
+		$request['query'] = "update restrictions set $restriction = 1 where id = $id";
+		$request['message'] = "Updating restriction";
 		$response = $client->send_request($request);
 		if($response){
 			$result = "Successfully inserted restriction";
@@ -37,13 +37,14 @@ if(isset($_POST['subdata']) && ($_POST['subdata']) == "Submit"){
 		extract($_POST);
 
 		if($restriction != 'pick'){
-			$un = trim($_SESSION['user']);;
+			$un = trim($_SESSION['user']);
+			$id = trim($_SESSION['userID']);
 			$client = new rabbitMQClient("testRabbitMQ.ini", "testServer");
 			$request = array();
-			$request['username'] = "Poopy";
+			$request['username'] = $un;
 			$request['type'] = 'Database';
-			$request['queryType'] = 'insert';
-			$request['query'] = "DELETE restrictions FROM restrictions INNER JOIN login ON login.id = restrictions.id WHERE restriction = '$restriction' and login.username = '$un'";
+			$request['queryType'] = 'update';
+			$request['query'] = "update restrictions set $restriction = 0 where id = $id";
 			//$request['query'] = "SELECT * from restrictions";
 			$request['message'] = "Happy Birthday Brandon";
 			$response = $client->send_request($request);
@@ -73,12 +74,13 @@ if(isset($_POST['subdata']) && ($_POST['subdata']) == "Submit"){
                         <form id="restrictForm" name="restrictForm" method="post">
 				Restrictions: <select name="restriction">
 					<option value="pick">Pick A Restriction</option>
-					<option value="meat">Meat</option>
-					<option value="gluten">Gluten</option>
-					<option value="nuts">Nuts</option>
+					<option value="vegetarian">Vegetarian</option>
+					<option value="glutenFree">Gluten</option>
+					<option value="dairyFree">Dairy Free</option>
+					<option value="vegan">Vegan</option>
 					</select><br /><br />
 
-				<input type="submit" name="subdata" id="subdata" class="btn" value="Submit"/><br /><br />
+				<input type="submit" name="subdata" id="subdata" class="btn" value="Add"/><br /><br />
 
 				<input type="submit" name="remdata" id="remdata" class="btn" value="Remove"><br /><br />
 				Result: <?php if(!empty($restriction))
@@ -88,7 +90,8 @@ if(isset($_POST['subdata']) && ($_POST['subdata']) == "Submit"){
 							sleep(3);
 
 							header("Location: profilePage.php");
-						}?> 
+						}
+					?> 
                         </form>
 		</div>
         </body>

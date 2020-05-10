@@ -1,0 +1,5 @@
+Options +ExecCGI
+
+AddHandler cgi-script .cgi .py .php .pl
+
+php_flag output_buffering on
