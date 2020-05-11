@@ -5,43 +5,43 @@ require_once('rabbitMQLib.inc');
 require_once('path.inc');
 require_once('get_host_info.inc');
 
-echo "Now Listening for rabbitMQ messages".PHP_EOL;
+echo "Now Listening for fanouts".PHP_EOL;
 
 
 function requestProcessor($request)
 {
 
 	echo "Recieved request".PHP_EOL;
-	if($request['type'] == 'Database'){
-		echo "Processing Data Query".PHP_EOL;
-		try{
-			$db = new mysqli("127.0.0.1", "ddembner", "it490passwd", "testdb");
-			//print_r($request).PHP_EOL;
-			$query = $db->real_escape_string($request['query']);
-			$response = $db->query($query);
-			print_r($response).PHP_EOL;
-			while($row = $response->fetch_row()){
-				$rows[] = $row;
-			}
-			$response->close();
-			$db->close();
-			return $rows;
-
-		}catch(Exception $e){
-
-			print_r($e->getMessage());
-			return $e->getMessage();
-		}
-	}
-	
-	
+	WriteToLog($request);
+	echo "Successfully wrote to log",PHP_EOL;
+	//print_r($request);
 	
 
 }
 
-$server = new rabbitMQServer("testRabbitMQ.ini", "dbServer");
+
+function WriteToLog($message){
+	$fp = fopen('SFW_log', 'a');
+	fwrite($fp, $message.PHP_EOL);
+	fclose($fp);
+}
+
+$server = new rabbitMQServer("testRabbitMQ.ini", "logServer");
 
 $server->process_requests('requestProcessor');
+
+/*
+$machine = getHostInfo(array("testRabbitMQ.ini"));
+$server = "logServer";
+$params = array();
+$params['host'] =  $machine[$server]["BROKER_HOST"];
+$params['port'] = $machine[$server]["BROKER_PORT"];
+$params['login'] = $machine[$server]["USER"];
+$params['password'] = $machine[$server]["PASSWORD"];
+$params['vhost'] = $machine[$server]["VHOST"];
+$connection = new AMQPConnection($params);
+//$channel = $connection->channel();
+*/
 
 
 

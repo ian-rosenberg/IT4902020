@@ -10,7 +10,7 @@ if(isset($_POST))
 	$pass = trim($_POST['password']);
 	
 	$client = new Client();
-	$response = json_encode($client->Connect($user, $pass, 'Register'));
+	$response = json_encode($client->RegisterConnect($user, $pass, 'Register'));
 	
 	if(json_decode($response) !=0)
 	{

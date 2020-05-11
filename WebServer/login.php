@@ -11,9 +11,9 @@ if(!empty($_POST))
 	
 	if(empty($_SESSION) || $_SESSION['user'] == 'guest')
 	{
-		$response = $client->Connect( $user, $pass, 'Login');
+		$response = $client->LoginConnect( $user, $pass, 'Login');
 		
-		if($response != null and $response != '')
+		if($response == true)
 		{
 			$_SESSION['user'] = $user;
 	

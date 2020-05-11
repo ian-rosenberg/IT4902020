@@ -13,7 +13,7 @@
 	$_SESSION["loggedIn"] = false;
 	
 	$client = new Client();
-	$response = $client->Connect($user, $pass, "Logout");
+	$response = $client->LogoutConnect($user, $pass, "Logout");
 	
 	session_destroy();
 	

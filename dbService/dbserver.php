@@ -203,6 +203,85 @@ function requestProcessor($request)
 				$arr = json_decode($request[$i], true);
 				//var_dump($arr);
 				//$dump = $arr['extendedIngredients'];
+				//echo "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@";
+				//var_dump(count($dump));
+
+				if(recipes($arr, $db) == -1){
+					continue;
+				}
+				elseif(restrictions($arr, $db) == -1){
+					continue;	
+				}
+				elseif(ingredients($arr, $db) == -1){
+					continue;
+				}
+
+				$title = $arr['title'];
+				$url = $arr['spoonacularSourceUrl'];
+				$id = $arr['id'];
+				//$imageType = $arr['imageType'];
+				$imageUrl = "https://spoonacular.com/recipeImages/$id-240x150.jpg";
+				//$calories = $arr['nutrition']['nutrients'][0]['amount'];
+				//$vegetarian = $arr['vegetarian'];
+				//$vegan = $arr['vegan'];
+				//$gluten = $arr['glutenFree'];
+				//$dairy = $arr['dairyFree'];
+				
+				$recipe_info[$i]['title'] = $title;
+				$recipe_info[$i]['url'] = $url;
+				$recipe_info[$i]['imageUrl'] = $imageUrl;
+				$recipe_info[$i]['id'] = $id;
+			}
+			var_dump($recipe_info);
+			return $recipe_info;
+
+	}
+
+	/**if($request['type'] == 'Database'){
+		echo "Processing Data Query".PHP_EOL;
+		try{
+			$db = new mysqli("127.0.0.1", "david", "admin", "it490");
+			//print_r($request).PHP_EOL;
+			$query = $db->real_escape_string($request['query']);
+			$response = $db->query($query);
+			print_r($response).PHP_EOL;
+			while($row = $response->fetch_assoc()){
+				$rows[] = $row;
+			}
+		case 'login':
+                        echo "Processing Data Query".PHP_EOL;
+                        try{
+                                $db = new mysqli("127.0.0.1", "brandon", "admin", "it490");
+                                print_r($request).PHP_EOL;
+                                //$query = $db->real_escape_string($request['query']);
+                                $query = $request['query'];
+                                $db->query($query);
+				if($db->affected_rows != 0){
+					$username = $request['username'];
+					$query = "select login.id from login where login.username = '$username'";
+					$response = $db->query($query);
+					$id = mysqli_fetch_assoc($response);
+					return $id['id'];
+                                }
+                                else{
+                                        return -1;
+                                }
+                                return $response;
+                                $response->close();
+                                $db->close();
+			}	
+			catch(Exception $e){
+                                print_r($e->getMessage());
+                                return $e->getMessage();
+                }
+
+		case 'DMZ':
+			$db = new mysqli("127.0.0.1", "brandon", "admin", "it490");
+			$recipe_info = array();	
+			for($i=0; $i < 3; $i++){
+				$arr = json_decode($request[$i], true);
+				//var_dump($arr);
+				//$dump = $arr['extendedIngredients'];
 				//var_dump(count($dump));
 
 				if(recipes($arr, $db) == -1){

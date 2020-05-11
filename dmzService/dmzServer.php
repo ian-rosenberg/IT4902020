@@ -35,7 +35,7 @@ function requestProcessor($request)
 		}	
 
 	curl_setopt_array($curl, array(
-		CURLOPT_URL => "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/mealplans/generate?timeFrame=day&targetCalories=$calories&diet=$vegan%252C%20$vegetarian&exclude=$gluten%252C%20$dairy",
+	CURLOPT_URL => "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/mealplans/generate?timeFrame=day&targetCalories=$calories&diet=$vegan%252C%20$vegetarian&exclude=$gluten%252C%20$dairy",
 	CURLOPT_RETURNTRANSFER => true,
 	CURLOPT_FOLLOWLOCATION => true,
 	CURLOPT_ENCODING => "",
