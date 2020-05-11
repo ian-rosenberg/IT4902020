@@ -4,7 +4,7 @@
 require_once('rabbitMQLib.inc');
 
 function SendToLogger($message){
-	
+		
 	$client = new rabbitMQClient("testRabbitMQ.ini", "logServer");
 	$date = date_create('now', timezone_open('America/New_York'));
     	$timeMessage = date_format($date, 'H:i:sa') . ':';
