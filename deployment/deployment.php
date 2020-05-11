@@ -6,25 +6,88 @@ require_once('rabbitMQLib.inc');
 require_once('handleUsers.php.inc');
 //require_once('sendDisLog.php');
 
-function doDatabaseTransaction($request){
-  $client = new rabbitMQClient("testRabbitMQ.ini","dbServer");
-  $response = $client->send_request($request);
-  return $response;
 
+
+function markBad ($dir, $file){
+	$explode = explode(".", $file);
+	shell_exec("mv $dir" .$file ." $dir" ."$explode[0].$explode[1].-.tar.gz");
 }
 
-function doUpdate($request){
-	$client = new rabbitMQClient("testRabbitMQ.ini", $request['server']);
-
+function getRecentGood ($dir){
+	exec("ls $dir", $list);
+        $other = 0;
+        for($i = 0; $i < count($list); $i++){
+                $explode = explode(".", $list[$i]);
+        	$version = $explode[1];
+		if($version > $other && $explode[2] == "+"){
+                	$other = $version;
+        	}
+        }
+        exec("ls $dir | grep $other", $output);
+	return $output[0];
 }
 
-function doRollback($request){
-
+function recentVersion($dir){
+	exec("ls $dir", $list);
+	$other = 0;
+	for($i = 0; $i < count($list); $i++){
+		$explode = explode(".", $list[$i]);
+		$version = $explode[1];
+		if($version > $other){
+			$other = $version;
+		}
+	}
+	exec("ls $dir | grep $other", $output);
+	return $output[0];
 }
 
-function doService($request){
-
+function goodFiles($dir){
+	exec("ls $dir | grep '+'", $list);
+        $other = 0;
+        for($i = 0; $i < count($list); $i++){
+                $explode = explode(".", $list[$i]);
+                $version = $explode[1];
+                if($version > $other){
+                        $other = $version;
+                }
+        }
+        exec("ls $dir | grep $other.+", $output);
+        return $output[0];
 }
+
+function versionNum($dir){
+	exec("ls $dir | grep '+'", $list);
+        $other = 0;
+        for($i = 0; $i < count($list); $i++){
+                $explode = explode(".", $list[$i]);
+                $version = $explode[1];
+                if($version > $other){
+                        $other = $version;
+                }
+        }
+        return $other;
+}
+
+function deleteFile($dir){
+	exec("ls $dir | grep '+'", $list);
+	$other = 0;
+	$output = "";
+        for($i = 0; $i < count($list); $i++){
+                $explode = explode(".", $list[$i]);
+		$version = $explode[1];
+		if($version > $other){
+			$other = $version;
+		}	
+		if($other-- == $version){
+			$output = shell_exec("ls $dir | grep $other.'+'");
+		}
+	}
+	shell_exec("cd $dir");
+	return shell_exec("rm $output");
+	//return $output;
+}
+
+//print_r(deleteFile("frontEnd"));
 
 function requestProcessor($request)
 {
@@ -40,30 +103,90 @@ function requestProcessor($request)
   switch ($request['type'])
   {
   	case "update":
+	  	//update to most recent version
 		$client = null;
 		switch ($request['server'])
 		{
 			case "rabbitMQ":
-				//$client = new rabbitMQClient("testRabbitMQ.ini", "rabbitMQ.prod");
-				$path = "~/git/IT4902020/deployment/rabbitMQ/rabbitMQPackage.tar.gz ubuntu@10.0.1.216:~/git/it490/packages";
+				$client = new rabbitMQClient("testRabbitMQ.ini", "rabbitMQ.prod");
+				$fileName = recentVersion("rabbitMQ/");
+				$path = "rabbitMQ/$fileName ubuntu@10.0.1.216:~/git/it490/packages";
+				//$client->send_request($request);
 				break;
 			case "frontEnd":
 				$client = new rabbitMQClient("testRabbitMQ.ini", "frontEnd.prod");
-				$path = "~/git/IT4902020/deployment/frontEnd/something ubuntu@10.0.1.something: something";
+				$fileName = recentVersion("frontEnd/");
+				$path = "frontEnd/$fileName ubuntu@10.0.1.142:~/git/IT4902020/packages";
+				//$client->send_request($request);
 				break;
 			case "DMZ":
-				$client = new rabbitMQClient("testRabbitMQ.ini", "DMZ.prod");
-				$path = "~git/IT4902020/deployment/DMZ/something ubuntu@10.0.1.something: something";
+				//$client = new rabbitMQClient("testRabbitMQ.ini", "DMZ.prod");
+				$fileName = recentVersion("DMZ.prod");
+				$path = "DMZ/$fileName ubuntu@10.0.1.81:~git/IT490202/dmzService/packages";
 				break;
 			default:
 				break;
 		}
+		var_dump($path);
 		shell_exec("scp " .$path);
-		return "no";
+		$client->send_request($request);
+		return "Successfully received and sent";
 	case "rollback":
-		break;
+		//if version is bad, go back to most recent good version
+		$client = null;
+		switch ($request['server'])
+                {
+                        case "rabbitMQ":
+                                $client = new rabbitMQClient("testRabbitMQ.ini", "rabbitMQ.prod");
+				
+				$version = getRecentGood("rabbitMQ/");
+				markBad("rabbitMQ/", $version);
+				$fileName = getRecentGood("rabbitMQ/");
+                                $path = "rabbitMQ/$fileName ubuntu@10.0.1.216:~/git/it490/packages";
+                                break;
+                        case "frontEnd":
+                                $client = new rabbitMQClient("testRabbitMQ.ini", "frontEnd.prod");
+				
+				$version = getRecentGood("frontEnd/");
+				markBad("frontEnd/", $version);
+				$fileName = getRecentGood("frontEnd/");
+				$path = "frontEnd/$fileName ubuntu@10.0.1.142:~/git/IT4902020/packages";
+				break;
+                        case "DMZ":
+                                $client = new rabbitMQClient("testRabbitMQ.ini", "DMZ.prod");
+
+				$version = getRecentGood("DMZ/");
+				markBad("DMZ/", $version);
+				$fileName = getRecentGood("DMZ/");
+				$path = "DMZ/$fileName ubuntu@10.0.1.81:~git/IT4902020/packages";
+				break;
+                        default:
+                                break;
+                }
+		shell_exec("scp " .$path);
+		$explode = explode(".", $fileName);
+		$msg = $request;
+		$msg['version'] = $explode[1];
+		$client->send_request($msg);
+		return "Rollback Successful";
 	case "service":
-		break;
+		//Deployment controls systemd service
+		switch ($request['server'])
+		{
+			case "rabbitMQ":
+				$client = new rabbitMQClient("testRabbitMQ.ini", "rabbitMQ.prod");
+				break;
+			case "frontEnd":
+				$client = new rabbitMQClient("testRabbitMQ.ini", "frontEnd.prod");
+                                break;	
+			case "DMZ":
+				$client = new rabbitMQClient("testRabbitMQ.ini", "DMZ.prod");
+                                break;
+			default:
+				break;
+		}
+		$response = $client->send_request($request);
+		return $response;
    	default:
    		break;
   }
