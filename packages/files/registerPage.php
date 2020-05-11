@@ -1,14 +1,14 @@
 <?php
-session_start();
+	session_start();
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Login</title>
+  <title>Register</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
    <meta charset="UTF-8">
- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 	<!-- jQuery library -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -19,24 +19,19 @@ session_start();
 </head>
 
 <body>
-	<script>
-		document.GetElementById("button").setAttribute('disabled', true);
-	</script>
-
 	<div class="jumbotron text-center">
-		<h1>Login</h1>
+		<h1>Registration</h1>
 	</div>
-
 	<nav class="navbar navbar-expand-md bg-primary navbar-dark">
 		<ul class="navbar-nav">
 			<li class="nav-item">
 			  <a class="nav-link" href="index.php">Home</a>
 			</li>
 			<li class="nav-item">
-			  <a class="nav-link active" href="#">Login</a>
+			  <a class="nav-link" href="loginPage.php">Login</a>
 			</li>
 			<li class="nav-item">
-			  <a class="nav-link" href="registerPage.php">Register</a>
+			  <a class="nav-link active" href="#">Register</a>
 			</li>
 			<?php
 				if(!empty($_SESSION['user']))
@@ -74,77 +69,60 @@ session_start();
 						</li>
 						 </ul>
 						</nav>");			
-				}	
+				}				
 		
 			if(!empty($_SESSION['user']))
 			{	
-				echo ("<br><br><div class='text-center'>Welcome, ".$_SESSION['user']."!</div><br><br>".PHP_EOL);
+				echo ("<br><br><div class='text-center'>Welcome, ".$_SESSION['user']."!</div><br><br>".PHP_EOL);				
 			}
 			else
 			{
 				echo ("<br><br><div class='text-center'>Welcome, guest!</div><br><br>".PHP_EOL);
 			}
 	?>
-
 	<script>
-		function ValidateForm() {
-	 		var form = document.forms["loginForm"];
-			var pw = form["password"];
-			var un = form["username"];
-			var b = document.getElementById("button");
-			var flag = 0;
+                function ValidateForm() {
+                        var form = document.forms["loginForm"];
+                        var pw = form["password"];
+                        var un = form["username"];
+                        var b = document.getElementById("button");
+                        var flag = 0;
 
-			
-  			if (un.value == "") {
-    				un.style.background = "red";
-				document.getElementById("errUN").innerHTML = "Enter a username!";
-				b.disabled = true;
-			}
-			else
-			{
-				un.style.background = "white";
-				document.getElementById("errUN").innerHTML = "";
-				b.disabled = false;
-			}
-
-			if (pw.value == "") {
-                               	pw.style.background = "red";
-				document.getElementById("errPW").innerHTML = "Enter a password!";
-                        	b.disabled = true;
-			}
-			else
-			{
-				pw.style.background = "white";
-				document.getElementById("errPW").innerHTML = "";
-				b.disabled = false;
-			}
-			
-			return;
+                        if (un.value == "") {
+                                un.style.background = "red";
+                                document.getElementById("errUN").innerHTML = "Enter a username!";
+                                b.disabled = true;
+                        }
+                        else
+                        {
+                                un.style.background = "white";
+                                document.getElementById("errUN").innerHTML = "";
+                                b.disabled = false;
+                        }
 		}
 	</script>
 
+
 	<div class="container-sm">
 		<div class="text-center">
-			<form name = "loginForm" method="POST" action="login.php">
+			<form name = "loginForm" method="POST" action="register.php"  onsubmit="SendRegisterRequest()">
 				<label for="username">Username:</label>
-				<input type="text" id="username" name ="username" onblur="ValidateForm()" aria-required="true" data-ok="false">
-				<span style = "color:red;" id ="errUN"></span>
+				<input type="text" id="username" name ="username" onblur="ValidateForm()" required>
+				<span style="color:red;" id="errUN"></span>
 				<br>
 				<br>
 				<label for="password">Password:</label>
-				<input type="password" id="password" name ="password" onblur="ValidateForm()" aria-required="true" data-ok="false">
-				<span style = "color:red;" id ="errPW"></span>
+				<input type="password" id="password" name ="password" onblur="ValidateForm()" required>
 				<br>
 				<br>
-				<button type="submit" id="button" disabled>Login</button>
+				<input type="submit" id="button" value="Register" disabled>
+				<span style="color:red;" id="errPW"></span>
 			</form>
 		</div>
 	</div>
 
-	<div class="container-sm">
-		<div id = "textResponse" class="text-center">
-				
-		</div>
+	<div class="container-sm" id="textResponse">
+		
 	</div>
 
 </body>

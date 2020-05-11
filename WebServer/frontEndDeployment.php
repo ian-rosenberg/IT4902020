@@ -27,8 +27,7 @@ $filename .= $version;
 
 echo "Current version: ". $version.PHP_EOL;
 
-exec("touch $filename.+.tar.gz");
-exec("tar -czf $filename.+.tar.gz --exclude='frontEndDeployment.php $filename* rollback.php' .", $output, $return_val);
+exec("tar --exclude='testRabbitMQ.ini' -zcvf $filename.+.tar.gz *");
 exec("mv  $filename.+.tar.gz ../packages/$filename.+.tar.gz");
 
 exec("scp ../packages/$filename.+.tar.gz ubuntu@10.0.1.40:~/git/IT4902020/deployment/frontEnd", $output);
